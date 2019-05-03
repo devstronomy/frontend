@@ -2,7 +2,7 @@ import React from 'react';
 import {HashLink as Link} from 'react-router-hash-link';
 import Links from '../../links';
 
-const github = 'https://github.com/mkrauskopf/devstronomy/blob/master/';
+const github = 'https://github.com/devstronomy/nasa-data-scraper/blob/master/';
 
 const gitHubLink = (relPath: string, fileName: string) =>
   <a href={github + 'data/' + relPath + fileName}><code className='link'>{fileName}</code></a>;

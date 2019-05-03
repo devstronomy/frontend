@@ -81,7 +81,7 @@ const App = (props: { classes: any; }) => {
 
                 <MenuButton className={classes.button}
                             target='_blank'
-                            href='https://github.com/mkrauskopf/devstronomy/'>
+                            href='https://github.com/devstronomy/'>
                   GitHub&nbsp;<LaunchIcon className={classes.launchIcon} />
                 </MenuButton>
 
