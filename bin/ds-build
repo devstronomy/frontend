@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set -ex
+
+DS_FRONTEND="$HOME/work/devstronomy/frontend"
+DS_GITHUB_IO="$HOME/work/devstronomy/devstronomy.github.io"
+
+cd "$DS_FRONTEND"
+rm -rvf build
+npm run build-css
+npm run build
+
+cd "$DS_GITHUB_IO"
+ls | egrep -v "CNAME|README.md" | xargs rm -rv
+
+cp -a "$DS_FRONTEND/build/"* "$DS_GITHUB_IO"
+
+set +x
+
+cat << EOF
+
+To deploy the build, do:
+------------------------
+cd $DS_GITHUB_IO
+git add -A .
+git commit
+EOF
