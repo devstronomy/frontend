@@ -137,9 +137,10 @@ class Satellites extends React.Component<IProps, IState> {
   };
 
   private sortRawData = (satellites: ISatellite[]): List<ISatellite> => {
-    return this.state.sortBy && this.state.sortDirection
-      ? this.sortList(this.state.sortBy, this.state.sortDirection, List(satellites))
-      : List(satellites);
+    const { sortBy, sortDirection } = this.state
+    return sortBy && sortDirection
+      ? this.sortList(sortBy, sortDirection, List(satellites))
+      : List(satellites)
   }
 
 }
