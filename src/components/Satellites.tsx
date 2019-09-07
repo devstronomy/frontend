@@ -60,23 +60,23 @@ class Satellites extends React.Component<IProps, IState> {
   };
 
   render(): React.ReactNode {
-    const { selectedPlanet, nOfSatellites } = this.props
-    const sortDirection = this.state.sortDirection;
-    const sortBy = this.state.sortBy;
+    const { satellites, sortDirection, sortBy } = this.state
+    const { selectedPlanet } = this.props
+
     const planetName = selectedPlanet !== undefined ? selectedPlanet.name : null;
     const showAllButton = selectedPlanet
       ? <span> (<button className='ahref' onClick={() => this.loadAllSatellites()}>show all satellites</button>)</span>
       : ' (select a planet above to filter satellites)';
     const planetSpan = <span className='header-highlight'>{planetName}</span>;
     let satellitesHeader;
-    if (nOfSatellites === 0) {
+    if (satellites.isEmpty()) {
       satellitesHeader = <span>Planet {planetSpan} does not have any satellites</span>
     } else { // render table with satellites
       satellitesHeader = planetName === null
         ? 'Satellites of all planets'
         : <span>Satellites of planet {planetSpan}</span>
     }
-    satellitesHeader = <span><span className='header'>{satellitesHeader}</span><span> ({nOfSatellites} shown)</span></span>;
+    satellitesHeader = <span><span className='header'>{satellitesHeader}</span><span> ({satellites.size} shown)</span></span>;
 
     return (
       <div>
