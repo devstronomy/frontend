@@ -22,6 +22,7 @@ module.exports = {
   plugins: ['react'],
   rules: {
     quotes: ['error', 'single'],
+    semi: ['error', 'never'],
     'linebreak-style': ['error', 'unix']
   },
 
@@ -79,4 +80,4 @@ module.exports = {
       }
     }
   ]
-};
+}

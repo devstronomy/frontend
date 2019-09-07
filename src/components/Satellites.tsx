@@ -26,19 +26,19 @@ interface IState {
 class Satellites extends React.Component<IProps, IState> {
 
   constructor(props: IProps) {
-    super(props);
+    super(props)
     this.state = {
       satellites: List()
     }
   }
 
   componentDidMount() {
-    this.loadAllSatellites();
+    this.loadAllSatellites()
   }
 
   componentDidUpdate(prevProps: IProps) {
     if (prevProps.selectedPlanet !== this.props.selectedPlanet) {
-      this.loadSatellites(this.props.selectedPlanet);
+      this.loadSatellites(this.props.selectedPlanet)
     }
   }
 
@@ -51,23 +51,23 @@ class Satellites extends React.Component<IProps, IState> {
   };
 
   private rowClassName = ({index}: Index): string => {
-    return index % 2 === 0 ? 'oddRow' : '';
+    return index % 2 === 0 ? 'oddRow' : ''
   };
 
   private columnHeader = (column: string): React.ReactNode => {
-    return <span>{column}<br/><span className='unit'>({this.units[column]})</span></span>;
+    return <span>{column}<br/><span className='unit'>({this.units[column]})</span></span>
   };
 
   render(): React.ReactNode {
     const { satellites, sortDirection, sortBy } = this.state
     const { selectedPlanet } = this.props
 
-    const planetName = selectedPlanet !== undefined ? selectedPlanet.name : null;
+    const planetName = selectedPlanet !== undefined ? selectedPlanet.name : null
     const showAllButton = selectedPlanet
       ? <span> (<button className='ahref' onClick={() => this.loadAllSatellites()}>show all satellites</button>)</span>
-      : ' (select a planet above to filter satellites)';
-    const planetSpan = <span className='header-highlight'>{planetName}</span>;
-    let satellitesHeader;
+      : ' (select a planet above to filter satellites)'
+    const planetSpan = <span className='header-highlight'>{planetName}</span>
+    let satellitesHeader
     if (satellites.isEmpty()) {
       satellitesHeader = <span>Planet {planetSpan} does not have any satellites</span>
     } else { // render table with satellites
@@ -75,7 +75,7 @@ class Satellites extends React.Component<IProps, IState> {
         ? 'Satellites of all planets'
         : <span>Satellites of planet {planetSpan}</span>
     }
-    satellitesHeader = <span><span className='header'>{satellitesHeader}</span><span> ({satellites.size} shown)</span></span>;
+    satellitesHeader = <span><span className='header'>{satellitesHeader}</span><span> ({satellites.size} shown)</span></span>
 
     return (
       <div>
@@ -102,18 +102,18 @@ class Satellites extends React.Component<IProps, IState> {
           <Column label='Geometric Albedo' dataKey='albedo' width={100}/>
         </Table>
       </div>
-    );
+    )
   }
 
   private loadAllSatellites = () => {
-    dataLoader.loadAllSatellites(this.setSatellites);
+    dataLoader.loadAllSatellites(this.setSatellites)
   };
 
   private loadSatellites = (planet?: IPlanet): void => {
     if (planet === undefined) {
-      this.loadAllSatellites();
+      this.loadAllSatellites()
     } else {
-      dataLoader.loadSatellites(planet, this.setSatellites);
+      dataLoader.loadSatellites(planet, this.setSatellites)
     }
   };
 
@@ -125,14 +125,14 @@ class Satellites extends React.Component<IProps, IState> {
 
   // TODO: get rid of duplicated code for sorting routines.
   private sort = ({sortBy, sortDirection}: { sortBy: string, sortDirection: SortDirectionType }) => {
-    const sortedSatellites = this.sortList(sortBy, sortDirection, this.state.satellites);
-    this.setState({sortBy, sortDirection, satellites: sortedSatellites});
+    const sortedSatellites = this.sortList(sortBy, sortDirection, this.state.satellites)
+    this.setState({sortBy, sortDirection, satellites: sortedSatellites})
   };
 
   private sortList = (sortBy: string, sortDirection: SortDirectionType, satellites: List<ISatellite>): List<ISatellite> => {
     return satellites
       .sortBy(sat => sat[sortBy])
-      .update(sats => sortDirection === SortDirection.DESC ? sats.reverse() : sats);
+      .update(sats => sortDirection === SortDirection.DESC ? sats.reverse() : sats)
   };
 
   private sortRawData = (satellites: ISatellite[]): List<ISatellite> => {

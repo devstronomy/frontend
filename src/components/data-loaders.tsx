@@ -1,5 +1,5 @@
-import { IPlanet } from './Planets.jsx';
-import { ISatellite } from './Satellites.jsx';
+import { IPlanet } from './Planets.jsx'
+import { ISatellite } from './Satellites.jsx'
 
 export type PlanetsCallback = (planets: IPlanet[]) => void
 

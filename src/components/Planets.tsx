@@ -54,7 +54,7 @@ class Planets extends React.Component<Props, State> {
   };
 
   constructor(props: Props) {
-    super(props);
+    super(props)
 
     this.state = {
       planets: List(),
@@ -67,15 +67,15 @@ class Planets extends React.Component<Props, State> {
 
   private rowClassName = ({ index }: Index): string => {
     if (index === -1) {
-      return '';
+      return ''
     }
     if (this.props.selectedPlanet === this.state.planets.get(index)) {
-      return 'selectedRow';
+      return 'selectedRow'
     }
     if (index % 2 === 0) {
-      return 'oddRow';
+      return 'oddRow'
     }
-    return '';
+    return ''
   };
 
   /**
@@ -141,18 +141,18 @@ class Planets extends React.Component<Props, State> {
       this.setState({
         planets: List(data),
       })
-    );
+    )
   }
 
   private sort = ({ sortBy, sortDirection }: { sortBy: string, sortDirection: SortDirectionType }) => {
-    const sortedPlanets = this.sortList(sortBy, sortDirection);
-    this.setState({ sortBy, sortDirection, planets: sortedPlanets });
+    const sortedPlanets = this.sortList(sortBy, sortDirection)
+    this.setState({ sortBy, sortDirection, planets: sortedPlanets })
   };
 
   private sortList = (sortBy: string, sortDirection: SortDirectionType): List<IPlanet> => {
     return this.state.planets
       .sortBy(planet => planet[sortBy])
-      .update(planets => (sortDirection === SortDirection.DESC ? List(planets.reverse()) : planets));
+      .update(planets => (sortDirection === SortDirection.DESC ? List(planets.reverse()) : planets))
   }
 
 }
