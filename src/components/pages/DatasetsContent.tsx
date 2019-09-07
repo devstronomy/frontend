@@ -1,18 +1,18 @@
-import React from 'react';
-import {HashLink as Link} from 'react-router-hash-link';
-import Links from '../../links';
+import React from 'react'
+import {HashLink as Link} from 'react-router-hash-link'
+import Links from '../../links'
 
-const github = 'https://github.com/devstronomy/nasa-data-scraper/blob/master/';
+const github = 'https://github.com/devstronomy/nasa-data-scraper/blob/master/'
 
 const gitHubLink = (relPath: string, fileName: string) =>
-  <a href={github + 'data/' + relPath + fileName}><code className='link'>{fileName}</code></a>;
+  <a href={github + 'data/' + relPath + fileName}><code className='link'>{fileName}</code></a>
 
 // Placeholders used in the HTML below.
-const planetCsvLink = gitHubLink('csv/', 'planets.csv');
-const planetJsonLink = gitHubLink('json/', 'planets.json');
-const satellitesCsvLink = gitHubLink('csv/', 'satellites.csv');
-const satellitesJsonLink = gitHubLink('json/', 'satellites.json');
-const datasetsSql = gitHubLink('sql/', 'devstronomy.sql');
+const planetCsvLink = gitHubLink('csv/', 'planets.csv')
+const planetJsonLink = gitHubLink('json/', 'planets.json')
+const satellitesCsvLink = gitHubLink('csv/', 'satellites.csv')
+const satellitesJsonLink = gitHubLink('json/', 'satellites.json')
+const datasetsSql = gitHubLink('sql/', 'devstronomy.sql')
 
 /**
  * Represents 'Datasets' page of Devstronomy application. Provides information about available datasets, the download
@@ -435,6 +435,6 @@ p = pd.read_csv('planets-nasa-export.csv', sep=';')
 p.T.to_csv('planets.csv', header=False)`}</pre>
 
   </div>
-);
+)
 
-export default DatasetsContent;
+export default DatasetsContent

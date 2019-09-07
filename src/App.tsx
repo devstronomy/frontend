@@ -1,19 +1,19 @@
-import React from 'react';
-import {HashRouter as Router, Link, LinkProps, Route} from 'react-router-dom';
+import React from 'react'
+import {HashRouter as Router, Link, LinkProps, Route} from 'react-router-dom'
 
-import HomeContent from "./components/pages/HomeContent";
-import PlanetsContent from "./components/pages/PlanetsContent";
-import DatasetsContent from './components/pages/DatasetsContent';
+import HomeContent from './components/pages/HomeContent'
+import PlanetsContent from './components/pages/PlanetsContent'
+import DatasetsContent from './components/pages/DatasetsContent'
 
-import PropTypes from 'prop-types';
-import Button, {ButtonProps} from '@material-ui/core/Button';
-import {createMuiTheme, MuiThemeProvider, withStyles} from '@material-ui/core/styles';
-import grey from '@material-ui/core/colors/grey';
-import amber from '@material-ui/core/colors/amber';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import LaunchIcon from '@material-ui/icons/Launch';
-import {LocationDescriptor} from "history";
+import PropTypes from 'prop-types'
+import Button, {ButtonProps} from '@material-ui/core/Button'
+import {createMuiTheme, MuiThemeProvider, withStyles} from '@material-ui/core/styles'
+import grey from '@material-ui/core/colors/grey'
+import amber from '@material-ui/core/colors/amber'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import LaunchIcon from '@material-ui/icons/Launch'
+import {LocationDescriptor} from 'history'
 
 const theme = createMuiTheme({
   palette: {
@@ -21,7 +21,7 @@ const theme = createMuiTheme({
     primary: { main: grey[900] },
     secondary: { main: amber[500] },
   }
-});
+})
 
 const styles = () => ({
   root: {
@@ -35,7 +35,7 @@ const styles = () => ({
     height: 13,
     color: 'white',
   },
-});
+})
 
 // TODO: I did not come up with a solution using `FunctionComponent`.
 /** `MenuButton` button with React Router link. */
@@ -56,14 +56,14 @@ class RouteMenuButton<ButtonProps extends { route: LocationDescriptor }>
 /** Menu button customised for Devstronomy. */
 const MenuButton: React.FunctionComponent<ButtonProps> = (props) => {
   return <Button style={{color: 'white'}} variant='text' {...props}>{props.children}</Button>
-};
+}
 
 const App = (props: { classes: any; }) => {
 
-  const {classes} = props;
+  const {classes} = props
 
   const routeMenuButton = (route: LocationDescriptor, title: React.ReactNode) =>
-    <RouteMenuButton className={classes.button} route={route}>{title}</RouteMenuButton>;
+    <RouteMenuButton className={classes.button} route={route}>{title}</RouteMenuButton>
 
   return (
     <Router>
@@ -96,12 +96,12 @@ const App = (props: { classes: any; }) => {
         </div>
       </MuiThemeProvider>
     </Router>
-  );
+  )
 
-};
+}
 
 App.propTypes = {
   classes: PropTypes.object.isRequired,
-};
+}
 
-export default withStyles(styles)(App);
+export default withStyles(styles)(App)

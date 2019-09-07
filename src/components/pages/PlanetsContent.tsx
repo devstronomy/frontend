@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 import Links from '../../links'
 import Planets from '../Planets'

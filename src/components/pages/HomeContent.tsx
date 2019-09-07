@@ -1,6 +1,6 @@
-import React from "react";
-import {Link} from "react-router-dom";
-import Links from '../../links';
+import React from 'react'
+import {Link} from 'react-router-dom'
+import Links from '../../links'
 
 /**
  * Represents the home page of Devstronomy application.
@@ -20,7 +20,7 @@ const HomeContent = () => {
         Apart from the datasets themselves, there is an <Link to='/planets'>interactive demo</Link> of the data.
       </p>
     </div>
-  );
-};
+  )
+}
 
-export default HomeContent;
+export default HomeContent
