@@ -13,7 +13,6 @@ export interface ISatellite {
 
 interface IProps {
   selectedPlanet?: IPlanet
-  nOfSatellites: number
   dispatchUnselectedPlanet: typeof A.unselectPlanet
   dispatchSetNumberOfSatellites: typeof A.setNumberOfSatellites
 }
@@ -147,7 +146,6 @@ class Satellites extends React.Component<IProps, IState> {
 
 const mapStateToProps = (state: IAppState) => ({
   selectedPlanet: state.selectedPlanet,
-  nOfSatellites: state.nOfSatellites
 })
 
 const mapDispatchToProps = {

@@ -28,13 +28,17 @@
   "devDependencies": {
     "@types/react-redux": "^7.0.8",
     "@types/react-router-hash-link": "^1.2.0",
+    "@typescript-eslint/eslint-plugin": "2.1.0",
+    "@typescript-eslint/parser": "2.1.0",
+    "babel-eslint": "^10.0.3",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-standard": "^4.0.0",
-    "less-watch-compiler": "^1.13.0"
+    "less-watch-compiler": "^1.13.0",
+    "prettier": "1.18.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -45,7 +49,7 @@
     "watch-css": "npm run build-css && less-watch-compiler src/less src/css",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "lint": "eslint src/*.js src/**/*.js"
+    "lint": "eslint src/*.ts src/**/*.tsx"
   },
   "eslintConfig": {
     "extends": "react-app"
