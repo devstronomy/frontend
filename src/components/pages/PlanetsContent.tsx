@@ -1,7 +1,7 @@
 import React from "react";
 
-import {Planets} from '../Planets';
-import Links from '../../links';
+import Links from '../../links'
+import Planets from '../Planets'
 
 /**
  * Represents content with an interactive demo of planetary and satellites datasets.
@@ -27,8 +27,7 @@ const PlanetsContent = () => {
       </div>
 
     </div>
-  );
-};
+  )
+}
 
-
-export default PlanetsContent;
+export default PlanetsContent

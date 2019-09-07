@@ -1,27 +1,32 @@
-import React from 'react';
-import { Column, Table, Index, SortDirectionType, SortDirection } from 'react-virtualized';
-import { IPlanet } from './Planets';
-import { List } from 'immutable';
+import React from 'react'
+import { Column, Index, SortDirection, SortDirectionType, Table } from 'react-virtualized'
+import { IPlanet } from './Planets'
+import { List } from 'immutable'
 import dataLoader from './data-loader-json'
+import { connect } from 'react-redux'
+import * as A from './actions'
+import { IAppState } from './reducer'
 
 export interface ISatellite {
   id: number;
 }
 
-interface Props {
-  planet: IPlanet | null;
-  nOfSatellitesCallback(n: number): void;
+interface IProps {
+  selectedPlanet?: IPlanet
+  nOfSatellites: number
+  dispatchUnselectedPlanet: typeof A.unselectPlanet
+  dispatchSetNumberOfSatellites: typeof A.setNumberOfSatellites
 }
 
-interface State {
+interface IState {
   sortBy?: string;
   sortDirection?: SortDirectionType;
   satellites: List<ISatellite>;
 }
 
-class Satellites extends React.Component<Props, State> {
+class Satellites extends React.Component<IProps, IState> {
 
-  constructor(props: Props) {
+  constructor(props: IProps) {
     super(props);
     this.state = {
       satellites: List()
@@ -32,9 +37,9 @@ class Satellites extends React.Component<Props, State> {
     this.loadAllSatellites();
   }
 
-  componentDidUpdate(prevProps: Props) {
-    if (prevProps.planet !== this.props.planet) {
-      this.loadSatellites(this.props.planet);
+  componentDidUpdate(prevProps: IProps) {
+    if (prevProps.selectedPlanet !== this.props.selectedPlanet) {
+      this.loadSatellites(this.props.selectedPlanet);
     }
   }
 
@@ -46,37 +51,58 @@ class Satellites extends React.Component<Props, State> {
     'Magnitude': <span>V<sub>0</sub> or R</span>,
   };
 
-  private rowClassName = ({ index }: Index): string => {
+  private rowClassName = ({index}: Index): string => {
     return index % 2 === 0 ? 'oddRow' : '';
   };
 
   private columnHeader = (column: string): React.ReactNode => {
-    return <span>{column}<br /><span className='unit'>({this.units[column]})</span></span>;
+    return <span>{column}<br/><span className='unit'>({this.units[column]})</span></span>;
   };
 
   render(): React.ReactNode {
+    const { selectedPlanet, nOfSatellites } = this.props
     const sortDirection = this.state.sortDirection;
     const sortBy = this.state.sortBy;
+    const planetName = selectedPlanet !== undefined ? selectedPlanet.name : null;
+    const showAllButton = selectedPlanet
+      ? <span> (<button className='ahref' onClick={() => this.loadAllSatellites()}>show all satellites</button>)</span>
+      : ' (select a planet above to filter satellites)';
+    const planetSpan = <span className='header-highlight'>{planetName}</span>;
+    let satellitesHeader;
+    if (nOfSatellites === 0) {
+      satellitesHeader = <span>Planet {planetSpan} does not have any satellites</span>
+    } else { // render table with satellites
+      satellitesHeader = planetName === null
+        ? 'Satellites of all planets'
+        : <span>Satellites of planet {planetSpan}</span>
+    }
+    satellitesHeader = <span><span className='header'>{satellitesHeader}</span><span> ({nOfSatellites} shown)</span></span>;
 
     return (
-      <Table width={575}
-        height={514}
-        headerHeight={90}
-        rowHeight={40}
-        rowCount={this.state.satellites.size}
-        rowGetter={({ index }: Index) => this.state.satellites.get(index)}
-        rowClassName={this.rowClassName}
-        sort={this.sort}
-        sortBy={sortBy}
-        sortDirection={sortDirection}
-      >
-        <Column label='Name' dataKey='name' width={105} className='main-column' />
-        <Column label={this.columnHeader('GM')} dataKey='gm' width={95} />
-        <Column label={this.columnHeader('Mean Radius')} dataKey='radius' width={75} />
-        <Column label={this.columnHeader('Mean Density')} dataKey='density' width={75} />
-        <Column label={this.columnHeader('Magnitude')} dataKey='magnitude' width={105} />
-        <Column label='Geometric Albedo' dataKey='albedo' width={100} />
-      </Table>
+      <div>
+        <div>
+          {satellitesHeader}{showAllButton}
+        </div>
+
+        <Table width={575}
+               height={514}
+               headerHeight={90}
+               rowHeight={40}
+               rowCount={this.state.satellites.size}
+               rowGetter={({index}: Index) => this.state.satellites.get(index)}
+               rowClassName={this.rowClassName}
+               sort={this.sort}
+               sortBy={sortBy}
+               sortDirection={sortDirection}
+        >
+          <Column label='Name' dataKey='name' width={105} className='main-column'/>
+          <Column label={this.columnHeader('GM')} dataKey='gm' width={95}/>
+          <Column label={this.columnHeader('Mean Radius')} dataKey='radius' width={75}/>
+          <Column label={this.columnHeader('Mean Density')} dataKey='density' width={75}/>
+          <Column label={this.columnHeader('Magnitude')} dataKey='magnitude' width={105}/>
+          <Column label='Geometric Albedo' dataKey='albedo' width={100}/>
+        </Table>
+      </div>
     );
   }
 
@@ -84,8 +110,8 @@ class Satellites extends React.Component<Props, State> {
     dataLoader.loadAllSatellites(this.setSatellites);
   };
 
-  private loadSatellites = (planet: IPlanet | null): void => {
-    if (planet === null) {
+  private loadSatellites = (planet?: IPlanet): void => {
+    if (planet === undefined) {
       this.loadAllSatellites();
     } else {
       dataLoader.loadSatellites(planet, this.setSatellites);
@@ -95,14 +121,13 @@ class Satellites extends React.Component<Props, State> {
   private setSatellites = (satellites: ISatellite[]): void => {
     this.setState({
       satellites: this.sortRawData(satellites)
-    });
-    this.props.nOfSatellitesCallback(satellites.length);
+    })
   };
 
   // TODO: get rid of duplicated code for sorting routines.
-  private sort = ({ sortBy, sortDirection }: { sortBy: string, sortDirection: SortDirectionType }) => {
+  private sort = ({sortBy, sortDirection}: { sortBy: string, sortDirection: SortDirectionType }) => {
     const sortedSatellites = this.sortList(sortBy, sortDirection, this.state.satellites);
-    this.setState({ sortBy, sortDirection, satellites: sortedSatellites });
+    this.setState({sortBy, sortDirection, satellites: sortedSatellites});
   };
 
   private sortList = (sortBy: string, sortDirection: SortDirectionType, satellites: List<ISatellite>): List<ISatellite> => {
@@ -117,6 +142,17 @@ class Satellites extends React.Component<Props, State> {
       : List(satellites);
   }
 
-};
+}
 
-export default Satellites;
+const mapStateToProps = (state: IAppState) => ({
+  selectedPlanet: state.selectedPlanet,
+  nOfSatellites: state.nOfSatellites
+})
+
+const mapDispatchToProps = {
+  dispatchSetNumberOfSatellites: A.setNumberOfSatellites,
+  dispatchUnselectedPlanet: A.unselectPlanet
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Satellites)
+

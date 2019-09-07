@@ -1,13 +1,15 @@
-import React from 'react';
-import Satellites from './Satellites'
-import { Column, Table, SortDirectionType, SortDirection, Index } from 'react-virtualized';
+import React from 'react'
+import { Column, Index, SortDirection, SortDirectionType, Table } from 'react-virtualized'
 import dataLoader from './data-loader-json'
-
 // styles
-import '../css-react-virtualized/styles.css'; // only needs to be imported once
-import '../css/components/table.css';
-import '../css/index.css';
-import { List } from 'immutable';
+import '../css-react-virtualized/styles.css' // only needs to be imported once
+import '../css/components/table.css'
+import '../css/index.css'
+import { List } from 'immutable'
+import * as A from './actions'
+import Satellites from './Satellites'
+import { connect } from 'react-redux'
+import { IAppState } from './reducer'
 
 export interface IPlanet {
   id: number;
@@ -15,14 +17,17 @@ export interface IPlanet {
 }
 
 interface State {
-  planets: List<IPlanet>;
-  selectedPlanet: IPlanet | null;
-  nOfSatellites: number;
-  sortBy?: string;
-  sortDirection?: SortDirectionType;
+  planets: List<IPlanet>
+  sortBy?: string
+  sortDirection?: SortDirectionType
 }
 
-export class Planets extends React.Component<{}, State> {
+interface Props {
+  selectedPlanet?: IPlanet
+  dispatchSelectedPlanet: typeof A.setSelectedPlanet
+}
+
+class Planets extends React.Component<Props, State> {
 
   // Maps column name to its unit.
   units: { [unitId: string]: JSX.Element } = {
@@ -48,26 +53,23 @@ export class Planets extends React.Component<{}, State> {
     'Global Magnetic Field?': <span>Yes/No</span>,
   };
 
-  constructor(props: {}) {
+  constructor(props: Props) {
     super(props);
 
     this.state = {
       planets: List(),
-      selectedPlanet: null,
-      nOfSatellites: 0,
     }
   }
 
   private selectPlanet = (planet: IPlanet): void => {
-    // If the same planet is selected again, deselect it.
-    this.setState({ selectedPlanet: planet === this.state.selectedPlanet ? null : planet })
-  };
+    this.props.dispatchSelectedPlanet(planet)
+  }
 
   private rowClassName = ({ index }: Index): string => {
     if (index === -1) {
       return '';
     }
-    if (this.state.selectedPlanet === this.state.planets.get(index)) {
+    if (this.props.selectedPlanet === this.state.planets.get(index)) {
       return 'selectedRow';
     }
     if (index % 2 === 0) {
@@ -84,33 +86,8 @@ export class Planets extends React.Component<{}, State> {
     return <span>{column}<br /><span className='unit'>({this.units[column]})</span></span>
   };
 
-  private nOfSatellitesCallback = (nOfSatellites: number): void => {
-    this.setState({
-      nOfSatellites: nOfSatellites,
-    });
-  };
-
   render(): React.ReactNode {
-    const selectedPlanet = this.state.selectedPlanet;
-    const nOfSatellites = this.state.nOfSatellites;
-    const planetName = selectedPlanet === null ? null : selectedPlanet.name;
-    const sortDirection = this.state.sortDirection;
-    const sortBy = this.state.sortBy;
-    const showAllButton = selectedPlanet
-      ? <span> (<button className='ahref' onClick={() => this.loadAllSatellites()}>show all satellites</button>)</span>
-      : ' (select a planet above to filter satellites)';
-
-    const planetSpan = <span className='header-highlight'>{planetName}</span>;
-    let satellitesHeader;
-    if (nOfSatellites === 0) {
-      satellitesHeader = <span>Planet {planetSpan} does not have any satellites</span>
-    } else { // render table with satellites
-      satellitesHeader = planetName === null
-        ? 'Satellites of all planets'
-        : <span>Satellites of planet {planetSpan}</span>
-    }
-    satellitesHeader = <span><span className='header'>{satellitesHeader}</span><span> ({nOfSatellites} shown)</span></span>;
-
+    const { sortDirection, sortBy } = this.state
     return (
       <div>
 
@@ -149,12 +126,7 @@ export class Planets extends React.Component<{}, State> {
           <Column label={this.columnHeader('Surface Pressure')} dataKey='surfacePressure' width={80} />
         </Table>
 
-        <br />
-        <div>
-          {satellitesHeader}{showAllButton}
-        </div>
-
-        <Satellites planet={selectedPlanet} nOfSatellitesCallback={this.nOfSatellitesCallback} />
+        <Satellites/>
 
       </div>
     )
@@ -172,12 +144,6 @@ export class Planets extends React.Component<{}, State> {
     );
   }
 
-  private loadAllSatellites = () => {
-    this.setState({
-      selectedPlanet: null,
-    })
-  };
-
   private sort = ({ sortBy, sortDirection }: { sortBy: string, sortDirection: SortDirectionType }) => {
     const sortedPlanets = this.sortList(sortBy, sortDirection);
     this.setState({ sortBy, sortDirection, planets: sortedPlanets });
@@ -191,4 +157,12 @@ export class Planets extends React.Component<{}, State> {
 
 }
 
-export default Planets;
+const mapStateToProps = (state: IAppState) => ({
+  selectedPlanet: state.selectedPlanet
+})
+
+const mapDispatchToProps = ({
+  dispatchSelectedPlanet: A.setSelectedPlanet,
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Planets)
