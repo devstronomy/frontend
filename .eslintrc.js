@@ -23,7 +23,8 @@ module.exports = {
   rules: {
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
-    'linebreak-style': ['error', 'unix']
+    'linebreak-style': ['error', 'unix'],
+    'no-case-declarations': ['off']
   },
 
   // Taken from https://github.com/facebook/create-react-app/blob/master/packages/eslint-config-react-app/index.js.
