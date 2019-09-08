@@ -12,8 +12,8 @@ import { connect } from 'react-redux'
 import { IAppState } from './reducer'
 
 export interface IPlanet {
-  id: number;
-  name: string;
+  id: number
+  name: string
 }
 
 interface State {
@@ -51,7 +51,7 @@ class Planets extends React.Component<Props, State> {
     'Number of Moons': <span>number</span>,
     'Ring System?': <span>Yes/No</span>,
     'Global Magnetic Field?': <span>Yes/No</span>,
-  };
+  }
 
   constructor(props: Props) {
     super(props)
@@ -76,7 +76,7 @@ class Planets extends React.Component<Props, State> {
       return 'oddRow'
     }
     return ''
-  };
+  }
 
   /**
    * @param {string} column column ID. Must be key in the `units` dictionary.
@@ -84,7 +84,7 @@ class Planets extends React.Component<Props, State> {
    */
   private columnHeader = (column: string): React.ReactNode => {
     return <span>{column}<br /><span className='unit'>({this.units[column]})</span></span>
-  };
+  }
 
   render(): React.ReactNode {
     const { sortDirection, sortBy } = this.state
@@ -147,7 +147,7 @@ class Planets extends React.Component<Props, State> {
   private sort = ({ sortBy, sortDirection }: { sortBy: string, sortDirection: SortDirectionType }) => {
     const sortedPlanets = this.sortList(sortBy, sortDirection)
     this.setState({ sortBy, sortDirection, planets: sortedPlanets })
-  };
+  }
 
   private sortList = (sortBy: string, sortDirection: SortDirectionType): List<IPlanet> => {
     return this.state.planets

@@ -5,8 +5,8 @@ export type PlanetsCallback = (planets: IPlanet[]) => void
 
 export default interface ICallbacks {
 
-  loadAllPlanets(callback: PlanetsCallback): void;
-  loadSatellites(planet: IPlanet, callback: PlanetsCallback): void;
-  loadAllSatellites(satellites: (satellites: ISatellite[]) => void): void;
+  loadAllPlanets(callback: PlanetsCallback): void
+  loadSatellites(planet: IPlanet, callback: PlanetsCallback): void
+  loadAllSatellites(satellites: (satellites: ISatellite[]) => void): void
 
 }

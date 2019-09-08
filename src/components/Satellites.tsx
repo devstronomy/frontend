@@ -8,7 +8,7 @@ import * as A from './actions'
 import { IAppState } from './reducer'
 
 export interface ISatellite {
-  id: number;
+  id: number
 }
 
 interface IProps {
@@ -18,9 +18,9 @@ interface IProps {
 }
 
 interface IState {
-  sortBy?: string;
-  sortDirection?: SortDirectionType;
-  satellites: List<ISatellite>;
+  sortBy?: string
+  sortDirection?: SortDirectionType
+  satellites: List<ISatellite>
 }
 
 class Satellites extends React.Component<IProps, IState> {
@@ -48,15 +48,15 @@ class Satellites extends React.Component<IProps, IState> {
     'Mean Radius': <span>km</span>,
     'Mean Density': <span>g/cm<sup>3</sup></span>,
     'Magnitude': <span>V<sub>0</sub> or R</span>,
-  };
+  }
 
   private rowClassName = ({index}: Index): string => {
     return index % 2 === 0 ? 'oddRow' : ''
-  };
+  }
 
   private columnHeader = (column: string): React.ReactNode => {
     return <span>{column}<br/><span className='unit'>({this.units[column]})</span></span>
-  };
+  }
 
   render(): React.ReactNode {
     const { satellites, sortDirection, sortBy } = this.state
@@ -107,7 +107,7 @@ class Satellites extends React.Component<IProps, IState> {
 
   private loadAllSatellites = () => {
     dataLoader.loadAllSatellites(this.setSatellites)
-  };
+  }
 
   private loadSatellites = (planet?: IPlanet): void => {
     if (planet === undefined) {
@@ -115,25 +115,25 @@ class Satellites extends React.Component<IProps, IState> {
     } else {
       dataLoader.loadSatellites(planet, this.setSatellites)
     }
-  };
+  }
 
   private setSatellites = (satellites: ISatellite[]): void => {
     this.setState({
       satellites: this.sortRawData(satellites)
     })
-  };
+  }
 
   // TODO: get rid of duplicated code for sorting routines.
   private sort = ({sortBy, sortDirection}: { sortBy: string, sortDirection: SortDirectionType }) => {
     const sortedSatellites = this.sortList(sortBy, sortDirection, this.state.satellites)
     this.setState({sortBy, sortDirection, satellites: sortedSatellites})
-  };
+  }
 
   private sortList = (sortBy: string, sortDirection: SortDirectionType, satellites: List<ISatellite>): List<ISatellite> => {
     return satellites
       .sortBy(sat => sat[sortBy])
       .update(sats => sortDirection === SortDirection.DESC ? sats.reverse() : sats)
-  };
+  }
 
   private sortRawData = (satellites: ISatellite[]): List<ISatellite> => {
     const { sortBy, sortDirection } = this.state

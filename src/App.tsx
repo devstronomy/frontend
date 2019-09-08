@@ -58,7 +58,7 @@ const MenuButton: React.FunctionComponent<ButtonProps> = (props) => {
   return <Button style={{color: 'white'}} variant='text' {...props}>{props.children}</Button>
 }
 
-const App = (props: { classes: any; }) => {
+const App = (props: { classes: any }) => {
 
   const {classes} = props
 
