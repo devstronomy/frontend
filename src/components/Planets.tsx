@@ -1,6 +1,5 @@
 import React from 'react'
 import { Column, Index, SortDirection, SortDirectionType, Table } from 'react-virtualized'
-import dataLoader from './data-loader-json'
 // styles
 import '../css-react-virtualized/styles.css' // only needs to be imported once
 import '../css/components/table.css'
@@ -17,18 +16,20 @@ export interface IPlanet {
 }
 
 interface State {
-  planets: List<IPlanet>
   sortBy?: string
   sortDirection?: SortDirectionType
 }
 
 interface Props {
+  planets: List<IPlanet>
   selectedPlanet?: IPlanet
+
+  dispatchLoadPlanets: typeof A.loadPlanets
+  dispatchSetPlanets: typeof A.setPlanets
   dispatchSelectedPlanet: typeof A.setSelectedPlanet
 }
 
 class Planets extends React.Component<Props, State> {
-
   // Maps column name to its unit.
   units: { [unitId: string]: JSX.Element } = {
     'Mass': <span>10<sup>24</sup>kg</span>,
@@ -50,15 +51,7 @@ class Planets extends React.Component<Props, State> {
     'Surface Pressure': <span>bars</span>,
     'Number of Moons': <span>number</span>,
     'Ring System?': <span>Yes/No</span>,
-    'Global Magnetic Field?': <span>Yes/No</span>,
-  }
-
-  constructor(props: Props) {
-    super(props)
-
-    this.state = {
-      planets: List(),
-    }
+    'Global Magnetic Field?': <span>Yes/No</span>
   }
 
   private selectPlanet = (planet: IPlanet): void => {
@@ -69,7 +62,7 @@ class Planets extends React.Component<Props, State> {
     if (index === -1) {
       return ''
     }
-    if (this.props.selectedPlanet === this.state.planets.get(index)) {
+    if (this.props.selectedPlanet === this.props.planets.get(index)) {
       return 'selectedRow'
     }
     if (index % 2 === 0) {
@@ -83,22 +76,29 @@ class Planets extends React.Component<Props, State> {
    * @returns generated node containing given text together with its unit.
    */
   private columnHeader = (column: string): React.ReactNode => {
-    return <span>{column}<br /><span className='unit'>({this.units[column]})</span></span>
+    return (
+      <span>
+        {column}
+        <br />
+        <span className='unit'>({this.units[column]})</span>
+      </span>
+    )
   }
 
   render(): React.ReactNode {
+    const { planets } = this.props
     const { sortDirection, sortBy } = this.state
     return (
       <div>
-
         <span className='header'>Planets of our Solar System</span>
 
-        <Table width={1950}
+        <Table
+          width={1950}
           height={450}
           headerHeight={90}
           rowHeight={40}
-          rowCount={this.state.planets.size}
-          rowGetter={({ index }: Index) => this.state.planets.get(index)}
+          rowCount={planets.size}
+          rowGetter={({ index }: Index) => planets.get(index)}
           rowClassName={this.rowClassName}
           onRowClick={(props: any) => this.selectPlanet(props.rowData)}
           sort={this.sort}
@@ -126,8 +126,7 @@ class Planets extends React.Component<Props, State> {
           <Column label={this.columnHeader('Surface Pressure')} dataKey='surfacePressure' width={80} />
         </Table>
 
-        <Satellites/>
-
+        <Satellites />
       </div>
     )
   }
@@ -137,32 +136,34 @@ class Planets extends React.Component<Props, State> {
   //<Column label='Has Global Magnetic Field' dataKey='hasGlobalMagneticField' width={80} className='text' />
 
   componentDidMount() {
-    dataLoader.loadAllPlanets((data: IPlanet[]) =>
-      this.setState({
-        planets: List(data),
-      })
-    )
+    this.props.dispatchLoadPlanets()
   }
 
-  private sort = ({ sortBy, sortDirection }: { sortBy: string, sortDirection: SortDirectionType }) => {
+  private sort = ({ sortBy, sortDirection }: { sortBy: string; sortDirection: SortDirectionType }) => {
     const sortedPlanets = this.sortList(sortBy, sortDirection)
-    this.setState({ sortBy, sortDirection, planets: sortedPlanets })
+    this.setState({ sortBy, sortDirection })
+    this.props.dispatchSetPlanets(sortedPlanets)
   }
 
   private sortList = (sortBy: string, sortDirection: SortDirectionType): List<IPlanet> => {
-    return this.state.planets
+    const { planets } = this.props
+    return planets
       .sortBy(planet => planet[sortBy])
       .update(planets => (sortDirection === SortDirection.DESC ? List(planets.reverse()) : planets))
   }
-
 }
 
 const mapStateToProps = (state: IAppState) => ({
   selectedPlanet: state.selectedPlanet
 })
 
-const mapDispatchToProps = ({
-  dispatchSelectedPlanet: A.setSelectedPlanet,
-})
+const mapDispatchToProps = {
+  dispatchLoadPlanets: A.loadPlanets,
+  dispatchSetPlanets: A.setPlanets,
+  dispatchSelectedPlanet: A.setSelectedPlanet
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Planets)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Planets)

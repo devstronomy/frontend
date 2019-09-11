@@ -1,24 +1,16 @@
 import planets from './../data/planets.json'
 import satellites from './../data/satellites.json'
-import ICallbacks from './data-loaders.jsx'
+import IDataLoader from './types'
 
-const callbacks: ICallbacks = {
-
+const jsonDataLoader: IDataLoader = {
   // Loads all planets in the Solar System.
-  loadAllPlanets: callBack => {
-    callBack(planets)
-  },
+  loadPlanets: () => Promise.resolve(planets),
 
   // Loads satellites belonging to the given planet.
-  loadSatellites: (planet, callBack) => {
-    callBack(satellites.filter(s => s.planetId === planet.id))
-  },
+  loadSatellites: planet => Promise.resolve(satellites.filter(s => s.planetId === planet.id)),
 
   // Loads satellites of all planets in the Solar System.
-  loadAllSatellites: callBack => {
-    callBack(satellites)
-  }
-
+  loadAllSatellites: () => Promise.resolve(satellites)
 }
 
-export default callbacks
+export default jsonDataLoader
