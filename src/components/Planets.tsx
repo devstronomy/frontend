@@ -1,16 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Column, Index, SortDirection, Table } from 'react-virtualized'
+import { Column, Index, Table } from 'react-virtualized'
 
 import Satellites from './Satellites'
 import * as A from './actions'
 import { IAppState } from './reducer'
 import { ISort } from './types'
+import { sort } from './sorting'
+
 // styles
 import '../css-react-virtualized/styles.css' // only needs to be imported once
 import '../css/components/table.css'
 import '../css/index.css'
-import _sortBy from 'lodash/sortBy'
 
 export interface IPlanet {
   id: number
@@ -144,13 +145,8 @@ class Planets extends React.Component<IProps, IState> {
   //<Column label='Has Global Magnetic Field' dataKey='hasGlobalMagneticField' width={80} className='text' />
 
   private sort = ({ sortBy, sortDirection }: ISort) => {
-    const { planets } = this.props
-    const sortedPlanets = _sortBy(planets, sortBy!)
-    if (sortDirection === SortDirection.DESC) {
-      sortedPlanets.reverse()
-    }
-    this.props.dispatchSetPlanets(sortedPlanets)
     this.setState({ sortBy, sortDirection })
+    this.props.dispatchSetPlanets(sort(this.props.planets, sortBy, sortDirection))
   }
 }
 

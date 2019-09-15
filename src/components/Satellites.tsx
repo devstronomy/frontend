@@ -1,12 +1,12 @@
 import React from 'react'
-import { Column, Index, SortDirection, Table } from 'react-virtualized'
+import { Column, Index, Table } from 'react-virtualized'
 import { connect } from 'react-redux'
-import _sortBy from 'lodash/sortBy'
 
 import { IPlanet } from './Planets'
 import * as A from './actions'
 import { IAppState } from './reducer'
 import { ISort } from './types'
+import { sort } from './sorting'
 
 export interface ISatellite {
   id: number
@@ -107,13 +107,8 @@ class Satellites extends React.Component<IProps, IState> {
   }
 
   private sort = ({ sortBy, sortDirection }: ISort) => {
-    const { satellites } = this.props
-    const sortedSatellites = _sortBy(satellites, sortBy!)
-    if (sortDirection === SortDirection.DESC) {
-      sortedSatellites.reverse()
-    }
-    this.props.dispatchSetSatellites(sortedSatellites)
     this.setState({ sortBy, sortDirection })
+    this.props.dispatchSetSatellites(sort(this.props.satellites, sortBy, sortDirection))
   }
 }
 
