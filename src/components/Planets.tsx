@@ -54,7 +54,7 @@ class Planets extends React.Component<IProps, IState> {
     'Orbital Period': <span>days</span>,
     'Orbital Velocity': <span>km/s</span>,
     'Orbital Inclination': <span>degrees</span>,
-    'Orbital Eccentricity': <span></span>,
+    'Orbital Eccentricity': <span />,
     'Obliquity to Orbit': <span>degrees</span>,
     'Mean Temperature': <span>C</span>,
     'Surface Pressure': <span>bars</span>,
