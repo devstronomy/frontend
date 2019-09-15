@@ -4,14 +4,16 @@ import './css/index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 import { Provider } from 'react-redux'
-import { applyMiddleware, createStore } from 'redux'
+import { applyMiddleware, compose, createStore } from 'redux'
 import appReducers from './components/reducer'
 import createSagaMiddleware from '@redux-saga/core'
 import componentSagas from './components/sagas'
 import { all, fork } from 'redux-saga/effects'
 
 const sagaMiddleware = createSagaMiddleware()
-const store = createStore(appReducers, applyMiddleware(sagaMiddleware))
+
+const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const store = createStore(appReducers, composeEnhancers(applyMiddleware(sagaMiddleware)))
 
 sagaMiddleware.run(function* rootSaga() {
   yield all(componentSagas.map(fork))

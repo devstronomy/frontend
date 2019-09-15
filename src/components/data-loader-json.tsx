@@ -1,6 +1,6 @@
 import planets from './../data/planets.json'
 import satellites from './../data/satellites.json'
-import IDataLoader from './types'
+import { IDataLoader } from './types'
 
 const jsonDataLoader: IDataLoader = {
   // Loads all planets in the Solar System.

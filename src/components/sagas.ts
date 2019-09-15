@@ -8,7 +8,6 @@ export const watchLoadPlanets = function*() {
 }
 
 export const loadPlanetsFlow = function*() {
-  console.log('MK: loadPlanetsFlow() called')
   try {
     const planets = yield call(dataLoader.loadPlanets)
     yield put(A.setPlanets(planets))
@@ -17,4 +16,17 @@ export const loadPlanetsFlow = function*() {
   }
 }
 
-export default [watchLoadPlanets]
+export const watchLoadSatellites = function*() {
+  yield takeLatest(C.LOAD_SATELLITES, loadSatellitesFlow)
+}
+
+export const loadSatellitesFlow = function*() {
+  try {
+    const satellites = yield call(dataLoader.loadAllSatellites)
+    yield put(A.setSatellites(satellites))
+  } catch (err) {
+    console.log('Loading satellites failed')
+  }
+}
+
+export default [watchLoadPlanets, watchLoadSatellites]

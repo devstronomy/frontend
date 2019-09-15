@@ -1,34 +1,59 @@
 import * as C from './constants'
-import { IPlanet } from './Planets'
 import * as A from './actions'
+import { IPlanet } from './Planets'
+import { ISatellite } from './Satellites'
 
 export interface IAppState {
+  planets: IPlanet[]
+  satellites: ISatellite[]
+
   selectedPlanet?: IPlanet
-  nOfSatellites: number
+
   planetsLoadingInProgress: boolean
+  satellitesLoadingInProgress: boolean
 }
 
 const initialState: IAppState = {
+  planets: [],
+  satellites: [],
+
   selectedPlanet: undefined,
-  nOfSatellites: 0,
-  planetsLoadingInProgress: false
+
+  planetsLoadingInProgress: false,
+  satellitesLoadingInProgress: false
 }
 
 export default (state: IAppState = initialState, action: A.IActions): IAppState => {
-
   switch (action.type) {
     case C.LOAD_PLANETS:
-      console.log('MK:   C.LOAD_PLANETS')
       return {
         ...state,
         planetsLoadingInProgress: true
       }
+    case C.SET_PLANETS:
+      return {
+        ...state,
+        planets: action.payload.planets,
+        planetsLoadingInProgress: false
+      }
     case C.SELECT_PLANET:
       const { selectedPlanet } = action.payload
       // If the same planet is selected again, deselect it (undefined).
+      const newSelectedPlanet = selectedPlanet === state.selectedPlanet ? undefined : selectedPlanet
       return {
         ...state,
-        selectedPlanet: selectedPlanet === state.selectedPlanet ? undefined : selectedPlanet
+        selectedPlanet: newSelectedPlanet
+      }
+    case C.LOAD_SATELLITES:
+      return {
+        ...state,
+        satellitesLoadingInProgress: true
+      }
+    case C.SET_SATELLITES:
+      return {
+        ...state,
+        satellites: action.payload.satellites,
+        satellitesLoadingInProgress: false
       }
     default:
       return state

@@ -1,6 +1,6 @@
 import * as C from './constants'
 import { IPlanet } from './Planets'
-import { List } from 'immutable'
+import { ISatellite } from './Satellites'
 
 export const loadPlanets = () =>
   ({
@@ -8,7 +8,7 @@ export const loadPlanets = () =>
     payload: {}
   } as const)
 
-export const setPlanets = (planets: List<IPlanet>) =>
+export const setPlanets = (planets: IPlanet[]) =>
   ({
     type: C.SET_PLANETS,
     payload: { planets }
@@ -22,7 +22,21 @@ export const setSelectedPlanet = (selectedPlanet?: IPlanet) =>
 
 export const unselectPlanet = () => setSelectedPlanet(undefined)
 
+export const loadSatellites = () =>
+  ({
+    type: C.LOAD_SATELLITES,
+    payload: {}
+  } as const)
+
+export const setSatellites = (satellites: ISatellite[]) =>
+  ({
+    type: C.SET_SATELLITES,
+    payload: { satellites }
+  } as const)
+
 export type IActions =
   | ReturnType<typeof loadPlanets>
   | ReturnType<typeof setPlanets>
   | ReturnType<typeof setSelectedPlanet>
+  | ReturnType<typeof loadSatellites>
+  | ReturnType<typeof setSatellites>

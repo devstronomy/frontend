@@ -1,27 +1,26 @@
 import React from 'react'
-import { Column, Index, SortDirection, SortDirectionType, Table } from 'react-virtualized'
+import { connect } from 'react-redux'
+import { Column, Index, SortDirection, Table } from 'react-virtualized'
+
+import Satellites from './Satellites'
+import * as A from './actions'
+import { IAppState } from './reducer'
+import { ISort } from './types'
 // styles
 import '../css-react-virtualized/styles.css' // only needs to be imported once
 import '../css/components/table.css'
 import '../css/index.css'
-import { List } from 'immutable'
-import * as A from './actions'
-import Satellites from './Satellites'
-import { connect } from 'react-redux'
-import { IAppState } from './reducer'
+import _sortBy from 'lodash/sortBy'
 
 export interface IPlanet {
   id: number
   name: string
 }
 
-interface State {
-  sortBy?: string
-  sortDirection?: SortDirectionType
-}
+interface IState extends ISort {}
 
-interface Props {
-  planets: List<IPlanet>
+interface IProps {
+  planets: IPlanet[]
   selectedPlanet?: IPlanet
 
   dispatchLoadPlanets: typeof A.loadPlanets
@@ -29,7 +28,16 @@ interface Props {
   dispatchSelectedPlanet: typeof A.setSelectedPlanet
 }
 
-class Planets extends React.Component<Props, State> {
+class Planets extends React.Component<IProps, IState> {
+  constructor(props: IProps) {
+    super(props)
+    this.state = {}
+  }
+
+  componentDidMount() {
+    this.props.dispatchLoadPlanets()
+  }
+
   // Maps column name to its unit.
   units: { [unitId: string]: JSX.Element } = {
     'Mass': <span>10<sup>24</sup>kg</span>,
@@ -62,7 +70,7 @@ class Planets extends React.Component<Props, State> {
     if (index === -1) {
       return ''
     }
-    if (this.props.selectedPlanet === this.props.planets.get(index)) {
+    if (this.props.selectedPlanet === this.props.planets[index]) {
       return 'selectedRow'
     }
     if (index % 2 === 0) {
@@ -97,8 +105,8 @@ class Planets extends React.Component<Props, State> {
           height={450}
           headerHeight={90}
           rowHeight={40}
-          rowCount={planets.size}
-          rowGetter={({ index }: Index) => planets.get(index)}
+          rowCount={planets.length}
+          rowGetter={({ index }: Index) => planets[index]}
           rowClassName={this.rowClassName}
           onRowClick={(props: any) => this.selectPlanet(props.rowData)}
           sort={this.sort}
@@ -135,26 +143,20 @@ class Planets extends React.Component<Props, State> {
   //<Column label='Has Ring System' dataKey='hasRingSystem' width={80} className='text' />
   //<Column label='Has Global Magnetic Field' dataKey='hasGlobalMagneticField' width={80} className='text' />
 
-  componentDidMount() {
-    this.props.dispatchLoadPlanets()
-  }
-
-  private sort = ({ sortBy, sortDirection }: { sortBy: string; sortDirection: SortDirectionType }) => {
-    const sortedPlanets = this.sortList(sortBy, sortDirection)
-    this.setState({ sortBy, sortDirection })
-    this.props.dispatchSetPlanets(sortedPlanets)
-  }
-
-  private sortList = (sortBy: string, sortDirection: SortDirectionType): List<IPlanet> => {
+  private sort = ({ sortBy, sortDirection }: ISort) => {
     const { planets } = this.props
-    return planets
-      .sortBy(planet => planet[sortBy])
-      .update(planets => (sortDirection === SortDirection.DESC ? List(planets.reverse()) : planets))
+    const sortedPlanets = _sortBy(planets, sortBy!)
+    if (sortDirection === SortDirection.DESC) {
+      sortedPlanets.reverse()
+    }
+    this.props.dispatchSetPlanets(sortedPlanets)
+    this.setState({ sortBy, sortDirection })
   }
 }
 
 const mapStateToProps = (state: IAppState) => ({
-  selectedPlanet: state.selectedPlanet
+  selectedPlanet: state.selectedPlanet,
+  planets: state.planets
 })
 
 const mapDispatchToProps = {

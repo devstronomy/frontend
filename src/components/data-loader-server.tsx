@@ -1,36 +1,13 @@
-import ICallbacks from './data-loaders'
+import { IDataLoader } from './types'
 
 const baseUrl = 'http://localhost:8080/'
 
-const callbacks: ICallbacks = {
+const callbacks: IDataLoader = {
+  loadPlanets: async () => (await fetch(`${baseUrl}planet/`)).json(),
 
-  loadAllPlanets: callBack => {
-    fetch(baseUrl + 'planet/')
-      .then(results => {
-        return results.json()
-      }).then(data => {
-        callBack(data)
-      })
-  },
+  loadSatellites: async planet => (await fetch(`${baseUrl}/planet/${planet.id}/satellites`)).json(),
 
-  loadSatellites: (planet, callBack) => {
-    fetch(baseUrl + '/planet/' + planet.id + '/satellites')
-      .then(results => {
-        return results.json()
-      }).then(data => {
-        callBack(data)
-      })
-  },
-
-  loadAllSatellites: callBack => {
-    fetch(baseUrl + 'satellite/')
-      .then(results => {
-        return results.json()
-      }).then(data => {
-        callBack(data)
-      })
-  }
-
+  loadAllSatellites: async () => (await fetch(`${baseUrl}satellite/`)).json()
 }
 
 export default callbacks

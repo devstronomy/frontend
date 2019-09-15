@@ -1,8 +1,14 @@
-import { IPlanet } from './Planets.jsx'
-import { ISatellite } from './Satellites.jsx'
+import { IPlanet } from './Planets'
+import { ISatellite } from './Satellites'
+import { SortDirectionType } from 'react-virtualized'
 
-export default interface IDataLoader {
+export interface IDataLoader {
   loadPlanets: () => Promise<IPlanet[]>
-  loadSatellites: (planet: IPlanet) => Promise<IPlanet[]>
+  loadSatellites: (planet: IPlanet) => Promise<ISatellite[]>
   loadAllSatellites: () => Promise<ISatellite[]>
+}
+
+export interface ISort {
+  sortBy?: string
+  sortDirection?: SortDirectionType
 }
