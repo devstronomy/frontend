@@ -1,7 +1,7 @@
 # Description
 This project contains the code-base for the frontend part of Devstronomy project.
 
-To find more information about the Devstronomy or to see an interactive demo of the data visit
+To find more information about the Devstronomy or to see an interactive demo of the data, visit
 [Devstronomy Homepage](https://devstronomy.com/).
 
 ## Demo Screenshot
@@ -11,14 +11,18 @@ To find more information about the Devstronomy or to see an interactive demo of 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Running project locally
 
-In the project directory, you can run:
+In the project directory, run:
 
-### `npm start`
+```sh
+$ npm run build-css
+$ npm start
+```
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Alternatively, you may prefer `npm run watch-css` during development.
+
+Then open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
