@@ -21,7 +21,7 @@ export interface IPlanet {
 interface IState extends ISort {}
 
 interface IProps {
-  planets: IPlanet[]
+  planets: ReadonlyArray<IPlanet>
   selectedPlanet?: IPlanet
 
   dispatchLoadPlanets: typeof A.loadPlanets

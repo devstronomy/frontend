@@ -16,7 +16,7 @@ export interface ISatellite {
 interface IState extends ISort {}
 
 interface IProps {
-  satellites: ISatellite[]
+  satellites: ReadonlyArray<ISatellite>
   selectedPlanet?: IPlanet
 
   dispatchLoadSatellites: typeof A.loadSatellites

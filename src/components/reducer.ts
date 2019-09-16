@@ -4,8 +4,8 @@ import { IPlanet } from './Planets'
 import { ISatellite } from './Satellites'
 
 export interface IAppState {
-  planets: IPlanet[]
-  satellites: ISatellite[]
+  planets: ReadonlyArray<IPlanet>
+  satellites: ReadonlyArray<ISatellite>
 
   selectedPlanet?: IPlanet
 

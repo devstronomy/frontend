@@ -3,9 +3,9 @@ import { ISatellite } from './Satellites'
 import { SortDirectionType } from 'react-virtualized'
 
 export interface IDataLoader {
-  loadPlanets: () => Promise<IPlanet[]>
-  loadSatellites: (planet: IPlanet) => Promise<ISatellite[]>
-  loadAllSatellites: () => Promise<ISatellite[]>
+  loadPlanets: () => Promise<ReadonlyArray<IPlanet>>
+  loadSatellites: (planet: IPlanet) => Promise<ReadonlyArray<ISatellite>>
+  loadAllSatellites: () => Promise<ReadonlyArray<ISatellite>>
 }
 
 export interface ISort {

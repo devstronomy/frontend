@@ -8,7 +8,7 @@ export const loadPlanets = () =>
     payload: {}
   } as const)
 
-export const setPlanets = (planets: IPlanet[]) =>
+export const setPlanets = (planets: ReadonlyArray<IPlanet>) =>
   ({
     type: C.SET_PLANETS,
     payload: { planets }
@@ -28,7 +28,7 @@ export const loadSatellites = () =>
     payload: {}
   } as const)
 
-export const setSatellites = (satellites: ISatellite[]) =>
+export const setSatellites = (satellites: ReadonlyArray<ISatellite>) =>
   ({
     type: C.SET_SATELLITES,
     payload: { satellites }
