@@ -32,7 +32,10 @@
     "@types/react-router-hash-link": "^1.2.0",
     "@typescript-eslint/eslint-plugin": "2.1.0",
     "@typescript-eslint/parser": "2.1.0",
+    "enzyme": "^3.10.0",
     "babel-eslint": "10.0.2",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.4.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^8.0.0",
@@ -54,6 +57,14 @@
     "lint": "eslint \"src/**/*.ts\" \"src/**/*.tsx\"",
     "lint:fix": "eslint --fix \"src/**/*.ts\" \"src/**/*.tsx\""
   },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
+  "setupFiles": [
+    "./src/setupTests.js"
+  ],
   "eslintConfig": {
     "extends": "react-app"
   },
