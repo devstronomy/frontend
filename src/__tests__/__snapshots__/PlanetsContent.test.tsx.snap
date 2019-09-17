@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlanetsContent should render correctly in "debug" mode 1`] = `
+<div>
+  <div
+    className="contentCenter"
+  >
+    This is an interactive version of 
+    <a
+      href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/"
+    >
+      Planetary Fact Sheet
+    </a>
+     and 
+    <a
+      href="https://ssd.jpl.nasa.gov/?sat_phys_par"
+    >
+      Planetary Satellite Physical Parameters
+    </a>
+     datasets from 
+    <a
+      href="https://www.jpl.nasa.gov/"
+    >
+      NASA Jet Propulsion Laboratory
+    </a>
+    .
+    <p>
+      Tips: 
+      <span
+        className="highlight"
+      >
+        Select the planet below
+      </span>
+       to see only its satellites or 
+      <span
+        className="highlight"
+      >
+        click on the column
+      </span>
+       to sort.
+    </p>
+  </div>
+  <hr />
+  <div
+    className="planets"
+  >
+    <Connect(Planets) />
+  </div>
+</div>
+`;
