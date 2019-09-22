@@ -7,6 +7,7 @@ import * as A from './actions'
 import { IAppState } from './reducer'
 import { ISort } from './types'
 import { sort } from './sorting'
+import SatellitesHeader from './SatellitesHeader'
 
 export interface ISatellite {
   id: number
@@ -21,7 +22,6 @@ interface IProps {
 
   dispatchLoadSatellites: typeof A.loadSatellites
   dispatchSetSatellites: typeof A.setSatellites
-  dispatchUnselectedPlanet: typeof A.unselectPlanet
 }
 
 class Satellites extends React.Component<IProps, IState> {
@@ -57,25 +57,9 @@ class Satellites extends React.Component<IProps, IState> {
       : this.props.satellites
     const { sortDirection, sortBy } = this.state
 
-    const planetName = selectedPlanet ? selectedPlanet.name : undefined
-    const showAllButton = selectedPlanet
-      ? <span> (<button className='ahref' onClick={() => this.loadAllSatellites()}>show all satellites</button>)</span>
-      : ' (select a planet above to filter satellites)'
-    const planetSpan = <span className='header-highlight'>{planetName}</span>
-    let satellitesHeader
-    if (satellites.length === 0) {
-      satellitesHeader = <span>Planet {planetSpan} does not have any satellites</span>
-    } else { // render table with satellites
-      satellitesHeader = planetName ? <span>Satellites of planet {planetSpan}</span> : 'Satellites of all planets'
-    }
-    satellitesHeader = <span><span className='header'>{satellitesHeader}</span><span> ({satellites.length} shown)</span></span>
-
     return (
       <div>
-        <div>
-          {satellitesHeader}
-          {showAllButton}
-        </div>
+        <SatellitesHeader numberOfSatellites={satellites.length} />
 
         <Table
           width={575}
@@ -100,10 +84,6 @@ class Satellites extends React.Component<IProps, IState> {
     )
   }
 
-  private loadAllSatellites = () => {
-    this.props.dispatchUnselectedPlanet()
-  }
-
   private sort = ({ sortBy, sortDirection }: ISort) => {
     this.setState({ sortBy, sortDirection })
     this.props.dispatchSetSatellites(sort(this.props.satellites, sortBy, sortDirection))
@@ -118,7 +98,6 @@ const mapStateToProps = (state: IAppState) => ({
 const mapDispatchToProps = {
   dispatchLoadSatellites: A.loadSatellites,
   dispatchSetSatellites: A.setSatellites,
-  dispatchUnselectedPlanet: A.unselectPlanet
 }
 
 export default connect(

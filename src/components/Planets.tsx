@@ -4,6 +4,7 @@ import { Column, Index, Table } from 'react-virtualized'
 
 import Satellites from './Satellites'
 import * as A from './actions'
+import * as S from './styles'
 import { IAppState } from './reducer'
 import { ISort } from './types'
 import { sort } from './sorting'
@@ -99,7 +100,7 @@ class Planets extends React.Component<IProps, IState> {
     const { sortDirection, sortBy } = this.state
     return (
       <div>
-        <span className='header'>Planets of our Solar System</span>
+        <S.header>Planets of our Solar System</S.header>
 
         <Table
           width={1950}
