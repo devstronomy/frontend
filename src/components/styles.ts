@@ -1,9 +1,5 @@
 import styled from 'styled-components'
-import { lighten } from 'polished'
-
-const dsBlue = '#7ad'
-const dsBlueLight = lighten(0.1)('#7ad')
-const textColor = '#aaa'
+import { dsBlue, dsBlueLight, textColor } from './globalStyles'
 
 export interface Highlightable {
   highlight?: boolean

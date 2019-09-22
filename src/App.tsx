@@ -14,6 +14,7 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import LaunchIcon from '@material-ui/icons/Launch'
 import { LocationDescriptor } from 'history'
+import GlobalStyles from './components/globalStyles'
 
 const theme = createMuiTheme({
   palette: {
@@ -74,6 +75,7 @@ const App = (props: { classes: any }) => {
       <MuiThemeProvider theme={theme}>
         <div>
           <div className={classes.root}>
+            <GlobalStyles />
             <AppBar position='static'>
               <Toolbar variant='dense'>
                 {routeMenuButton('/', 'Home')}
