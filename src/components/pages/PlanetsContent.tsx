@@ -9,7 +9,6 @@ import Planets from '../Planets'
 const PlanetsContent = () => {
   return (
     <div>
-
       <div className='contentCenter'>
         This is an interactive version of <a href='https://nssdc.gsfc.nasa.gov/planetary/factsheet/'>Planetary Fact
         Sheet</a> and <a href='https://ssd.jpl.nasa.gov/?sat_phys_par'>Planetary Satellite Physical Parameters</a>
@@ -20,12 +19,9 @@ const PlanetsContent = () => {
         </p>
       </div>
 
-      <hr/>
+      <hr />
 
-      <div className='planets'>
-        <Planets/>
-      </div>
-
+      <Planets />
     </div>
   )
 }

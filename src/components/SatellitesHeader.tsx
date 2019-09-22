@@ -41,11 +41,11 @@ class SatellitesHeader extends React.Component<IOwnProp & IReduxProps> {
           {headerElement}
           <S.plainText> ({numberOfSatellites} shown) </S.plainText>
           {selectedPlanet ? (
-            <button className='ahref' onClick={dispatchUnselectedPlanet}>
+            <S.button onClick={dispatchUnselectedPlanet}>
               show all satellites
-            </button>
+            </S.button>
           ) : (
-            <S.text>(select a planet above to filter satellites)</S.text>
+            <S.plainText>(select a planet above to filter satellites)</S.plainText>
           )}
         </S.header>
       </S.planetsContainer>
