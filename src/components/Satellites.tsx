@@ -8,6 +8,7 @@ import { IAppState } from './reducer'
 import { ISort } from './types'
 import { sort } from './sorting'
 import SatellitesHeader from './SatellitesHeader'
+import { IUnits, TableComponent } from './TableComponent'
 
 export interface ISatellite {
   id: number
@@ -24,9 +25,16 @@ interface IProps {
   dispatchSetSatellites: typeof A.setSatellites
 }
 
-class Satellites extends React.Component<IProps, IState> {
+const units: IUnits = {
+  'GM': <span>km<sup>3</sup>/sec<sup>2</sup></span>,
+  'Mean Radius': <span>km</span>,
+  'Mean Density': <span>g/cm<sup>3</sup></span>,
+  'Magnitude': <span>V<sub>0</sub> or R</span>,
+}
+
+class Satellites extends TableComponent<IProps, IState> {
   constructor(props: IProps) {
-    super(props)
+    super(props, units)
     this.state = {} as IState
   }
 
@@ -34,20 +42,8 @@ class Satellites extends React.Component<IProps, IState> {
     this.props.dispatchLoadSatellites()
   }
 
-  // Maps column name to its unit.
-  units: { [unitId: string]: JSX.Element } = {
-    'GM': <span>km<sup>3</sup>/sec<sup>2</sup></span>,
-    'Mean Radius': <span>km</span>,
-    'Mean Density': <span>g/cm<sup>3</sup></span>,
-    'Magnitude': <span>V<sub>0</sub> or R</span>,
-  }
-
-  private rowClassName = ({ index }: Index): string => {
-    return index % 2 === 0 ? 'oddRow' : ''
-  }
-
-  private columnHeader = (column: string): React.ReactNode => {
-    return <span>{column}<br/><span className='unit'>({this.units[column]})</span></span>
+  isItemSelected(index: number): boolean {
+    return false
   }
 
   render(): React.ReactNode {
@@ -74,10 +70,10 @@ class Satellites extends React.Component<IProps, IState> {
           sortDirection={sortDirection}
         >
           <Column label='Name' dataKey='name' width={105} className='main-column' />
-          <Column label={this.columnHeader('GM')} dataKey='gm' width={95} />
-          <Column label={this.columnHeader('Mean Radius')} dataKey='radius' width={75} />
-          <Column label={this.columnHeader('Mean Density')} dataKey='density' width={75} />
-          <Column label={this.columnHeader('Magnitude')} dataKey='magnitude' width={105} />
+          <Column label={this.labelWithUnits('GM')} dataKey='gm' width={95} />
+          <Column label={this.labelWithUnits('Mean Radius')} dataKey='radius' width={75} />
+          <Column label={this.labelWithUnits('Mean Density')} dataKey='density' width={75} />
+          <Column label={this.labelWithUnits('Magnitude')} dataKey='magnitude' width={105} />
           <Column label='Geometric Albedo' dataKey='albedo' width={100} />
         </Table>
       </div>
