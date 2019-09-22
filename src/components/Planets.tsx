@@ -77,7 +77,7 @@ class Planets extends TableComponent<IProps, IState> {
     const { planets } = this.props
     const { sortDirection, sortBy } = this.state
     return (
-      <div>
+      <S.planetContainer>
         <S.header>Planets of our Solar System</S.header>
 
         <Table
@@ -115,7 +115,7 @@ class Planets extends TableComponent<IProps, IState> {
         </Table>
 
         <Satellites />
-      </div>
+      </S.planetContainer>
     )
   }
 
