@@ -41,10 +41,6 @@ exports[`PlanetsContent should render correctly in "debug" mode 1`] = `
     </p>
   </div>
   <hr />
-  <div
-    className="planets"
-  >
-    <Connect(Planets) />
-  </div>
+  <Connect(Planets) />
 </div>
 `;
