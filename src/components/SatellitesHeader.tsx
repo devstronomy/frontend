@@ -18,16 +18,16 @@ interface IReduxProps {
 class SatellitesHeader extends React.Component<IOwnProp & IReduxProps> {
   private satellitesForPlanet = (planetName: String, numberOfSatellites: number) =>
     numberOfSatellites === 0 ? (
-      <S.text>
-        Planet <S.text highlight>{planetName}</S.text> does not have any satellites
-      </S.text>
+      <S.Text>
+        Planet <S.Text highlight>{planetName}</S.Text> does not have any satellites
+      </S.Text>
     ) : (
-      <S.text>
-        Satellites of planet <S.text highlight>{planetName}</S.text>
-      </S.text>
+      <S.Text>
+        Satellites of planet <S.Text highlight>{planetName}</S.Text>
+      </S.Text>
     )
 
-  private allSatellites = <S.text>Satellites of all planets</S.text>
+  private allSatellites = <S.Text>Satellites of all planets</S.Text>
 
   render(): React.ReactNode {
     const { selectedPlanet, numberOfSatellites, dispatchUnselectedPlanet } = this.props
@@ -36,19 +36,19 @@ class SatellitesHeader extends React.Component<IOwnProp & IReduxProps> {
       : this.allSatellites
 
     return (
-      <S.planetsContainer>
-        <S.header>
+      <S.SatellitesContainer>
+        <S.Header>
           {headerElement}
-          <S.plainText> ({numberOfSatellites} shown) </S.plainText>
+          <S.PlainText> ({numberOfSatellites} shown) </S.PlainText>
           {selectedPlanet ? (
-            <S.button onClick={dispatchUnselectedPlanet}>
+            <S.Button onClick={dispatchUnselectedPlanet}>
               show all satellites
-            </S.button>
+            </S.Button>
           ) : (
-            <S.plainText>(select a planet above to filter satellites)</S.plainText>
+            <S.PlainText>(select a planet above to filter satellites)</S.PlainText>
           )}
-        </S.header>
-      </S.planetsContainer>
+        </S.Header>
+      </S.SatellitesContainer>
     )
   }
 }

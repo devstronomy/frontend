@@ -1,30 +1,30 @@
 import styled from 'styled-components'
 import { dsBlue, dsBlueLight, textColor } from './globalStyles'
 
-export const planetContainer = styled.div`
+export const PlanetContainer = styled.div`
   padding: 10px;
+`
+
+export const SatellitesContainer = styled.div`
+  margin-top: 10px;
 `
 
 export interface Highlightable {
   highlight?: boolean
 }
 
-export const plainText = styled.span`
+export const PlainText = styled.span`
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 0.9em;
   font-weight: normal;
   color: ${textColor};
 `
 
-export const text = styled.span<Highlightable>`
+export const Text = styled.span<Highlightable>`
   color: ${props => (props.highlight ? dsBlueLight : dsBlue)};
 `
 
-export const planetsContainer = styled.div`
-  margin-top: 10px;
-`
-
-export const header = styled.div<Highlightable>`
+export const Header = styled.div<Highlightable>`
   display: inline-block;
   font-size: larger;
   margin: 10px 0 10px 0;
@@ -33,7 +33,7 @@ export const header = styled.div<Highlightable>`
   color: ${props => (props.highlight ? dsBlueLight : dsBlue)};
 `
 
-export const button = styled.button`
+export const Button = styled.button`
   background: none !important;
   color: inherit;
   border: none;
