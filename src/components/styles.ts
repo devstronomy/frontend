@@ -56,3 +56,8 @@ export const MenuButton = styled(Button).attrs({ className: 'DS-MenuButton' })`
     color: white;
   }
 `
+
+export const Unit = styled.span`
+  font-size: smaller;
+  color: #c77;
+`

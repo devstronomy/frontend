@@ -1,12 +1,13 @@
 import React from 'react'
 import { Index } from 'react-virtualized'
+import * as S from './styles'
 
 export type IUnits = { [unitId: string]: JSX.Element }
 
 export abstract class TableComponent<P, S> extends React.Component<P, S> {
-  private units: IUnits
+  private readonly units: IUnits
 
-  constructor(props: P, units: IUnits) {
+  protected constructor(props: P, units: IUnits) {
     super(props)
     this.units = units
   }
@@ -31,7 +32,7 @@ export abstract class TableComponent<P, S> extends React.Component<P, S> {
       <span>
         {column}
         <br />
-        <span className='unit'>({this.units[column]})</span>
+        <S.Unit>({this.units[column]})</S.Unit>
       </span>
     )
   }
