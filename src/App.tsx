@@ -48,9 +48,9 @@ const App = (props: { classes: any }) => {
             <GlobalStyles />
             <AppBar position='static'>
               <Toolbar variant='dense'>
-                <MenuButton route='/'>Home</MenuButton>
-                <MenuButton route='/planets'>Planets & Satellites</MenuButton>
-                <MenuButton route='/datasets'>Datasets</MenuButton>
+                <MenuButton to='/'>Home</MenuButton>
+                <MenuButton to='/planets'>Planets & Satellites</MenuButton>
+                <MenuButton to='/datasets'>Datasets</MenuButton>
 
                 <div className={classes.grow} />
 
