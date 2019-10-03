@@ -1,16 +1,15 @@
 import React from 'react'
 import { LocationDescriptor } from 'history'
-import * as S from './styles'
 import { Link } from 'react-router-dom'
+import * as S from './styles'
 
 interface IOwnProps {
-  externalLink?: string
-  to?: LocationDescriptor
+  to: LocationDescriptor
   children: React.ReactNode
 }
 
-const MenuButton = (props: IOwnProps) => {
-  const { externalLink, to, children } = props
+const LinkMenuButton = (props: IOwnProps) => {
+  const { to, children } = props
 
   // Inspired by https://material-ui.com/guides/composition/#link
   const renderLink = React.useMemo(
@@ -23,19 +22,7 @@ const MenuButton = (props: IOwnProps) => {
     [to]
   )
 
-  let linkProps
-  if (externalLink) {
-    linkProps = {
-      target: '_blank',
-      href: externalLink
-    }
-  } else if (to) {
-    linkProps = {
-      component: renderLink
-    }
-  } else {
-    console.error('Unexpected state. Both, externalLink and route, are undefined.')
-  }
+  const linkProps = { component: renderLink }
 
   return (
     <S.MenuButton variant='text' {...linkProps}>
@@ -44,4 +31,4 @@ const MenuButton = (props: IOwnProps) => {
   )
 }
 
-export default MenuButton
+export default LinkMenuButton

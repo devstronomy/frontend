@@ -13,7 +13,8 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import LaunchIcon from '@material-ui/icons/Launch'
 import GlobalStyles from './components/globalStyles'
-import MenuButton from './components/MenuButton'
+import ExternalLinkMenuButton from './components/buttons/ExternalLinkMenuButton'
+import RouteMenuButton from './components/buttons/RouteMenuButton'
 
 const theme = createMuiTheme({
   palette: {
@@ -48,15 +49,15 @@ const App = (props: { classes: any }) => {
             <GlobalStyles />
             <AppBar position='static'>
               <Toolbar variant='dense'>
-                <MenuButton to='/'>Home</MenuButton>
-                <MenuButton to='/planets'>Planets & Satellites</MenuButton>
-                <MenuButton to='/datasets'>Datasets</MenuButton>
+                <RouteMenuButton to='/'>Home</RouteMenuButton>
+                <RouteMenuButton to='/planets'>Planets & Satellites</RouteMenuButton>
+                <RouteMenuButton to='/datasets'>Datasets</RouteMenuButton>
 
                 <div className={classes.grow} />
 
-                <MenuButton externalLink='https://github.com/devstronomy/'>
+                <ExternalLinkMenuButton link='https://github.com/devstronomy/'>
                   GitHub <LaunchIcon className={classes.launchIcon} />
-                </MenuButton>
+                </ExternalLinkMenuButton>
               </Toolbar>
             </AppBar>
           </div>
