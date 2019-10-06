@@ -11,10 +11,10 @@ import grey from '@material-ui/core/colors/grey'
 import amber from '@material-ui/core/colors/amber'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
-import LaunchIcon from '@material-ui/icons/Launch'
 import GlobalStyles from './components/globalStyles'
 import ExternalLinkMenuButton from './components/buttons/ExternalLinkMenuButton'
 import RouteMenuButton from './components/buttons/RouteMenuButton'
+import githubIcon from './assets/GitHub-Mark-Light-32px.png'
 
 const theme = createMuiTheme({
   palette: {
@@ -56,7 +56,7 @@ const App = (props: { classes: any }) => {
                 <div className={classes.grow} />
 
                 <ExternalLinkMenuButton link='https://github.com/devstronomy/'>
-                  GitHub <LaunchIcon className={classes.launchIcon} />
+                  <img src={githubIcon} alt='GitHub' />
                 </ExternalLinkMenuButton>
               </Toolbar>
             </AppBar>
