@@ -3,7 +3,6 @@ import { dsBlue, dsBlueLight, textColor } from './globalStyles'
 import { Button } from '@material-ui/core'
 import LaunchIcon from '@material-ui/icons/Launch'
 
-
 export const PlanetContainer = styled.div`
   padding: 10px;
 `
@@ -67,8 +66,8 @@ export const Grow = styled.div`
 `
 
 export const StyledLaunchIcon = styled(LaunchIcon)`
-  width: 13;
-  height: 13;
+  width: 13px;
+  height: 13px;
   color: white;
 `
 
@@ -84,58 +83,37 @@ export const Link = styled.code`
   padding: 2px 0 2px 0;
 `
 
+const Content = styled.div.attrs({ className: 'flexCenter' })`
+  && {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+  }
 
-export const HomeContent = styled.div.attrs({ className: 'flexCenter' })`
-&& {
+  > * {
+    align-content: flex-start;
+    width: 80%;
+    max-width: 800px;
+    padding: 0 auto;
+    margin: 0.5em 0 0.5em 0;
+  }
+
+  > div > ul,
+  ol,
+  li {
+    margin: 0.1em 0 0.1em 0;
+  }
+`
+
+export const HomeContent = styled(Content)`
+  && {
     padding: 20px 20px 0 20px;
-    font-size: 1.1em; 
-   }
-   {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-   }
-  
-  > * {
-        align-content: flex-start;
-        width: 80%;
-        max-width: 800px;
-        padding: 0 auto;
-        margin: 0.5em 0 0.5em 0;
-      }
-  {  
-  > div > ul, ol,
-    li {
-        margin: 0.1em 0 0.1em 0;
-       }
-
-}
+    font-size: 1.1em;
+  }
 `
 
-export const DatasetContent = styled.div.attrs({ className: 'flexCenter' })`
-&& {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-   }
-  
-  > * {
-        align-content: flex-start;
-        width: 80%;
-        max-width: 800px;
-        padding: 0 auto;
-        margin: 0.5em 0 0.5em 0;
-      }
-  {  
-  > div > ul, ol,
-    li {
-        margin: 0.1em 0 0.1em 0;
-       }
-
-}
-`
+export const DatasetContent = styled(Content)``
 
 export const ContentHeader = styled.h1`
   padding: 20px 20px 0 20px;
