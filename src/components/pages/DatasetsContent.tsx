@@ -1,11 +1,12 @@
 import React from 'react'
-import {HashLink as Link} from 'react-router-hash-link'
+import { HashLink as Link } from 'react-router-hash-link'
 import Links from '../../links'
+import * as S from '../../components/styles'
 
 const github = 'https://github.com/devstronomy/nasa-data-scraper/blob/master/'
 
 const gitHubLink = (relPath: string, fileName: string) =>
-  <a href={github + 'data/' + relPath + fileName}><code className='link'>{fileName}</code></a>
+  <a href={github + 'data/' + relPath + fileName}><S.Link>{fileName}</S.Link></a>
 
 // Placeholders used in the HTML below.
 const planetCsvLink = gitHubLink('csv/', 'planets.csv')
@@ -19,8 +20,8 @@ const datasetsSql = gitHubLink('sql/', 'devstronomy.sql')
  * links and their sample usage (e.g., SQL selects).
  */
 const DatasetsContent = () => (
-  <div className='flexCenter'>
-    <h1 className='content'>Datasets section</h1>
+    <S.DatasetContent>
+        <S.ContentHeader>Datasets section</S.ContentHeader>
     <p>
       Devstronomy project aims to provide datasets related to astronomy in an accessible format (CSV, JSON, SQL).
     </p>
@@ -36,7 +37,7 @@ const DatasetsContent = () => (
 
     <hr/>
     <p>
-      <span className='warning'>Note:</span> the following is not migrated from original satellite dataset yet:
+      <S.Warning>Note:</S.Warning> the following is not migrated from original satellite dataset yet:
     </p>
     <div>
       <ul>
@@ -433,8 +434,7 @@ mysql -u [uname] -p[pass] devstronomy &lt; data/sql/devstronomy.sql`}</pre>
       `import pandas as pd
 p = pd.read_csv('planets-nasa-export.csv', sep=';')
 p.T.to_csv('planets.csv', header=False)`}</pre>
-
-  </div>
+  </S.DatasetContent>
 )
 
 export default DatasetsContent
