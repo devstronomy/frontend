@@ -1,13 +1,14 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import Links from '../../links'
+import * as S from "../styles";
 
 /**
  * Represents the home page of Devstronomy application.
  */
 const HomeContent = () => {
   return (
-    <div className='homepage flexCenter'>
+      <S.HomeContent >
       <h1>Datasets</h1>
       <p>
         Devstronomy project provides <Link to='/datasets'>datasets</Link> related to astronomy in an accessible
@@ -19,7 +20,7 @@ const HomeContent = () => {
       <p>
         Apart from the datasets themselves, there is an <Link to='/planets'>interactive demo</Link> of the data.
       </p>
-    </div>
+      </S.HomeContent>
   )
 }
 

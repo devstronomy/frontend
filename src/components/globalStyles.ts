@@ -51,12 +51,6 @@ export default createGlobalStyle`
     padding: 2px 4px 2px 4px;
   }
   
-  code.link {
-    background: inherit;
-    color: ${linkColor};
-    padding: 2px 0 2px 0;
-  }
-  
   pre {
     padding: 10px 10px 10px 10px;
   }

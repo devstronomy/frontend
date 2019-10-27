@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { dsBlue, dsBlueLight, textColor } from './globalStyles'
 import { Button } from '@material-ui/core'
+import LaunchIcon from '@material-ui/icons/Launch'
+
 
 export const PlanetContainer = styled.div`
   padding: 10px;
@@ -54,4 +56,87 @@ export const LinkButton = styled(Button).attrs({ className: 'DS-Button' })`
 export const Unit = styled.span`
   font-size: smaller;
   color: #c77;
+`
+
+export const Root = styled.div`
+  flex-grow: 1;
+`
+
+export const Grow = styled.div`
+  flex-grow: 1;
+`
+
+export const StyledLaunchIcon = styled(LaunchIcon)`
+  width: 13;
+  height: 13;
+  color: white;
+`
+
+export const Warning = styled.span`
+  color: #f55;
+  background: inherit;
+  padding: 2px 0 2px 0;
+`
+
+export const Link = styled.code`
+  color: #aad;
+  background: inherit;
+  padding: 2px 0 2px 0;
+`
+
+
+export const HomeContent = styled.div.attrs({ className: 'flexCenter' })`
+&& {
+    padding: 20px 20px 0 20px;
+    font-size: 1.1em; 
+   }
+   {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+   }
+  
+  > * {
+        align-content: flex-start;
+        width: 80%;
+        max-width: 800px;
+        padding: 0 auto;
+        margin: 0.5em 0 0.5em 0;
+      }
+  {  
+  > div > ul, ol,
+    li {
+        margin: 0.1em 0 0.1em 0;
+       }
+
+}
+`
+
+export const DatasetContent = styled.div.attrs({ className: 'flexCenter' })`
+&& {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+   }
+  
+  > * {
+        align-content: flex-start;
+        width: 80%;
+        max-width: 800px;
+        padding: 0 auto;
+        margin: 0.5em 0 0.5em 0;
+      }
+  {  
+  > div > ul, ol,
+    li {
+        margin: 0.1em 0 0.1em 0;
+       }
+
+}
+`
+
+export const ContentHeader = styled.h1`
+  padding: 20px 20px 0 20px;
 `
