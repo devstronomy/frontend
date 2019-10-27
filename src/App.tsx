@@ -5,8 +5,7 @@ import HomeContent from './components/pages/HomeContent'
 import PlanetsContent from './components/pages/PlanetsContent'
 import DatasetsContent from './components/pages/DatasetsContent'
 
-import PropTypes from 'prop-types'
-import { createMuiTheme, MuiThemeProvider, withStyles } from '@material-ui/core/styles'
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
 import grey from '@material-ui/core/colors/grey'
 import amber from '@material-ui/core/colors/amber'
 import AppBar from '@material-ui/core/AppBar'
@@ -15,6 +14,7 @@ import GlobalStyles from './components/globalStyles'
 import ExternalLinkMenuButton from './components/buttons/ExternalLinkMenuButton'
 import RouteMenuButton from './components/buttons/RouteMenuButton'
 import githubIcon from './assets/GitHub-Mark-Light-32px.png'
+import * as S from './components/styles'
 
 const theme = createMuiTheme({
   palette: {
@@ -24,28 +24,13 @@ const theme = createMuiTheme({
   }
 })
 
-const styles = () => ({
-  root: {
-    flexGrow: 1
-  },
-  grow: {
-    flexGrow: 1
-  },
-  launchIcon: {
-    width: 13,
-    height: 13,
-    color: 'white'
-  }
-})
-
-const App = (props: { classes: any }) => {
-  const { classes } = props
+const App = () => {
 
   return (
     <Router>
       <MuiThemeProvider theme={theme}>
         <div>
-          <div className={classes.root}>
+            <S.Root>
             <GlobalStyles />
             <AppBar position='static'>
               <Toolbar variant='dense'>
@@ -53,14 +38,15 @@ const App = (props: { classes: any }) => {
                 <RouteMenuButton to='/planets'>Planets & Satellites</RouteMenuButton>
                 <RouteMenuButton to='/datasets'>Datasets</RouteMenuButton>
 
-                <div className={classes.grow} />
+                  <S.Grow />
 
                 <ExternalLinkMenuButton link='https://github.com/devstronomy/'>
                   <img src={githubIcon} alt='GitHub' />
+                    GitHub <S.StyledLaunchIcon />
                 </ExternalLinkMenuButton>
               </Toolbar>
             </AppBar>
-          </div>
+            </S.Root>
 
           <Route path='/' exact component={HomeContent} />
           <Route path='/planets/' component={PlanetsContent} />
@@ -71,8 +57,4 @@ const App = (props: { classes: any }) => {
   )
 }
 
-App.propTypes = {
-  classes: PropTypes.object.isRequired
-}
-
-export default withStyles(styles)(App)
+export default App
