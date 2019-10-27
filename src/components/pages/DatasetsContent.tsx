@@ -20,8 +20,8 @@ const datasetsSql = gitHubLink('sql/', 'devstronomy.sql')
  * links and their sample usage (e.g., SQL selects).
  */
 const DatasetsContent = () => (
-    <S.DatasetContent>
-        <S.ContentHeader>Datasets section</S.ContentHeader>
+  <S.DatasetContent>
+    <S.ContentHeader>Datasets section</S.ContentHeader>
     <p>
       Devstronomy project aims to provide datasets related to astronomy in an accessible format (CSV, JSON, SQL).
     </p>

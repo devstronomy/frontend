@@ -1,7 +1,7 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Links from '../../links'
-import * as S from "../styles";
+import * as S from '../styles'
 
 /**
  * Represents the home page of Devstronomy application.
