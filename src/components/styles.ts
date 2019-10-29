@@ -115,6 +115,11 @@ export const HomeContent = styled(Content)`
 
 export const DatasetContent = styled(Content)``
 
-export const ContentHeader = styled.h1`
+export const PlanetsHeader = styled.div`
+  padding: 20px 20px 0 20px;
+  text-align: center;
+`
+
+export const DatasetHeader = styled.h1`
   padding: 20px 20px 0 20px;
 `
