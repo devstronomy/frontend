@@ -51,7 +51,9 @@
     "prettier": "1.18.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "docker:run": "docker run -v ${PWD}:/app -v /app/node_modules -p 80:3000 --rm ds-ui:dev",
+    "docker:build": "docker image build -t ds-ui:dev .",
+    "start": "npm run build-css && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
