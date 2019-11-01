@@ -25,32 +25,32 @@ const theme = createMuiTheme({
 })
 
 const App = () => {
-
   return (
     <Router>
       <MuiThemeProvider theme={theme}>
         <div>
-            <S.Root>
+          <S.Root>
             <GlobalStyles />
             <AppBar position='static'>
               <Toolbar variant='dense'>
-                <RouteMenuButton to='/'>Home</RouteMenuButton>
-                <RouteMenuButton to='/planets'>Planets & Satellites</RouteMenuButton>
+                <RouteMenuButton to=''>Planets & Satellites</RouteMenuButton>
                 <RouteMenuButton to='/datasets'>Datasets</RouteMenuButton>
 
-                  <S.Grow />
+                <S.Grow />
 
+                <RouteMenuButton to='/about'>About</RouteMenuButton>
                 <ExternalLinkMenuButton link='https://github.com/devstronomy/'>
-                  <img src={githubIcon} alt='GitHub' />
+                    <img src={githubIcon} alt='GitHub' />
                     GitHub <S.StyledLaunchIcon />
                 </ExternalLinkMenuButton>
               </Toolbar>
             </AppBar>
-            </S.Root>
+          </S.Root>
 
-          <Route path='/' exact component={HomeContent} />
-          <Route path='/planets/' component={PlanetsContent} />
-          <Route path='/datasets/' component={DatasetsContent} />
+          <Route exact path='/' component={PlanetsContent} />
+          <Route path='/planets' component={PlanetsContent} />
+          <Route path='/datasets' component={DatasetsContent} />
+          <Route path='/about' exact component={HomeContent} />
         </div>
       </MuiThemeProvider>
     </Router>
