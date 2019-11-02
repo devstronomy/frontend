@@ -83,7 +83,7 @@ export const Link = styled.code`
   padding: 2px 0 2px 0;
 `
 
-const Content = styled.div.attrs({ className: 'flexCenter' })`
+export const Page = styled.div.attrs({ className: 'flexCenter' })`
   && {
     display: flex;
     flex-direction: column;
@@ -106,14 +106,7 @@ const Content = styled.div.attrs({ className: 'flexCenter' })`
   }
 `
 
-export const HomeContent = styled(Content)`
-  && {
-    padding: 20px 20px 0 20px;
-    font-size: 1.1em;
-  }
-`
-
-export const DatasetContent = styled(Content)``
+export const DatasetContent = styled(Page)``
 
 export const PlanetsHeader = styled.div`
   padding: 20px 20px 0 20px;

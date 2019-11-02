@@ -1,7 +1,7 @@
 import React from 'react'
 import { HashRouter as Router, Route } from 'react-router-dom'
 
-import HomeContent from './components/pages/HomeContent'
+import AboutPage from './components/pages/about/AboutPage'
 import PlanetsContent from './components/pages/PlanetsContent'
 import DatasetsContent from './components/pages/DatasetsContent'
 
@@ -50,7 +50,7 @@ const App = () => {
           <Route exact path='/' component={PlanetsContent} />
           <Route path='/planets' component={PlanetsContent} />
           <Route path='/datasets' component={DatasetsContent} />
-          <Route path='/about' exact component={HomeContent} />
+          <Route path='/about' component={AboutPage} />
         </div>
       </MuiThemeProvider>
     </Router>
