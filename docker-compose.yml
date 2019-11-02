@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+
+  npm: &npm
+    build: .
+    volumes:
+      - .:/app
+      - node_modules:/app/ui/node_modules
+    entrypoint: npm
+
+  dev-server:
+    <<: *npm
+    ports:
+      - "3000:3000"
+    command: start
+
+volumes:
+  node_modules:
