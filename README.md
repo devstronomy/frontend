@@ -13,32 +13,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Running project locally
 
-### Using Docker
+* Either using Docker: `docker-compose up dev-server` 
+* Or NPM: `npm install && npm start`
 
-```sh
-docker image build -t ds-ui:dev . # builds the image
-docker run -v ${PWD}:/app -v /app/node_modules -p 80:3000 --rm ds-ui:dev # starts the container
-```
-
-### Using `npm`
-In the project directory, run:
-
-```sh
-npm start
-```
-
-### Hybrid: using local `npm` to run Docker
-
-```sh
-npm run docker:build
-npm run docker:run
-```
- 
-You may prefer to `npm run watch-css` during development (until we switch fully to Styled Components).
+You may want to `npm run watch-css` during development (until we switch fully to Styled Components).
 
 Then open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
+The page will reload if you make edits (also when running via Docker).\
 You will also see any lint errors in the console.
 
 ### Build and deploy
