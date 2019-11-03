@@ -5,9 +5,9 @@ import App from './App'
 import * as serviceWorker from './serviceWorker'
 import { Provider } from 'react-redux'
 import { applyMiddleware, compose, createStore } from 'redux'
-import appReducers from './components/reducer'
+import appReducers from './components/pages/solar-system/reducer'
 import createSagaMiddleware from '@redux-saga/core'
-import componentSagas from './components/sagas'
+import componentSagas from './components/pages/solar-system/sagas'
 import { all, fork } from 'redux-saga/effects'
 
 const sagaMiddleware = createSagaMiddleware()

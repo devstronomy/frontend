@@ -2,7 +2,7 @@ import React from 'react'
 import { HashRouter as Router, Route } from 'react-router-dom'
 
 import AboutPage from './components/pages/about/AboutPage'
-import PlanetsContent from './components/pages/PlanetsContent'
+import SolarSystemPage from './components/pages/solar-system/SolarSystemPage'
 import DatasetsPage from './components/pages/datasets/DatasetsPage'
 
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
@@ -45,8 +45,8 @@ const App = () => {
             </AppBar>
           </S.Root>
 
-          <Route exact path='/' component={PlanetsContent} />
-          <Route path='/planets' component={PlanetsContent} />
+          <Route exact path='/' component={SolarSystemPage} />
+          <Route path='/planets' component={SolarSystemPage} />
           <Route path='/datasets' component={DatasetsPage} />
           <Route path='/about' component={AboutPage} />
         </div>

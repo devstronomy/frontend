@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PlanetsContent should render correctly in "debug" mode 1`] = `
+exports[`SolarSystemPage should render correctly 1`] = `
 <Fragment>
   <styled.div>
     This is an interactive version of 
