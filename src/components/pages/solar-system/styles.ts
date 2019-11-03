@@ -11,11 +11,28 @@ export const SolarSystemHeader = styled.div`
   text-align: center;
 `
 
-export const PlanetContainer = styled.div`
+const TableContainer = styled.div`
+  .main-column {
+    justify-content: flex-start;
+    color: #ffa;
+  }
+
+  .oddRow {
+    background: #44596e;
+  }
+
+  .selectedRow {
+    background: #74899e;
+    border-bottom: 0;
+    border-top: 0;
+  }
+`
+
+export const PlanetContainer = styled(TableContainer)`
   padding: 10px;
 `
 
-export const SatellitesContainer = styled.div`
+export const SatellitesContainer = styled(TableContainer)`
   margin-top: 10px;
 `
 

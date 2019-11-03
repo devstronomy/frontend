@@ -11,7 +11,6 @@ import { sort } from './sorting'
 
 // styles
 import '../../../css-react-virtualized/styles.css' // only needs to be imported once
-import '../../../css/components/table.css'
 import { IUnits, TableComponent } from './TableComponent'
 
 export interface IPlanet {
