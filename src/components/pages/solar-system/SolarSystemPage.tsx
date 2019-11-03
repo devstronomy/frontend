@@ -10,12 +10,13 @@ import * as S from './styles'
 const SolarSystemPage = () => (
   <>
     <S.SolarSystemHeader>
-      This is an interactive version of <a href='https://nssdc.gsfc.nasa.gov/planetary/factsheet/'>Planetary Fact
-      Sheet</a> and <a href='https://ssd.jpl.nasa.gov/?sat_phys_par'>Planetary Satellite Physical Parameters</a>
-      &nbsp;datasets from {Links.jpl}.
+      This is an interactive version of{' '}
+      <a href='https://nssdc.gsfc.nasa.gov/planetary/factsheet/'>Planetary Fact Sheet</a> and{' '}
+      <a href='https://ssd.jpl.nasa.gov/?sat_phys_par'>Planetary Satellite Physical Parameters</a> datasets from{' '}
+      {Links.jpl}.
       <p>
-        Tips: <span className='highlight'>Select the planet below</span> to see only its satellites
-        or <span className='highlight'>click on the column</span> to sort.
+        Tips: <S.Text highlight>Select the planet below</S.Text> to see only its satellites or{' '}
+        <S.Text highlight>click on the column</S.Text> to sort.
       </p>
     </S.SolarSystemHeader>
 

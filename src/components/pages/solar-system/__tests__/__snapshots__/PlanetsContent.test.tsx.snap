@@ -3,19 +3,22 @@
 exports[`SolarSystemPage should render correctly 1`] = `
 <Fragment>
   <styled.div>
-    This is an interactive version of 
+    This is an interactive version of
+     
     <a
       href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/"
     >
       Planetary Fact Sheet
     </a>
-     and 
+     and
+     
     <a
       href="https://ssd.jpl.nasa.gov/?sat_phys_par"
     >
       Planetary Satellite Physical Parameters
     </a>
-     datasets from 
+     datasets from
+     
     <a
       href="https://www.jpl.nasa.gov/"
     >
@@ -24,17 +27,18 @@ exports[`SolarSystemPage should render correctly 1`] = `
     .
     <p>
       Tips: 
-      <span
-        className="highlight"
+      <styled.span
+        highlight={true}
       >
         Select the planet below
-      </span>
-       to see only its satellites or 
-      <span
-        className="highlight"
+      </styled.span>
+       to see only its satellites or
+       
+      <styled.span
+        highlight={true}
       >
         click on the column
-      </span>
+      </styled.span>
        to sort.
     </p>
   </styled.div>
