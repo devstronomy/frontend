@@ -71,18 +71,6 @@ export const StyledLaunchIcon = styled(LaunchIcon)`
   color: white;
 `
 
-export const Warning = styled.span`
-  color: #f55;
-  background: inherit;
-  padding: 2px 0 2px 0;
-`
-
-export const Link = styled.code`
-  color: #aad;
-  background: inherit;
-  padding: 2px 0 2px 0;
-`
-
 export const Page = styled.div.attrs({ className: 'flexCenter' })`
   && {
     display: flex;

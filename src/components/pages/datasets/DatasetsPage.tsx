@@ -1,7 +1,7 @@
 import React from 'react'
 import { HashLink as Link } from 'react-router-hash-link'
-import Links from '../../links'
-import * as S from '../../components/styles'
+import Links from '../../../links'
+import * as S from './styles'
 
 const github = 'https://github.com/devstronomy/nasa-data-scraper/blob/master/'
 
@@ -19,8 +19,8 @@ const datasetsSql = gitHubLink('sql/', 'devstronomy.sql')
  * Represents 'Datasets' page of Devstronomy application. Provides information about available datasets, the download
  * links and their sample usage (e.g., SQL selects).
  */
-const DatasetsContent = () => (
-  <S.DatasetContent>
+const DatasetsPage = () => (
+  <S.DatasetsPage>
     <S.DatasetHeader>Datasets section</S.DatasetHeader>
     <p>
       Devstronomy project aims to provide datasets related to astronomy in an accessible format (CSV, JSON, SQL).
@@ -434,7 +434,7 @@ mysql -u [uname] -p[pass] devstronomy &lt; data/sql/devstronomy.sql`}</pre>
       `import pandas as pd
 p = pd.read_csv('planets-nasa-export.csv', sep=';')
 p.T.to_csv('planets.csv', header=False)`}</pre>
-  </S.DatasetContent>
+  </S.DatasetsPage>
 )
 
-export default DatasetsContent
+export default DatasetsPage
