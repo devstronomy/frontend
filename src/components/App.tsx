@@ -14,6 +14,7 @@ import GlobalStyles from '../components/globalStyles'
 import ExternalLinkMenuButton from '../components/buttons/ExternalLinkMenuButton'
 import RouteMenuButton from '../components/buttons/RouteMenuButton'
 import * as S from './styles'
+import githubIcon from '../assets/GitHub-Mark-Light-32px.png'
 
 const theme = createMuiTheme({
   palette: {
@@ -39,7 +40,7 @@ const App = () => {
 
                 <RouteMenuButton to='/about'>About</RouteMenuButton>
                 <ExternalLinkMenuButton link='https://github.com/devstronomy/'>
-                  GitHub <S.StyledLaunchIcon />
+                  <img src={githubIcon} alt='GitHub' />
                 </ExternalLinkMenuButton>
               </Toolbar>
             </AppBar>
