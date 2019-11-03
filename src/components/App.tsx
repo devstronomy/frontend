@@ -42,7 +42,6 @@ const App = () => {
                 <RouteMenuButton to='/about'>About</RouteMenuButton>
                 <ExternalLinkMenuButton link='https://github.com/devstronomy/'>
                     <img src={githubIcon} alt='GitHub' />
-                    GitHub <S.StyledLaunchIcon />
                 </ExternalLinkMenuButton>
               </Toolbar>
             </AppBar>
