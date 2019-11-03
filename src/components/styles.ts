@@ -1,9 +1,5 @@
 import styled from 'styled-components'
-import LaunchIcon from '@material-ui/icons/Launch'
-
-export interface Highlightable {
-  highlight?: boolean
-}
+import LaunchIcon from '@material-ui/core/SvgIcon/SvgIcon'
 
 export const Root = styled.div`
   flex-grow: 1;

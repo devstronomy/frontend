@@ -1,7 +1,10 @@
 import styled from 'styled-components'
 import { dsBlue, dsBlueLight, textColor } from '../../globalStyles'
-import { Highlightable } from '../../styles'
 import { Button } from '@material-ui/core'
+
+interface Highlightable {
+  highlight?: boolean
+}
 
 export const SolarSystemHeader = styled.div`
   padding: 20px 20px 0 20px;

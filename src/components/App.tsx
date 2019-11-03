@@ -1,20 +1,21 @@
 import React from 'react'
 import { HashRouter as Router, Route } from 'react-router-dom'
 
-import AboutPage from './components/pages/about/AboutPage'
-import SolarSystemPage from './components/pages/solar-system/SolarSystemPage'
-import DatasetsPage from './components/pages/datasets/DatasetsPage'
+import AboutPage from '../components/pages/about/AboutPage'
+import SolarSystemPage from '../components/pages/solar-system/SolarSystemPage'
+import DatasetsPage from '../components/pages/datasets/DatasetsPage'
 
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
 import grey from '@material-ui/core/colors/grey'
 import amber from '@material-ui/core/colors/amber'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
-import GlobalStyles from './components/globalStyles'
-import ExternalLinkMenuButton from './components/buttons/ExternalLinkMenuButton'
-import RouteMenuButton from './components/buttons/RouteMenuButton'
-import githubIcon from './assets/GitHub-Mark-Light-32px.png'
-import * as S from './components/styles'
+
+import GlobalStyles from '../components/globalStyles'
+import ExternalLinkMenuButton from '../components/buttons/ExternalLinkMenuButton'
+import RouteMenuButton from '../components/buttons/RouteMenuButton'
+import * as S from './styles'
+import githubIcon from '../assets/GitHub-Mark-Light-32px.png'
 
 const theme = createMuiTheme({
   palette: {
