@@ -10,9 +10,9 @@ import { ISort } from './types'
 import { sort } from './sorting'
 
 // styles
-import '../css-react-virtualized/styles.css' // only needs to be imported once
-import '../css/components/table.css'
-import '../css/index.css'
+import '../../../css-react-virtualized/styles.css' // only needs to be imported once
+import '../../../css/components/table.css'
+import '../../../css/index.css'
 import { IUnits, TableComponent } from './TableComponent'
 
 export interface IPlanet {
