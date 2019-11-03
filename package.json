@@ -47,16 +47,13 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-standard": "^4.0.0",
-    "less-watch-compiler": "^1.13.0",
     "prettier": "1.18.2"
   },
   "scripts": {
-    "start": "npm run build-css && react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build-css": "less-watch-compiler --run-once src/less src/css",
-    "watch-css": "npm run build-css && less-watch-compiler src/less src/css",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "lint": "eslint \"src/**/*.ts\" \"src/**/*.tsx\"",

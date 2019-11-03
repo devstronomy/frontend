@@ -16,8 +16,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * Either using Docker: `docker-compose up dev-server` 
 * Or NPM: `npm install && npm start`
 
-You may want to `npm run watch-css` during development (until we switch fully to Styled Components).
-
 Then open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits (also when running via Docker).\
