@@ -6,5 +6,6 @@ import { ButtonTypeMap } from '@material-ui/core/Button'
 export const MenuButton: ExtendButtonBase<ButtonTypeMap> = styled(Button).attrs({ className: 'DS-MenuButton' })`
   && {
     color: white;
+    border-bottom: none;
   }
 `

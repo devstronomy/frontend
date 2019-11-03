@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Page } from '../styles'
+import { linkColor } from '../../globalStyles'
 
 export const DatasetsPage = styled(Page)``
 
@@ -7,8 +8,8 @@ export const DatasetHeader = styled.h1`
   padding: 20px 20px 0 20px;
 `
 
-export const Link = styled.code`
-  color: #aad;
+export const CodeLink = styled.code`
+  color: ${linkColor};
   background: inherit;
   padding: 2px 0 2px 0;
 `
