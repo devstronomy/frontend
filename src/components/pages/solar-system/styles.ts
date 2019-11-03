@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { dsBlue, dsBlueLight, textColor } from '../../globalStyles'
+import { dsBlue, dsBlueLight, linkColor, linkUnderlineHoverColor, textColor } from '../../globalStyles'
 import { Button } from '@material-ui/core'
 
 interface Highlightable {
@@ -45,14 +45,18 @@ export const LinkButton = styled(Button).attrs({ className: 'DS-Button' })`
     font-weight: normal;
     background: none !important;
     border: none;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid ${linkUnderlineHoverColor};
     border-radius: unset;
-    color: ${textColor};
+    color: ${linkColor};
     cursor: pointer;
     line-height: normal;
     padding: 0 !important;
     text-transform: none;
     vertical-align: initial;
+  }
+
+  :hover {
+    border-bottom: 1px solid ${linkColor};
   }
 `
 
