@@ -6,7 +6,7 @@ import * as S from './styles'
 const github = 'https://github.com/devstronomy/nasa-data-scraper/blob/master/'
 
 const gitHubLink = (relPath: string, fileName: string) =>
-  <a href={github + 'data/' + relPath + fileName}><S.Link>{fileName}</S.Link></a>
+  <a href={github + 'data/' + relPath + fileName}><S.CodeLink>{fileName}</S.CodeLink></a>
 
 // Placeholders used in the HTML below.
 const planetCsvLink = gitHubLink('csv/', 'planets.csv')

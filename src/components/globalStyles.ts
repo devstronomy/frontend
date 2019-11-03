@@ -6,7 +6,7 @@ export const dsBlueLight = lighten(0.1)('#7ad')
 export const textColor = '#aaa'
 
 const backgroundColor = '#1e1e1e'
-const linkColor = '#aad'
+export const linkColor = dsBlueLight
 
 export default createGlobalStyle`
 
@@ -32,10 +32,11 @@ export default createGlobalStyle`
   a, a:visited, a:hover, a:active {
     color: ${linkColor};
     text-decoration: none;
+    border-bottom: 1px solid #5e6e7d;
   }
   
   a:hover {
-    text-decoration: underline;
+    border-bottom: 1px solid ${linkColor};
   }
   
   hr {
