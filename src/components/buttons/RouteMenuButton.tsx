@@ -14,6 +14,8 @@ const LinkMenuButton = (props: IOwnProps) => {
   // Inspired by https://material-ui.com/guides/composition/#link
   const renderLink = React.useMemo(
     () =>
+      // TODO: Try to resolve the below ESLint complain.
+      // eslint-disable-next-line react/display-name
       React.forwardRef((itemProps, ref: React.Ref<HTMLAnchorElement>) => (
         // With react-router-dom@^6.0.0 use `ref` instead of `innerRef`
         // See https://github.com/ReactTraining/react-router/issues/6056
