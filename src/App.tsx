@@ -3,7 +3,7 @@ import { HashRouter as Router, Route } from 'react-router-dom'
 
 import AboutPage from './components/pages/about/AboutPage'
 import PlanetsContent from './components/pages/PlanetsContent'
-import DatasetsContent from './components/pages/DatasetsContent'
+import DatasetsPage from './components/pages/datasets/DatasetsPage'
 
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
 import grey from '@material-ui/core/colors/grey'
@@ -49,7 +49,7 @@ const App = () => {
 
           <Route exact path='/' component={PlanetsContent} />
           <Route path='/planets' component={PlanetsContent} />
-          <Route path='/datasets' component={DatasetsContent} />
+          <Route path='/datasets' component={DatasetsPage} />
           <Route path='/about' component={AboutPage} />
         </div>
       </MuiThemeProvider>
