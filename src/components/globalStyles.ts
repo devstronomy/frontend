@@ -7,6 +7,7 @@ export const textColor = '#aaa'
 
 const backgroundColor = '#1e1e1e'
 export const linkColor = dsBlueLight
+export const linkUnderlineHoverColor = '#5e6e7d'
 
 export default createGlobalStyle`
 
@@ -32,7 +33,7 @@ export default createGlobalStyle`
   a, a:visited, a:hover, a:active {
     color: ${linkColor};
     text-decoration: none;
-    border-bottom: 1px solid #5e6e7d;
+    border-bottom: 1px solid ${linkUnderlineHoverColor};
   }
   
   a:hover {
