@@ -36,6 +36,12 @@ export const SatellitesContainer = styled(TableContainer)`
   margin-top: 10px;
 `
 
+export const WidgetContainer = styled.div`
+  display: inline-block;
+  margin: 10px 0 10px 0;
+  margin-inline-end: 0;
+`
+
 export const HeaderContainer = styled.div`
   display: inline-block;
   margin: 10px 0 10px 0;
