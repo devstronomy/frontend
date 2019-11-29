@@ -12,6 +12,7 @@ import { sort } from './sorting'
 // styles
 import '../../../css-react-virtualized/styles.css' // only needs to be imported once
 import { IUnits, TableComponent } from './TableComponent'
+import Model from './ModelPrototype'
 
 export interface IPlanet {
   id: number
@@ -114,7 +115,18 @@ class Planets extends TableComponent<IProps, IState> {
           <Column label={this.labelWithUnits('Surface Pressure')} dataKey='surfacePressure' width={80} />
         </Table>
 
-        <Satellites />
+        <div style={{display: 'flex'}}>
+          <Satellites />
+          <S.WidgetContainer>
+            <S.HeaderContainer>
+              <S.HeaderText>Selected planets</S.HeaderText>
+            </S.HeaderContainer>
+            <Model
+                selectedModelPlanet = {this.props.selectedPlanet}
+            />
+          </S.WidgetContainer>
+        </div>
+
       </S.PlanetContainer>
     )
   }

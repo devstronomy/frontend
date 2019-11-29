@@ -4,3 +4,5 @@ export const SELECT_PLANET = 'SELECT_PLANET'
 
 export const LOAD_SATELLITES = 'LOAD_SATELLITES'
 export const SET_SATELLITES = 'SET_SATELLITES'
+export const SET_MODEL = 'SET_MODEL'
+export const LOAD_MODEL = 'LOAD_MODEL'

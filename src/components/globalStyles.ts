@@ -5,7 +5,7 @@ export const dsBlue = '#7ad'
 export const dsBlueLight = lighten(0.1)('#7ad')
 export const textColor = '#aaa'
 
-const backgroundColor = '#1e1e1e'
+const backgroundColor = '#000000'
 export const linkColor = dsBlueLight
 export const linkUnderlineHoverColor = '#5e6e7d'
 

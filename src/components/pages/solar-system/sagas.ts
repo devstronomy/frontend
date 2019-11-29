@@ -29,4 +29,18 @@ export const loadSatellitesFlow = function*() {
   }
 }
 
+
+export const watchLoadModel = function*() {
+  yield takeLatest(C.LOAD_SATELLITES, loadSatellitesFlow)
+}
+
+export const loadModelFlow = function*() {
+  try {
+    const satellites = yield call(dataLoader.loadAllSatellites)
+    yield put(A.setSatellites(satellites))
+  } catch (err) {
+    console.log('Loading satellites failed')
+  }
+}
+
 export default [watchLoadPlanets, watchLoadSatellites]

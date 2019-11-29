@@ -34,9 +34,25 @@ export const setSatellites = (satellites: ReadonlyArray<ISatellite>) =>
     payload: { satellites }
   } as const)
 
+
+export const setModel = (model: any) =>
+    ({
+        type: C.SET_MODEL,
+        payload: { model }
+    } as const)
+
+export const loadModel = () =>
+    ({
+        type: C.LOAD_MODEL,
+        payload: {}
+    } as const)
+
+
 export type IActions =
   | ReturnType<typeof loadPlanets>
   | ReturnType<typeof setPlanets>
   | ReturnType<typeof setSelectedPlanet>
   | ReturnType<typeof loadSatellites>
   | ReturnType<typeof setSatellites>
+  | ReturnType<typeof loadModel>
+  | ReturnType<typeof setModel>

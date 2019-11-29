@@ -11,6 +11,8 @@ export interface IAppState {
 
   planetsLoadingInProgress: boolean
   satellitesLoadingInProgress: boolean
+
+  model?: any
 }
 
 const initialState: IAppState = {
@@ -20,7 +22,9 @@ const initialState: IAppState = {
   selectedPlanet: undefined,
 
   planetsLoadingInProgress: false,
-  satellitesLoadingInProgress: false
+  satellitesLoadingInProgress: false,
+
+  model: null
 }
 
 export default (state: IAppState = initialState, action: A.IActions): IAppState => {
@@ -54,6 +58,11 @@ export default (state: IAppState = initialState, action: A.IActions): IAppState 
         ...state,
         satellites: action.payload.satellites,
         satellitesLoadingInProgress: false
+      }
+    case C.SET_MODEL:
+      return {
+        ...state,
+        model: action.payload.model,
       }
     default:
       return state
