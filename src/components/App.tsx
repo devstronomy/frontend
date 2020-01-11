@@ -28,29 +28,25 @@ const App = () => {
   return (
     <Router>
       <MuiThemeProvider theme={theme}>
-        <div>
-          <S.Root>
-            <GlobalStyles />
-            <AppBar position='static'>
-              <Toolbar variant='dense'>
-                <RouteMenuButton to=''>Planets & Satellites</RouteMenuButton>
-                <RouteMenuButton to='/datasets'>Datasets</RouteMenuButton>
+        <GlobalStyles/>
+        <AppBar position='static'>
+          <Toolbar variant='dense'>
+            <RouteMenuButton to=''>Planets & Satellites</RouteMenuButton>
+            <RouteMenuButton to='/datasets'>Datasets</RouteMenuButton>
 
-                <S.Grow />
+            <S.FlexGrow/>
 
-                <RouteMenuButton to='/about'>About</RouteMenuButton>
-                <ExternalLinkMenuButton link='https://github.com/devstronomy/'>
-                  <img src={githubIcon} alt='GitHub' />
-                </ExternalLinkMenuButton>
-              </Toolbar>
-            </AppBar>
-          </S.Root>
+            <RouteMenuButton to='/about'>About</RouteMenuButton>
+            <ExternalLinkMenuButton link='https://github.com/devstronomy/'>
+              <img src={githubIcon} alt='GitHub'/>
+            </ExternalLinkMenuButton>
+          </Toolbar>
+        </AppBar>
 
-          <Route exact path='/' component={SolarSystemPage} />
-          <Route path='/planets' component={SolarSystemPage} />
-          <Route path='/datasets' component={DatasetsPage} />
-          <Route path='/about' component={AboutPage} />
-        </div>
+        <Route exact path='/' component={SolarSystemPage}/>
+        <Route path='/planets' component={SolarSystemPage}/>
+        <Route path='/datasets' component={DatasetsPage}/>
+        <Route path='/about' component={AboutPage}/>
       </MuiThemeProvider>
     </Router>
   )

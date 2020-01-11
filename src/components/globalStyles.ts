@@ -27,11 +27,13 @@ const column = `
 export default createGlobalStyle`
 
   html {
+    height: 100%;
     background: ${backgroundColor};
     text-align: left;
   }
 
   body {
+    height: 100%;
     padding: 0;
     margin: 0;
     background: ${backgroundColor};
@@ -41,6 +43,12 @@ export default createGlobalStyle`
     font-size: 0.9em;
   }
   
+  #root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     color: ${dsBlue};
   }
