@@ -69,7 +69,7 @@ class Satellites extends TableComponent<IProps, IState> {
           sortBy={sortBy}
           sortDirection={sortDirection}
         >
-          <Column label='Name' dataKey='name' width={105} className='main-column' />
+          <Column label='Name' dataKey='name' width={105} className='rvt-main-column' />
           <Column label={this.labelWithUnits('GM')} dataKey='gm' width={95} />
           <Column label={this.labelWithUnits('Mean Radius')} dataKey='radius' width={75} />
           <Column label={this.labelWithUnits('Mean Density')} dataKey='density' width={75} />
