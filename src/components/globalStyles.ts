@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
-import { lighten } from 'polished'
+import { darken, lighten } from 'polished'
+import { Index } from 'react-virtualized'
 
 export const dsBlue = '#7ad'
 export const dsBlueLight = lighten(0.1)('#7ad')
@@ -11,7 +12,21 @@ export const linkUnderlineHoverColor = '#5e6e7d'
 
 const tableBorder = '1px solid #24494E'
 
-const column = `
+export const rowClassName = ({ index }: Index, isSelected?: (row: number) => boolean): string => {
+  if (index === -1) {
+    return ''
+  }
+  if (isSelected && isSelected(index)) {
+    return 'rvt-selected-row'
+  }
+  if (index % 2 === 0) {
+    return 'rvt-odd-row'
+  }
+  return ''
+}
+
+// Defaults for React Virtualized Table column.
+const rvtColumn = `
   align-items: center;
   border-right: ${tableBorder};
   display: flex;
@@ -110,16 +125,17 @@ export default createGlobalStyle`
   /** Always show scrollbar. */
   .ReactVirtualized__Table__Grid::-webkit-scrollbar {
     -webkit-appearance: none;
-    width: 8px;
+    width: 10px;
   }
   .ReactVirtualized__Table__Grid::-webkit-scrollbar-thumb {
+    border: 1px solid ${darken(0.25, dsBlue)}; 
     border-radius: 4px;
     background-color: rgba(0,0,0,.5);
     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
   }
   
   .ReactVirtualized__Table__headerColumn {
-    ${column};
+    ${rvtColumn};
     justify-content: center;
     padding-right: 10px;
   }
@@ -132,15 +148,36 @@ export default createGlobalStyle`
     color: #dddd49;
   }
   
+  .ReactVirtualized__Table__rowColumn {
+    ${rvtColumn};
+    justify-content: flex-end; // expect number-type by default
+    padding-right: 10px;
+  }
+  
   .ReactVirtualized__Table__row {
     color: #fff;
     border-bottom: ${tableBorder};
     border-left: ${tableBorder};
   }
   
-  .ReactVirtualized__Table__rowColumn {
-    ${column};
-    justify-content: flex-end;
-    padding-right: 10px;
+  // Application specific React Virtualized Table (rvt) tweaks
+  .rvt-main-column {
+    justify-content: flex-start;
+    color: #ffa;
+  }
+
+  .rvt-odd-row {
+    background: #44596e;
+  }
+
+  .rvt-selected-row {
+    background: #74899e;
+    border-bottom: 0;
+    border-top: 0;
+  }
+  
+  .rvt-string-column {
+    justify-content: flex-start;
+    flex-wrap: wrap;
   }
 `

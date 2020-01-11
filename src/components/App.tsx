@@ -15,6 +15,7 @@ import ExternalLinkMenuButton from '../components/buttons/ExternalLinkMenuButton
 import RouteMenuButton from '../components/buttons/RouteMenuButton'
 import * as S from './styles'
 import githubIcon from '../assets/GitHub-Mark-Light-32px.png'
+import ApolloPage from './pages/apollo/ApolloPage'
 
 const theme = createMuiTheme({
   palette: {
@@ -33,6 +34,7 @@ const App = () => {
           <Toolbar variant='dense'>
             <RouteMenuButton to=''>Planets & Satellites</RouteMenuButton>
             <RouteMenuButton to='/datasets'>Datasets</RouteMenuButton>
+            <RouteMenuButton to='/apollo'>Apollo</RouteMenuButton>
 
             <S.FlexGrow/>
 
@@ -46,6 +48,7 @@ const App = () => {
         <Route exact path='/' component={SolarSystemPage}/>
         <Route path='/planets' component={SolarSystemPage}/>
         <Route path='/datasets' component={DatasetsPage}/>
+        <Route path='/apollo' component={ApolloPage}/>
         <Route path='/about' component={AboutPage}/>
       </MuiThemeProvider>
     </Router>

@@ -93,7 +93,7 @@ class Planets extends TableComponent<IProps, IState> {
           sortBy={sortBy}
           sortDirection={sortDirection}
         >
-          <Column label='Name' dataKey='name' width={70} className='main-column' />
+          <Column label='Name' dataKey='name' width={70} className='rvt-main-column' />
           <Column label={this.labelWithUnits('Distance from Sun')} dataKey='distanceFromSun' width={80} />
           <Column label='Moons' dataKey='numberOfMoons' width={70} />
           <Column label={this.labelWithUnits('Mass')} dataKey='mass' width={70} />
