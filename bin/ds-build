@@ -7,7 +7,6 @@ DS_GITHUB_IO="$HOME/work/devstronomy/devstronomy.github.io"
 
 cd "$DS_FRONTEND"
 rm -rvf build
-npm run build-css
 npm run build
 
 cd "$DS_GITHUB_IO"
@@ -24,4 +23,5 @@ To deploy the build, do:
 cd $DS_GITHUB_IO
 git add -A .
 git commit
+git push
 EOF
