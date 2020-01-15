@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { AutoSizer, Column, Index, Table } from 'react-virtualized'
 import { InputAdornment } from '@material-ui/core'
+
 import * as I from '@material-ui/icons'
+import _partition from 'lodash/partition'
 
 import * as S from './styles'
 import rawAbbreviations from '../../../data/apollo-abbr.json'
@@ -28,13 +30,18 @@ const Search = (props: { onChange: (abbr: string) => void }) => (
   </form>
 )
 
-const ApolloPage = () => {
-  const [abbrFilter, setAbbreviation] = useState('')
+/**
+ * Result with entries where abbreviation matches, concatenated with entries where description matches.
+ */
+const filterAbbreviations = (searchText: string) => {
+  const [abbrs, theRest] = _partition(abbreviations, abbr => abbr[0].toLowerCase().includes(searchText.toLowerCase()))
+  return abbrs.concat(theRest.filter(abbr => abbr[1].toLowerCase().includes(searchText.toLowerCase())))
+}
 
-  const filteredAbbrs =
-    abbrFilter.length === 0
-      ? abbreviations
-      : abbreviations.filter(abbr => abbr[0].toLowerCase().includes(abbrFilter.toLowerCase()))
+const ApolloPage = () => {
+  const [searchText, setSearchText] = useState('')
+
+  const filteredAbbrs = filterAbbreviations(searchText)
 
   const rowGetter = ({ index }: Index) => ({
     abbreviation: filteredAbbrs[index][0],
@@ -44,7 +51,7 @@ const ApolloPage = () => {
   return (
     <S.ApolloPage id='ApolloPage'>
       <h1>Apollo Program Abbreviations</h1>
-      <Search onChange={setAbbreviation} />
+      <Search onChange={setSearchText} />
       <AutoSizer>
         {({ height, width }) => (
           <Table
