@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { AutoSizer, Column, Index, Table } from 'react-virtualized'
+import { InputAdornment } from '@material-ui/core'
+import * as I from '@material-ui/icons'
 
 import * as S from './styles'
 import rawAbbreviations from '../../../data/apollo-abbr.json'
@@ -8,9 +10,21 @@ import { rowClassName } from '../../globalStyles'
 const abbreviations: [[string, string]] = rawAbbreviations as any
 
 const Search = (props: { onChange: (abbr: string) => void }) => (
-  <form onSubmit={e => e.preventDefault()}>
-    <span>Search:</span>
-    <input type='text' onChange={e => props.onChange(e.target.value)} />
+  <form noValidate autoComplete='off'>
+    <S.DSTextField
+      id='outlined-search'
+      label='Search field'
+      type='search'
+      variant='outlined'
+      onChange={e => props.onChange(e.target.value)}
+      InputProps={{
+        startAdornment: (
+          <InputAdornment position='start'>
+            <I.SearchTwoTone />
+          </InputAdornment>
+        )
+      }}
+    />
   </form>
 )
 
