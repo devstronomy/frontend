@@ -3,7 +3,7 @@ import { darken, lighten } from 'polished'
 import { Index } from 'react-virtualized'
 
 export const dsBlue = '#7ad'
-export const dsBlueLight = lighten(0.1)('#7ad')
+export const dsBlueLight = lighten(0.1)(dsBlue)
 export const textColor = '#aaa'
 
 const backgroundColor = '#1e1e1e'
@@ -168,12 +168,14 @@ export default createGlobalStyle`
 
   .rvt-odd-row {
     background: #44596e;
+    outline: 0;
   }
 
   .rvt-selected-row {
     background: #74899e;
     border-bottom: 0;
     border-top: 0;
+    outline: 0;
   }
   
   .rvt-string-column {
