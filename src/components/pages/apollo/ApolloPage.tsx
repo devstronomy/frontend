@@ -14,6 +14,7 @@ const abbreviations: [[string, string]] = rawAbbreviations as any
 const Search = (props: { onChange: (abbr: string) => void }) => (
   <form noValidate autoComplete='off'>
     <S.DSTextField
+      autoFocus
       id='outlined-search'
       label='Search field'
       type='search'
