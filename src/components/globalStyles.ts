@@ -114,6 +114,10 @@ export default createGlobalStyle`
   tr:nth-child(2n) {
     background: ${lighten(0.05)(backgroundColor)};
   }
+  
+  .ReactVirtualized__Grid {
+    outline: 0;
+  }
 
   /*** Overrides for react-virtualized styles ***/
   .ReactVirtualized__Table__Grid {
@@ -138,6 +142,10 @@ export default createGlobalStyle`
     ${rvtColumn};
     justify-content: center;
     padding-right: 10px;
+    
+    :focus {
+      outline: 0;
+    }
   }
   
   .ReactVirtualized__Table__headerRow {
@@ -158,6 +166,10 @@ export default createGlobalStyle`
     color: #fff;
     border-bottom: ${tableBorder};
     border-left: ${tableBorder};
+    
+    :focus {
+      outline: 0;
+    }
   }
   
   // Application specific React Virtualized Table (rvt) tweaks
