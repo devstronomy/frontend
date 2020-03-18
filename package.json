@@ -1,7 +1,23 @@
 {
   "name": "devstronomy-frontend",
+  "description": "This project contains the code-base for the frontend part of Devstronomy project.",
   "version": "0.1.0",
   "homepage": "https://devstronomy.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devstronomy/frontend.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/devstronomy/frontend/issues"
+  },
+  "keywords": [
+    "astronomy",
+    "solar-system",
+    "planets",
+    "planetary-satellites",
+    "apollo"
+  ],
   "private": true,
   "dependencies": {
     "@material-ui/core": "4.8.3",
