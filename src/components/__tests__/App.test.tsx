@@ -1,18 +1,24 @@
+import { render } from '@testing-library/react'
 import React from 'react'
-import ReactDOM from 'react-dom'
-import App from '../App'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
+
+import App from '../App'
 import appReducers from '../pages/solar-system/reducer'
 
-it('renders without crashing', () => {
-  const store = createStore(appReducers)
-  const app = (
-    <Provider store={store}>
-      <App />
-    </Provider>
-  )
-  const div = document.createElement('div')
-  ReactDOM.render(app, div)
-  ReactDOM.unmountComponentAtNode(div)
+describe('Application', () => {
+  it('renders with menu', () => {
+    const store = createStore(appReducers)
+    const app = (
+      <Provider store={store}>
+        <App />
+      </Provider>
+    )
+    const { unmount, getByText } = render(app)
+    expect(getByText('Planets & Satellites')).toBeInTheDocument()
+    expect(getByText('Datasets')).toBeInTheDocument()
+    expect(getByText('Apollo')).toBeInTheDocument()
+    expect(getByText('About')).toBeInTheDocument()
+    unmount()
+  })
 })
