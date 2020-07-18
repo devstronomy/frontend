@@ -35,7 +35,7 @@
     "@types/react-virtualized": "9.21.9",
     "@types/styled-components": "4.4.2",
     "gh-pages": "2.2.0",
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "polished": "3.6.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
