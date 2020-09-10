@@ -59,46 +59,70 @@ const DatasetsPage = () => {
       <div>
         <ol>
           <li>
-            <Link to='#downloads'>Quick Downloads</Link>
+            <Link smooth to='#downloads'>
+              Quick Downloads
+            </Link>
           </li>
           <li>
-            <Link to='#information'>Datasets information</Link>
+            <Link smooth to='#information'>
+              Datasets information
+            </Link>
           </li>
           <ol>
             <li>
-              <Link to='#planets'>Planets</Link>
+              <Link smooth to='#planets'>
+                Planets
+              </Link>
             </li>
             <li>
-              <Link to='#satellites'>Planetary Satellites</Link>
+              <Link smooth to='#satellites'>
+                Planetary Satellites
+              </Link>
             </li>
           </ol>
           <li>
-            <Link to='#csv'>CSV files</Link>
+            <Link smooth to='#csv'>
+              CSV files
+            </Link>
           </li>
           <li>
-            <Link to='#json'>JSON files</Link>
+            <Link smooth to='#json'>
+              JSON files
+            </Link>
           </li>
           <li>
-            <Link to='#sql'>SQL Dataset</Link>
+            <Link smooth to='#sql'>
+              SQL Dataset
+            </Link>
             <ol>
               <li>
-                <Link to='#sql-examples'>SQL usage examples</Link>
+                <Link smooth to='#sql-examples'>
+                  SQL usage examples
+                </Link>
                 <ol>
                   <li>
-                    <Link to='#ten-moons-saturn'>Ten largest moons of Saturn</Link>
+                    <Link smooth to='#ten-moons-saturn'>
+                      Ten largest moons of Saturn
+                    </Link>
                   </li>
                   <li>
-                    <Link to='#planets-ecc'>Planets ordered by eccentricity</Link>
+                    <Link smooth to='#planets-ecc'>
+                      Planets ordered by eccentricity
+                    </Link>
                   </li>
                   <li>
-                    <Link to='#moons-inconsistency'>Inconsistency in the number of moons</Link>
+                    <Link smooth to='#moons-inconsistency'>
+                      Inconsistency in the number of moons
+                    </Link>
                   </li>
                 </ol>
               </li>
             </ol>
           </li>
           <li>
-            <Link to='#implementation'>Implementation notes</Link>
+            <Link smooth to='#implementation'>
+              Implementation notes
+            </Link>
           </li>
         </ol>
       </div>
@@ -245,7 +269,10 @@ const DatasetsPage = () => {
 
       <p>
         The {datasetsSql} creates tables for planets and their satellites and fill them with data from the CSV files{' '}
-        <Link to='#csv'>described above</Link>.
+        <Link smooth to='#csv'>
+          described above
+        </Link>
+        .
       </p>
 
       <p>For example for MySQL database following commands will create the database:</p>
