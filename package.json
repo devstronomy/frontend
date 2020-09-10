@@ -1,7 +1,7 @@
 {
   "name": "devstronomy-frontend",
   "description": "This project contains the code-base for the frontend part of Devstronomy project.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://devstronomy.com",
   "repository": {
     "type": "git",
@@ -20,11 +20,11 @@
   ],
   "private": true,
   "dependencies": {
+    "@material-ui/core": "4.9.12",
+    "@material-ui/icons": "4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "@material-ui/core": "4.9.12",
-    "@material-ui/icons": "4.9.1",
     "@types/jest": "24.9.1",
     "@types/lodash": "4.14.150",
     "@types/node": "13.1.5",
@@ -39,6 +39,7 @@
     "polished": "3.6.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-ga": "3.1.2",
     "react-redux": "7.2.0",
     "react-router-dom": "5.1.2",
     "react-router-hash-link": "1.2.2",
