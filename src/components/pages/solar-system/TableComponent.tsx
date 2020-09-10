@@ -1,7 +1,8 @@
 import React from 'react'
 import { Index } from 'react-virtualized'
-import * as S from './styles'
+
 import { rowClassName } from '../../globalStyles'
+import * as S from './styles'
 
 export type IUnits = { [unitId: string]: JSX.Element }
 
@@ -15,7 +16,7 @@ export abstract class TableComponent<P, S> extends React.Component<P, S> {
 
   abstract isItemSelected(index: number): boolean
 
-  protected rowClassName = (index: Index) => rowClassName(index, index => this.isItemSelected(index))
+  protected rowClassName = (index: Index) => rowClassName(index, (index) => this.isItemSelected(index))
 
   protected labelWithUnits = (column: string): React.ReactNode => {
     return (

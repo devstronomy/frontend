@@ -1,9 +1,9 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+import * as A from './actions'
 import { IAppState } from './reducer'
 import * as S from './styles'
-import * as A from './actions'
 
 interface IOwnProp {
   numberOfSatellites: number

@@ -1,5 +1,5 @@
-import * as C from './constants'
 import * as A from './actions'
+import * as C from './constants'
 import { IPlanet } from './Planets'
 import { ISatellite } from './Satellites'
 
@@ -20,7 +20,7 @@ const initialState: IAppState = {
   selectedPlanet: undefined,
 
   planetsLoadingInProgress: false,
-  satellitesLoadingInProgress: false
+  satellitesLoadingInProgress: false,
 }
 
 export default (state: IAppState = initialState, action: A.IActions): IAppState => {
@@ -28,13 +28,13 @@ export default (state: IAppState = initialState, action: A.IActions): IAppState 
     case C.LOAD_PLANETS:
       return {
         ...state,
-        planetsLoadingInProgress: true
+        planetsLoadingInProgress: true,
       }
     case C.SET_PLANETS:
       return {
         ...state,
         planets: action.payload.planets,
-        planetsLoadingInProgress: false
+        planetsLoadingInProgress: false,
       }
     case C.SELECT_PLANET:
       const { selectedPlanet } = action.payload
@@ -42,18 +42,18 @@ export default (state: IAppState = initialState, action: A.IActions): IAppState 
       const newSelectedPlanet = selectedPlanet === state.selectedPlanet ? undefined : selectedPlanet
       return {
         ...state,
-        selectedPlanet: newSelectedPlanet
+        selectedPlanet: newSelectedPlanet,
       }
     case C.LOAD_SATELLITES:
       return {
         ...state,
-        satellitesLoadingInProgress: true
+        satellitesLoadingInProgress: true,
       }
     case C.SET_SATELLITES:
       return {
         ...state,
         satellites: action.payload.satellites,
-        satellitesLoadingInProgress: false
+        satellitesLoadingInProgress: false,
       }
     default:
       return state

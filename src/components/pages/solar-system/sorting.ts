@@ -1,5 +1,5 @@
-import { SortDirection, SortDirectionType } from 'react-virtualized'
 import _sortBy from 'lodash/sortBy'
+import { SortDirection, SortDirectionType } from 'react-virtualized'
 
 export const sort = <E>(
   arr: ReadonlyArray<E>,

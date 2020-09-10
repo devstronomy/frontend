@@ -1,6 +1,7 @@
 import styled from 'styled-components'
-import { Page } from '../styles'
+
 import { linkColor } from '../../globalStyles'
+import { Page } from '../styles'
 
 export const DatasetsPage = styled(Page)``
 

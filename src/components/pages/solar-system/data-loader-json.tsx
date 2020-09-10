@@ -7,10 +7,10 @@ const jsonDataLoader: IDataLoader = {
   loadPlanets: () => Promise.resolve(planets),
 
   // Loads satellites belonging to the given planet.
-  loadSatellites: planet => Promise.resolve(satellites.filter(s => s.planetId === planet.id)),
+  loadSatellites: (planet) => Promise.resolve(satellites.filter((s) => s.planetId === planet.id)),
 
   // Loads satellites of all planets in the Solar System.
-  loadAllSatellites: () => Promise.resolve(satellites)
+  loadAllSatellites: () => Promise.resolve(satellites),
 }
 
 export default jsonDataLoader

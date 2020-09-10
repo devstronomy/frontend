@@ -1,17 +1,16 @@
+import '../../../css-react-virtualized/styles.css' // only needs to be imported once
+
 import React from 'react'
 import { connect } from 'react-redux'
 import { Column, Index, Table } from 'react-virtualized'
 
-import Satellites from './Satellites'
 import * as A from './actions'
-import * as S from './styles'
 import { IAppState } from './reducer'
-import { ISort } from './types'
+import Satellites from './Satellites'
 import { sort } from './sorting'
-
-// styles
-import '../../../css-react-virtualized/styles.css' // only needs to be imported once
+import * as S from './styles'
 import { IUnits, TableComponent } from './TableComponent'
+import { ISort } from './types'
 
 export interface IPlanet {
   id: number
@@ -31,16 +30,40 @@ interface IProps {
 
 // Maps column name to its unit.
 const units: IUnits = {
-  'Mass': <span>10<sup>24</sup>kg</span>,
-  'Diameter': <span>km</span>,
-  'Density': <span>kg/m<sup>3</sup></span>,
-  'Gravity': <span>m/s<sup>2</sup></span>,
+  Mass: (
+    <span>
+      10<sup>24</sup>kg
+    </span>
+  ),
+  Diameter: <span>km</span>,
+  Density: (
+    <span>
+      kg/m<sup>3</sup>
+    </span>
+  ),
+  Gravity: (
+    <span>
+      m/s<sup>2</sup>
+    </span>
+  ),
   'Escape Velocity': <span>km/s</span>,
   'Rotation Period': <span>hours</span>,
   'Length of Day': <span>hours</span>,
-  'Distance from Sun': <span>10<sup>6</sup> km</span>,
-  'Perihelion': <span>10<sup>6</sup> km</span>,
-  'Aphelion': <span>10<sup>6</sup> km</span>,
+  'Distance from Sun': (
+    <span>
+      10<sup>6</sup> km
+    </span>
+  ),
+  Perihelion: (
+    <span>
+      10<sup>6</sup> km
+    </span>
+  ),
+  Aphelion: (
+    <span>
+      10<sup>6</sup> km
+    </span>
+  ),
   'Orbital Period': <span>days</span>,
   'Orbital Velocity': <span>km/s</span>,
   'Orbital Inclination': <span>degrees</span>,
@@ -50,7 +73,7 @@ const units: IUnits = {
   'Surface Pressure': <span>bars</span>,
   'Number of Moons': <span>number</span>,
   'Ring System?': <span>Yes/No</span>,
-  'Global Magnetic Field?': <span>Yes/No</span>
+  'Global Magnetic Field?': <span>Yes/No</span>,
 }
 
 class Planets extends TableComponent<IProps, IState> {
@@ -131,16 +154,13 @@ class Planets extends TableComponent<IProps, IState> {
 
 const mapStateToProps = (state: IAppState) => ({
   selectedPlanet: state.selectedPlanet,
-  planets: state.planets
+  planets: state.planets,
 })
 
 const mapDispatchToProps = {
   dispatchLoadPlanets: A.loadPlanets,
   dispatchSetPlanets: A.setPlanets,
-  dispatchSelectedPlanet: A.setSelectedPlanet
+  dispatchSelectedPlanet: A.setSelectedPlanet,
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Planets)
+export default connect(mapStateToProps, mapDispatchToProps)(Planets)

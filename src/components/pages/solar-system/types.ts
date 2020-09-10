@@ -1,6 +1,7 @@
+import { SortDirectionType } from 'react-virtualized'
+
 import { IPlanet } from './Planets'
 import { ISatellite } from './Satellites'
-import { SortDirectionType } from 'react-virtualized'
 
 export interface IDataLoader {
   loadPlanets: () => Promise<ReadonlyArray<IPlanet>>

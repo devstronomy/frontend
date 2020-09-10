@@ -1,14 +1,14 @@
 import React from 'react'
-import { Column, Index, Table } from 'react-virtualized'
 import { connect } from 'react-redux'
+import { Column, Index, Table } from 'react-virtualized'
 
-import { IPlanet } from './Planets'
 import * as A from './actions'
+import { IPlanet } from './Planets'
 import { IAppState } from './reducer'
-import { ISort } from './types'
-import { sort } from './sorting'
 import SatellitesHeader from './SatellitesHeader'
+import { sort } from './sorting'
 import { IUnits, TableComponent } from './TableComponent'
+import { ISort } from './types'
 
 export interface ISatellite {
   id: number
@@ -26,10 +26,22 @@ interface IProps {
 }
 
 const units: IUnits = {
-  'GM': <span>km<sup>3</sup>/sec<sup>2</sup></span>,
+  GM: (
+    <span>
+      km<sup>3</sup>/sec<sup>2</sup>
+    </span>
+  ),
   'Mean Radius': <span>km</span>,
-  'Mean Density': <span>g/cm<sup>3</sup></span>,
-  'Magnitude': <span>V<sub>0</sub> or R</span>,
+  'Mean Density': (
+    <span>
+      g/cm<sup>3</sup>
+    </span>
+  ),
+  Magnitude: (
+    <span>
+      V<sub>0</sub> or R
+    </span>
+  ),
 }
 
 class Satellites extends TableComponent<IProps, IState> {
@@ -49,7 +61,7 @@ class Satellites extends TableComponent<IProps, IState> {
   render(): React.ReactNode {
     const { selectedPlanet } = this.props
     const satellites = selectedPlanet
-      ? this.props.satellites.filter(s => s.planetId === selectedPlanet.id)
+      ? this.props.satellites.filter((s) => s.planetId === selectedPlanet.id)
       : this.props.satellites
     const { sortDirection, sortBy } = this.state
 
@@ -88,7 +100,7 @@ class Satellites extends TableComponent<IProps, IState> {
 
 const mapStateToProps = (state: IAppState) => ({
   selectedPlanet: state.selectedPlanet,
-  satellites: state.satellites
+  satellites: state.satellites,
 })
 
 const mapDispatchToProps = {
@@ -96,7 +108,4 @@ const mapDispatchToProps = {
   dispatchSetSatellites: A.setSatellites,
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Satellites)
+export default connect(mapStateToProps, mapDispatchToProps)(Satellites)

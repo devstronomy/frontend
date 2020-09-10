@@ -1,12 +1,16 @@
 import React from 'react'
 import { HashLink as Link } from 'react-router-hash-link'
+
 import Links from '../../../links'
 import * as S from './styles'
 
 const github = 'https://github.com/devstronomy/nasa-data-scraper/blob/master/'
 
-const gitHubLink = (relPath: string, fileName: string) =>
-  <a href={github + 'data/' + relPath + fileName}><S.CodeLink>{fileName}</S.CodeLink></a>
+const gitHubLink = (relPath: string, fileName: string) => (
+  <a href={github + 'data/' + relPath + fileName}>
+    <S.CodeLink>{fileName}</S.CodeLink>
+  </a>
+)
 
 // Placeholders used in the HTML below.
 const planetCsvLink = gitHubLink('csv/', 'planets.csv')
@@ -22,12 +26,8 @@ const datasetsSql = gitHubLink('sql/', 'devstronomy.sql')
 const DatasetsPage = () => (
   <S.DatasetsPage>
     <S.DatasetHeader>Datasets section</S.DatasetHeader>
-    <p>
-      Devstronomy project aims to provide datasets related to astronomy in an accessible format (CSV, JSON, SQL).
-    </p>
-    <p>
-      Currently, there are datasets for:
-    </p>
+    <p>Devstronomy project aims to provide datasets related to astronomy in an accessible format (CSV, JSON, SQL).</p>
+    <p>Currently, there are datasets for:</p>
     <div>
       <ul>
         <li>planets of our Solar System (+ Pluto)</li>
@@ -35,49 +35,72 @@ const DatasetsPage = () => (
       </ul>
     </div>
 
-    <hr/>
+    <hr />
     <p>
       <S.Warning>Note:</S.Warning> the following is not migrated from original satellite dataset yet:
     </p>
     <div>
       <ul>
-        <li>For <em>Magnitude</em> column in satellites dataset V<sub>0</sub> or R are not distinguished.</li>
         <li>
-          <em>Uncertainties</em> for some values. For example, for original value <code>13.70±0.04</code> in JPL
-          dataset we have just <code>13.70</code> without <code>0.04</code> uncertainty.
+          For <em>Magnitude</em> column in satellites dataset V<sub>0</sub> or R are not distinguished.
+        </li>
+        <li>
+          <em>Uncertainties</em> for some values. For example, for original value <code>13.70±0.04</code> in JPL dataset
+          we have just <code>13.70</code> without <code>0.04</code> uncertainty.
         </li>
       </ul>
     </div>
 
-    <hr id='tableofcontents'/>
+    <hr id='tableofcontents' />
     <h2>Table of Contents</h2>
     <div>
       <ol>
-        <li><Link to='#downloads'>Quick Downloads</Link></li>
-        <li><Link to='#information'>Datasets information</Link></li>
+        <li>
+          <Link to='#downloads'>Quick Downloads</Link>
+        </li>
+        <li>
+          <Link to='#information'>Datasets information</Link>
+        </li>
         <ol>
-          <li><Link to='#planets'>Planets</Link></li>
-          <li><Link to='#satellites'>Planetary Satellites</Link></li>
+          <li>
+            <Link to='#planets'>Planets</Link>
+          </li>
+          <li>
+            <Link to='#satellites'>Planetary Satellites</Link>
+          </li>
         </ol>
-        <li><Link to='#csv'>CSV files</Link></li>
-        <li><Link to='#json'>JSON files</Link></li>
-        <li><Link to='#sql'>SQL Dataset</Link>
+        <li>
+          <Link to='#csv'>CSV files</Link>
+        </li>
+        <li>
+          <Link to='#json'>JSON files</Link>
+        </li>
+        <li>
+          <Link to='#sql'>SQL Dataset</Link>
           <ol>
-            <li><Link to='#sql-examples'>SQL usage examples</Link>
+            <li>
+              <Link to='#sql-examples'>SQL usage examples</Link>
               <ol>
-                <li><Link to='#ten-moons-saturn'>Ten largest moons of Saturn</Link></li>
-                <li><Link to='#planets-ecc'>Planets ordered by eccentricity</Link></li>
-                <li><Link to='#moons-inconsistency'>Inconsistency in the number of moons</Link></li>
+                <li>
+                  <Link to='#ten-moons-saturn'>Ten largest moons of Saturn</Link>
+                </li>
+                <li>
+                  <Link to='#planets-ecc'>Planets ordered by eccentricity</Link>
+                </li>
+                <li>
+                  <Link to='#moons-inconsistency'>Inconsistency in the number of moons</Link>
+                </li>
               </ol>
             </li>
           </ol>
         </li>
-        <li><Link to='#implementation'>Implementation notes</Link></li>
+        <li>
+          <Link to='#implementation'>Implementation notes</Link>
+        </li>
       </ol>
     </div>
 
-
-    <hr id='downloads'/>
+    <hr id='downloads' />
     <h2>Quick Downloads</h2>
 
     <table>
@@ -105,38 +128,49 @@ const DatasetsPage = () => (
       </tbody>
     </table>
 
-
-    <hr id='information'/>
+    <hr id='information' />
     <h2>Datasets information</h2>
 
     <h3 id='planets'>Planets</h3>
 
     <p>
-      The {planetCsvLink} file contains information about planets in our Solar System including dwarf planet Pluto.
-      The source of data is <a href='https://nssdc.gsfc.nasa.gov/planetary/factsheet/'>Planetary Fact
-      Sheet</a> from {Links.jpl}.
+      The {planetCsvLink} file contains information about planets in our Solar System including dwarf planet Pluto. The
+      source of data is <a href='https://nssdc.gsfc.nasa.gov/planetary/factsheet/'>Planetary Fact Sheet</a> from{' '}
+      {Links.jpl}.
     </p>
-
 
     <h4>Fields and units in the planetary dataset</h4>
 
     <p>
-      See also official <a href='https://nssdc.gsfc.nasa.gov/planetary/factsheet/planetfact_notes.html'>Planetary Fact
-      Sheet Notes</a> for more information about individual fields.
+      See also official{' '}
+      <a href='https://nssdc.gsfc.nasa.gov/planetary/factsheet/planetfact_notes.html'>Planetary Fact Sheet Notes</a> for
+      more information about individual fields.
     </p>
 
     <div>
       <ul>
-        <li>Mass (10<sup>24</sup>kg)</li>
+        <li>
+          Mass (10<sup>24</sup>kg)
+        </li>
         <li>Diameter (km)</li>
-        <li>Density (kg/m<sup>3</sup>)</li>
-        <li>Gravity (m/s<sup>2</sup>)</li>
+        <li>
+          Density (kg/m<sup>3</sup>)
+        </li>
+        <li>
+          Gravity (m/s<sup>2</sup>)
+        </li>
         <li>Escape Velocity (km/s)</li>
         <li>Rotation Period (hours)</li>
         <li>Length of Day (hours)</li>
-        <li>Distance from Sun (10<sup>6</sup> km)</li>
-        <li>Perihelion (10<sup>6</sup> km)</li>
-        <li>Aphelion (10<sup>6</sup> km)</li>
+        <li>
+          Distance from Sun (10<sup>6</sup> km)
+        </li>
+        <li>
+          Perihelion (10<sup>6</sup> km)
+        </li>
+        <li>
+          Aphelion (10<sup>6</sup> km)
+        </li>
         <li>Orbital Period (days)</li>
         <li>Orbital Velocity (km/s)</li>
         <li>Orbital Inclination (degrees)</li>
@@ -150,31 +184,42 @@ const DatasetsPage = () => (
       </ul>
     </div>
 
-
     <h3 id='satellites'>Planetary satellites (moons)</h3>
     <p>
       The {satellitesCsvLink} file contains information about planetary satellites (moons) of planets in our Solar
-      System. Moons of dwarf planet Pluto are included as well.
-      The source of data is <a href='https://ssd.jpl.nasa.gov/?sat_phys_par'>Planetary Satellite Physical
-      Parameters</a> from {Links.jpl}.
+      System. Moons of dwarf planet Pluto are included as well. The source of data is{' '}
+      <a href='https://ssd.jpl.nasa.gov/?sat_phys_par'>Planetary Satellite Physical Parameters</a> from {Links.jpl}.
     </p>
 
     <h4>Fields and units in the satellites dataset</h4>
 
     <div>
       <ul>
-        <li><em>planet</em>: owning planet of the satellite</li>
-        <li><em>name</em>: name of the satellite</li>
-        <li><em>gm</em>: GM (km<sup>3</sup>/sec<sup>2</sup>)</li>
-        <li><em>radius</em>: Mean radius (km)</li>
-        <li><em>density</em>: Mean density (g/cm<sup>3</sup>)</li>
-        <li><em>magnitude</em>: Magnitude V<sub>0</sub> or R</li>
-        <li><em>albedo</em>: Geometric Albedo</li>
+        <li>
+          <em>planet</em>: owning planet of the satellite
+        </li>
+        <li>
+          <em>name</em>: name of the satellite
+        </li>
+        <li>
+          <em>gm</em>: GM (km<sup>3</sup>/sec<sup>2</sup>)
+        </li>
+        <li>
+          <em>radius</em>: Mean radius (km)
+        </li>
+        <li>
+          <em>density</em>: Mean density (g/cm<sup>3</sup>)
+        </li>
+        <li>
+          <em>magnitude</em>: Magnitude V<sub>0</sub> or R
+        </li>
+        <li>
+          <em>albedo</em>: Geometric Albedo
+        </li>
       </ul>
     </div>
 
-
-    <hr id='csv'/>
+    <hr id='csv' />
     <h2>CSV (comma-separated values) files</h2>
     <div>
       <ul>
@@ -183,8 +228,7 @@ const DatasetsPage = () => (
       </ul>
     </div>
 
-
-    <hr id='json'/>
+    <hr id='json' />
     <h2>JSON</h2>
     <div>
       <ul>
@@ -193,33 +237,30 @@ const DatasetsPage = () => (
       </ul>
     </div>
 
-
-    <hr id='sql'/>
+    <hr id='sql' />
     <h2>SQL Dataset</h2>
 
     <p>
-      The {datasetsSql} creates tables for planets and their satellites and fill them with data from the CSV
-      files <Link to='#csv'>described above</Link>.
+      The {datasetsSql} creates tables for planets and their satellites and fill them with data from the CSV files{' '}
+      <Link to='#csv'>described above</Link>.
     </p>
 
     <p>For example for MySQL database following commands will create the database:</p>
 
-    <pre>{
-      `mysqladmin -u [uname] -p[pass] create devstronomy
+    <pre>{`mysqladmin -u [uname] -p[pass] create devstronomy
 mysql -u [uname] -p[pass] devstronomy &lt; data/sql/devstronomy.sql`}</pre>
 
     <h3 id='sql-examples'>SQL usage examples</h3>
 
     <h4 id='ten-moons-saturn'>Information about ten largest moons of Saturn</h4>
 
-    <pre>{
-        `SELECT s.name, s.radius, s.density, s.albedo FROM satellite AS s
+    <pre>{`SELECT s.name, s.radius, s.density, s.albedo FROM satellite AS s
    LEFT JOIN planet as p ON p.id = s.planet_id
    WHERE p.name = 'Saturn'
    ORDER BY s.radius DESC
    LIMIT 10`}</pre>
 
-    { /* Table of satellites. */}
+    {/* Table of satellites. */}
     <table>
       <thead>
         <tr>
@@ -297,7 +338,7 @@ mysql -u [uname] -p[pass] devstronomy &lt; data/sql/devstronomy.sql`}</pre>
 
     <pre>SELECT name, orbital_eccentricity FROM planet ORDER BY orbital_eccentricity;</pre>
 
-    { /* Result of select: table of planets. */}
+    {/* Result of select: table of planets. */}
     <table>
       <thead>
         <tr>
@@ -348,12 +389,11 @@ mysql -u [uname] -p[pass] devstronomy &lt; data/sql/devstronomy.sql`}</pre>
     <h4 id='moons-inconsistency'>Inconsistency in the number of moons</h4>
 
     <p>
-      Note: the <code>planet.number_of_moons</code> does not reflect the number of records in
-      the <code>satellite</code> table for Jupiter and Saturn. See the SQL select below. (<em>TODO</em>: explain why)
+      Note: the <code>planet.number_of_moons</code> does not reflect the number of records in the <code>satellite</code>{' '}
+      table for Jupiter and Saturn. See the SQL select below. (<em>TODO</em>: explain why)
     </p>
 
-    <pre>{
-        `SELECT name, number_of_moons,
+    <pre>{`SELECT name, number_of_moons,
   (SELECT COUNT(*) FROM satellite s WHERE p.id = s.planet_id) moons_in_table
   FROM planet p;`}</pre>
 
@@ -387,14 +427,26 @@ mysql -u [uname] -p[pass] devstronomy &lt; data/sql/devstronomy.sql`}</pre>
           <td align='right'>2</td>
         </tr>
         <tr>
-          <td><strong>Jupiter</strong></td>
-          <td align='right'><strong>79</strong></td>
-          <td align='right'><strong>67</strong></td>
+          <td>
+            <strong>Jupiter</strong>
+          </td>
+          <td align='right'>
+            <strong>79</strong>
+          </td>
+          <td align='right'>
+            <strong>67</strong>
+          </td>
         </tr>
         <tr>
-          <td><strong>Saturn</strong></td>
-          <td align='right'><strong>62</strong></td>
-          <td align='right'><strong>61</strong></td>
+          <td>
+            <strong>Saturn</strong>
+          </td>
+          <td align='right'>
+            <strong>62</strong>
+          </td>
+          <td align='right'>
+            <strong>61</strong>
+          </td>
         </tr>
         <tr>
           <td>Uranus</td>
@@ -414,15 +466,16 @@ mysql -u [uname] -p[pass] devstronomy &lt; data/sql/devstronomy.sql`}</pre>
       </tbody>
     </table>
 
-
-    <hr id='implementation'/>
+    <hr id='implementation' />
     <h2>Implementation notes</h2>
 
     <h3>SQL notes</h3>
 
-    <p>The data are converted from CSV files to SQL schema with
-      the <a href='https://github.com/mkrauskopf/devstronomy/tree/master/jconverter'>JConverter tool</a>.
-      The final {datasetsSql} dump is then created via <code>mysqldump</code>:</p>
+    <p>
+      The data are converted from CSV files to SQL schema with the{' '}
+      <a href='https://github.com/mkrauskopf/devstronomy/tree/master/jconverter'>JConverter tool</a>. The final{' '}
+      {datasetsSql} dump is then created via <code>mysqldump</code>:
+    </p>
 
     <pre>mysqldump -u [uname] -p[pass] devstronomy &gt; data/sql/devstronomy.sql</pre>
 
@@ -430,8 +483,7 @@ mysql -u [uname] -p[pass] devstronomy &lt; data/sql/devstronomy.sql`}</pre>
 
     <h4>Transpose Python script</h4>
 
-    <pre>{
-      `import pandas as pd
+    <pre>{`import pandas as pd
 p = pd.read_csv('planets-nasa-export.csv', sep=';')
 p.T.to_csv('planets.csv', header=False)`}</pre>
   </S.DatasetsPage>

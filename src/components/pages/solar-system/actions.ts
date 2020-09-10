@@ -5,19 +5,19 @@ import { ISatellite } from './Satellites'
 export const loadPlanets = () =>
   ({
     type: C.LOAD_PLANETS,
-    payload: {}
+    payload: {},
   } as const)
 
 export const setPlanets = (planets: ReadonlyArray<IPlanet>) =>
   ({
     type: C.SET_PLANETS,
-    payload: { planets }
+    payload: { planets },
   } as const)
 
 export const setSelectedPlanet = (selectedPlanet?: IPlanet) =>
   ({
     type: C.SELECT_PLANET,
-    payload: { selectedPlanet }
+    payload: { selectedPlanet },
   } as const)
 
 export const unselectPlanet = () => setSelectedPlanet(undefined)
@@ -25,13 +25,13 @@ export const unselectPlanet = () => setSelectedPlanet(undefined)
 export const loadSatellites = () =>
   ({
     type: C.LOAD_SATELLITES,
-    payload: {}
+    payload: {},
   } as const)
 
 export const setSatellites = (satellites: ReadonlyArray<ISatellite>) =>
   ({
     type: C.SET_SATELLITES,
-    payload: { satellites }
+    payload: { satellites },
   } as const)
 
 export type IActions =

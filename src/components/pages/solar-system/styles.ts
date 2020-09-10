@@ -1,6 +1,7 @@
-import styled from 'styled-components'
-import { dsBlue, dsBlueLight, linkColor, linkUnderlineHoverColor, textColor } from '../../globalStyles'
 import { Button } from '@material-ui/core'
+import styled from 'styled-components'
+
+import { dsBlue, dsBlueLight, linkColor, linkUnderlineHoverColor, textColor } from '../../globalStyles'
 
 interface Highlightable {
   highlight?: boolean
@@ -28,7 +29,7 @@ export const HeaderContainer = styled.div`
 export const HeaderText = styled.span<Highlightable>`
   font-weight: bold;
   font-size: larger;
-  color: ${props => (props.highlight ? dsBlueLight : dsBlue)};
+  color: ${(props) => (props.highlight ? dsBlueLight : dsBlue)};
 `
 
 export const PlainText = styled.span`
@@ -37,7 +38,7 @@ export const PlainText = styled.span`
 `
 
 export const Text = styled.span<Highlightable>`
-  color: ${props => (props.highlight ? dsBlueLight : dsBlue)};
+  color: ${(props) => (props.highlight ? dsBlueLight : dsBlue)};
 `
 
 export const LinkButton = styled(Button).attrs({ className: 'DS-Button' })`

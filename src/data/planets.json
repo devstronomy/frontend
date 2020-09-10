@@ -210,7 +210,7 @@
     "orbitalEccentricity": 0.244,
     "obliquityToOrbit": 122.5,
     "meanTemperature": -225.0,
-    "surfacePressure": 1.0E-5,
+    "surfacePressure": 1.0e-5,
     "numberOfMoons": 5,
     "hasRingSystem": false,
     "hasGlobalMagneticField": false

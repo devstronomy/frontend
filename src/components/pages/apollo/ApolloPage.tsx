@@ -1,13 +1,12 @@
-import React, { useState } from 'react'
-import { AutoSizer, Column, Index, Table } from 'react-virtualized'
 import { InputAdornment } from '@material-ui/core'
-
 import * as I from '@material-ui/icons'
 import _partition from 'lodash/partition'
+import React, { useState } from 'react'
+import { AutoSizer, Column, Index, Table } from 'react-virtualized'
 
-import * as S from './styles'
 import rawAbbreviations from '../../../data/apollo-abbr.json'
 import { rowClassName } from '../../globalStyles'
+import * as S from './styles'
 
 const abbreviations: [[string, string]] = rawAbbreviations as any
 
@@ -19,13 +18,13 @@ const Search = (props: { onChange: (abbr: string) => void }) => (
       label='Search field'
       type='search'
       variant='outlined'
-      onChange={e => props.onChange(e.target.value)}
+      onChange={(e) => props.onChange(e.target.value)}
       InputProps={{
         startAdornment: (
           <InputAdornment position='start'>
             <I.SearchTwoTone />
           </InputAdornment>
-        )
+        ),
       }}
     />
   </form>
@@ -35,8 +34,8 @@ const Search = (props: { onChange: (abbr: string) => void }) => (
  * Result with entries where abbreviation matches, concatenated with entries where description matches.
  */
 const filterAbbreviations = (searchText: string) => {
-  const [abbrs, theRest] = _partition(abbreviations, abbr => abbr[0].toLowerCase().includes(searchText.toLowerCase()))
-  return abbrs.concat(theRest.filter(abbr => abbr[1].toLowerCase().includes(searchText.toLowerCase())))
+  const [abbrs, theRest] = _partition(abbreviations, (abbr) => abbr[0].toLowerCase().includes(searchText.toLowerCase()))
+  return abbrs.concat(theRest.filter((abbr) => abbr[1].toLowerCase().includes(searchText.toLowerCase())))
 }
 
 const ApolloPage = () => {
@@ -46,7 +45,7 @@ const ApolloPage = () => {
 
   const rowGetter = ({ index }: Index) => ({
     abbreviation: filteredAbbrs[index][0],
-    meaning: filteredAbbrs[index][1]
+    meaning: filteredAbbrs[index][1],
   })
 
   return (

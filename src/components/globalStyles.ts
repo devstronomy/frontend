@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components'
 import { darken, lighten } from 'polished'
 import { Index } from 'react-virtualized'
+import { createGlobalStyle } from 'styled-components'
 
 export const dsBlue = '#7ad'
 export const dsBlueLight = lighten(0.1)(dsBlue)

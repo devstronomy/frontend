@@ -1,5 +1,6 @@
-import styled from 'styled-components'
 import { TextField } from '@material-ui/core'
+import styled from 'styled-components'
+
 import { dsBlue, dsBlueLight } from '../../globalStyles'
 
 export const ApolloPage = styled.div`
