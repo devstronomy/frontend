@@ -10,7 +10,7 @@ rm -rvf build
 npm run build
 
 cd "$DS_GITHUB_IO"
-ls | egrep -v "CNAME|README.md" | xargs rm -rv
+ls | egrep -v "CNAME|README.md|celestial" | xargs rm -rv
 
 cp -a "$DS_FRONTEND/build/"* "$DS_GITHUB_IO"
 
