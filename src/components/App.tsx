@@ -40,7 +40,7 @@ const App = () => {
             <RouteMenuButton to='/apollo'>Apollo</RouteMenuButton>
 
             <S.FlexGrow />
-
+            <ExternalLinkMenuButton link='/celestial/'>Celestial</ExternalLinkMenuButton>
             <RouteMenuButton to='/about'>About</RouteMenuButton>
             <ExternalLinkMenuButton link='https://github.com/devstronomy/'>
               <img src={githubIcon} alt='GitHub' />
