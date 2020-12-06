@@ -13,7 +13,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Running project locally
 
-* Either using Docker: `docker-compose up dev-server` 
+* Either using Docker:
+  ```
+  docker-compose run ui-install-deps
+  docker-compose up dev-server
+  ``` 
 * Or NPM: `npm install && npm start`
 
 Then open [http://localhost:3000](http://localhost:3000) to view it in the browser.

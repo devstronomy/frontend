@@ -1,19 +1,24 @@
-version: '3.7'
+version: '3.8'
 
 services:
-
   npm: &npm
-    build: .
+    image: node:12.16
     volumes:
-      - .:/app
-      - node_modules:/app/ui/node_modules
+      - ./:/devstronomy/ui
+      - cache-node_modules:/devstronomy/ui/node_modules
     entrypoint: npm
+    working_dir: /devstronomy/ui
+
+  ui-install-deps:
+    <<: *npm
+    command: install
 
   dev-server:
     <<: *npm
-    ports:
-      - "3000:3000"
     command: start
+    stdin_open: true
+    ports:
+      - '3000:3000'
 
 volumes:
-  node_modules:
+  cache-node_modules:
