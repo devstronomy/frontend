@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import ReactGA from 'react-ga'
 import { Link } from 'react-router-dom'
 
-import Links from '../../../links'
+import Jpl from '../../Jpl'
 import * as S from './styles'
 
 /** Represents the 'About' page of Devstronomy application. */
@@ -13,7 +13,7 @@ const AboutPage = () => {
       <h1>Datasets</h1>
       <p>
         Devstronomy project provides <Link to='/datasets'>datasets</Link> related to astronomy in an accessible format
-        (CSV, JSON, SQL). Currently, datasets of planets of our solar system and their natural satellites by {Links.jpl}
+        (CSV, JSON, SQL). Currently, datasets of planets of our solar system and their natural satellites by <Jpl />
         &nbsp; are available.
       </p>
 

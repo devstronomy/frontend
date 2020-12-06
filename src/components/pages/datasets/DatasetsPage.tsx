@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import ReactGA from 'react-ga'
 import { HashLink as Link } from 'react-router-hash-link'
 
-import Links from '../../../links'
+import Jpl from '../../Jpl'
 import * as S from './styles'
 
 const github = 'https://github.com/devstronomy/nasa-data-scraper/blob/master/'
@@ -163,7 +163,7 @@ const DatasetsPage = () => {
       <p>
         The {planetCsvLink} file contains information about planets in our Solar System including dwarf planet Pluto.
         The source of data is <a href='https://nssdc.gsfc.nasa.gov/planetary/factsheet/'>Planetary Fact Sheet</a> from{' '}
-        {Links.jpl}.
+        <Jpl />.
       </p>
 
       <h4>Fields and units in the planetary dataset</h4>
@@ -215,7 +215,7 @@ const DatasetsPage = () => {
       <p>
         The {satellitesCsvLink} file contains information about planetary satellites (moons) of planets in our Solar
         System. Moons of dwarf planet Pluto are included as well. The source of data is{' '}
-        <a href='https://ssd.jpl.nasa.gov/?sat_phys_par'>Planetary Satellite Physical Parameters</a> from {Links.jpl}.
+        <a href='https://ssd.jpl.nasa.gov/?sat_phys_par'>Planetary Satellite Physical Parameters</a> from <Jpl />.
       </p>
 
       <h4>Fields and units in the satellites dataset</h4>
