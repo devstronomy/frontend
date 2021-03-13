@@ -1,8 +1,7 @@
 import { InputAdornment } from '@material-ui/core'
 import * as I from '@material-ui/icons'
 import _partition from 'lodash/partition'
-import React, { useEffect, useState } from 'react'
-import ReactGA from 'react-ga'
+import React, { useState } from 'react'
 import { AutoSizer, Column, Index, Table } from 'react-virtualized'
 
 import rawAbbreviations from '../../../data/apollo-abbr.json'
@@ -41,8 +40,6 @@ const filterAbbreviations = (searchText: string) => {
 
 const ApolloPage = () => {
   const [searchText, setSearchText] = useState('')
-  useEffect(() => ReactGA.pageview('/apollo'))
-
   const filteredAbbrs = filterAbbreviations(searchText)
 
   const rowGetter = ({ index }: Index) => ({
