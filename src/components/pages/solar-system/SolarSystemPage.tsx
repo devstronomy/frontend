@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Jpl from '../../Jpl'
 import Planets from './Planets'
 import * as S from './styles'

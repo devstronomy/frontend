@@ -3,7 +3,6 @@ import amber from '@material-ui/core/colors/amber'
 import grey from '@material-ui/core/colors/grey'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import Toolbar from '@material-ui/core/Toolbar'
-import React from 'react'
 import { Route, HashRouter as Router } from 'react-router-dom'
 
 import githubIcon from '../assets/GitHub-Mark-Light-32px.png'

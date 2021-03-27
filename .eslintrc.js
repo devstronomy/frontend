@@ -26,6 +26,10 @@ module.exports = {
         argsIgnorePattern: '^_',
       },
     ],
+
+    // React 17
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
   },
 
   overrides: [

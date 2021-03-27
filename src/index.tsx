@@ -1,5 +1,4 @@
 import createSagaMiddleware from '@redux-saga/core'
-import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { applyMiddleware, compose, createStore } from 'redux'
