@@ -1,84 +1,59 @@
 module.exports = {
-  env: {
-    browser: true,
-    es6: true,
-    jest: true,
-    node: true
-  },
+  plugins: ['react', 'react-hooks'],
+
+  extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:react-hooks/recommended'],
+
   settings: {
     react: {
-      version: 'detect' // React version. 'detect' automatically picks the version you have installed.
-    }
-  },
-  extends: ['eslint:recommended', 'plugin:react/recommended'],
-  parser: 'babel-eslint',
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true
+      version: 'detect',
+      pragma: 'React', // Pragma to use, default to "React"
     },
-    ecmaVersion: 2018,
-    sourceType: 'module'
-  },
-  plugins: ['react'],
-  rules: {
-    quotes: ['error', 'single'],
-    semi: ['error', 'never'],
-    'linebreak-style': ['error', 'unix'],
-    'no-case-declarations': ['off']
   },
 
-  // Taken from https://github.com/facebook/create-react-app/blob/master/packages/eslint-config-react-app/index.js.
+  rules: {
+    'no-case-declarations': ['off'],
+    'no-unused-vars': [
+      'error',
+      {
+        ignoreRestSiblings: true,
+        argsIgnorePattern: '^_',
+      },
+    ],
+  },
+
   overrides: [
     {
       files: ['**/*.ts?(x)'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
-        ecmaVersion: 2018,
+        ecmaVersion: 2021,
         sourceType: 'module',
         ecmaFeatures: {
-          jsx: true
+          jsx: true,
         },
 
         // typescript-eslint specific options
-        warnOnUnsupportedTypeScriptVersion: true
+        warnOnUnsupportedTypeScriptVersion: true,
       },
       plugins: ['@typescript-eslint'],
-      // If adding a typescript-eslint version of an existing ESLint rule,
-      // make sure to disable the ESLint rule here.
+      extends: ['plugin:@typescript-eslint/recommended'],
+
+      // If adding a typescript-eslint version of an existing ESLint rule, make sure to disable the ESLint rule here.
       rules: {
-        // TypeScript's `noFallthroughCasesInSwitch` option is more robust (#6906)
-        'default-case': 'off',
-        // 'tsc' already handles this (https://github.com/typescript-eslint/typescript-eslint/issues/291)
-        'no-dupe-class-members': 'off',
-        // 'tsc' already handles this (https://github.com/typescript-eslint/typescript-eslint/issues/477)
+        // Check already done by TypeScript. See:
+        // https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/FAQ.md#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
         'no-undef': 'off',
 
         // Add TypeScript specific rules (and turn off ESLint equivalents)
-        // '@typescript-eslint/no-angle-bracket-type-assertion': 'warn',
-        'no-array-constructor': 'off',
-        '@typescript-eslint/no-array-constructor': 'warn',
-        '@typescript-eslint/no-namespace': 'error',
-        'no-use-before-define': 'off',
-        '@typescript-eslint/no-use-before-define': [
-          'warn',
-          {
-            functions: false,
-            classes: false,
-            variables: false,
-            typedefs: false
-          }
-        ],
-        'no-unused-vars': 'off',
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-unused-vars': [
           'warn',
           {
             args: 'none',
-            ignoreRestSiblings: true
-          }
+          },
         ],
-        'no-useless-constructor': 'off',
-        '@typescript-eslint/no-useless-constructor': 'warn'
-      }
-    }
-  ]
+      },
+    },
+  ],
 }

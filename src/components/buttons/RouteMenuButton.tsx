@@ -20,7 +20,7 @@ const LinkMenuButton = (props: IOwnProps) => {
       React.forwardRef((itemProps, ref: React.Ref<HTMLAnchorElement>) => (
         // With react-router-dom@^6.0.0 use `ref` instead of `innerRef`
         // See https://github.com/ReactTraining/react-router/issues/6056
-        <Link to={to!} {...itemProps} innerRef={ref} />
+        <Link to={to} {...itemProps} innerRef={ref} />
       )),
     [to]
   )

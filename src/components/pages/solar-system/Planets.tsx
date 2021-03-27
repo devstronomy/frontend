@@ -17,7 +17,9 @@ export interface IPlanet {
   name: string
 }
 
-interface IState extends ISort {}
+type IState = Readonly<{
+  sort?: ISort
+}>
 
 interface IProps {
   planets: ReadonlyArray<IPlanet>
@@ -96,7 +98,7 @@ class Planets extends TableComponent<IProps, IState> {
 
   render(): React.ReactNode {
     const { planets } = this.props
-    const { sortDirection, sortBy } = this.state
+    const { sort } = this.state
     return (
       <S.PlanetContainer>
         <S.HeaderContainer>
@@ -113,8 +115,8 @@ class Planets extends TableComponent<IProps, IState> {
           rowClassName={this.rowClassName}
           onRowClick={(props: any) => this.selectPlanet(props.rowData)}
           sort={this.sort}
-          sortBy={sortBy}
-          sortDirection={sortDirection}
+          sortBy={sort?.sortBy}
+          sortDirection={sort?.sortDirection}
         >
           <Column label='Name' dataKey='name' width={70} className='rvt-main-column' />
           <Column label={this.labelWithUnits('Distance from Sun')} dataKey='distanceFromSun' width={80} />
@@ -147,7 +149,7 @@ class Planets extends TableComponent<IProps, IState> {
   //<Column label='Has Global Magnetic Field' dataKey='hasGlobalMagneticField' width={80} className='text' />
 
   private sort = ({ sortBy, sortDirection }: ISort) => {
-    this.setState({ sortBy, sortDirection })
+    this.setState({ sort: { sortBy, sortDirection } })
     this.props.dispatchSetPlanets(sort(this.props.planets, sortBy, sortDirection))
   }
 }
