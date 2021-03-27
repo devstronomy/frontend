@@ -10,6 +10,6 @@ export interface IDataLoader {
 }
 
 export interface ISort {
-  sortBy?: string
-  sortDirection?: SortDirectionType
+  sortBy: string
+  sortDirection: SortDirectionType
 }

@@ -35,7 +35,7 @@ const SatellitesHeader = (props: IOwnProp) => {
   )
 }
 
-const satellitesForPlanetInfo = (planetName: String, numberOfSatellites: number) =>
+const satellitesForPlanetInfo = (planetName: string, numberOfSatellites: number) =>
   numberOfSatellites === 0 ? (
     <S.HeaderText>
       Planet <S.Text highlight>{planetName}</S.Text> does not have any satellites

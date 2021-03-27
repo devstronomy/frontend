@@ -15,7 +15,9 @@ export interface ISatellite {
   planetId: number
 }
 
-interface IState extends ISort {}
+type IState = Readonly<{
+  sort?: ISort
+}>
 
 interface IProps {
   satellites: ReadonlyArray<ISatellite>
@@ -54,7 +56,7 @@ class Satellites extends TableComponent<IProps, IState> {
     this.props.dispatchLoadSatellites()
   }
 
-  isItemSelected(index: number): boolean {
+  isItemSelected(_index: number): boolean {
     return false
   }
 
@@ -63,7 +65,7 @@ class Satellites extends TableComponent<IProps, IState> {
     const satellites = selectedPlanet
       ? this.props.satellites.filter((s) => s.planetId === selectedPlanet.id)
       : this.props.satellites
-    const { sortDirection, sortBy } = this.state
+    const { sort } = this.state
 
     return (
       <div>
@@ -78,8 +80,8 @@ class Satellites extends TableComponent<IProps, IState> {
           rowGetter={({ index }: Index) => satellites[index]}
           rowClassName={this.rowClassName}
           sort={this.sort}
-          sortBy={sortBy}
-          sortDirection={sortDirection}
+          sortBy={sort?.sortBy}
+          sortDirection={sort?.sortDirection}
         >
           <Column label='Name' dataKey='name' width={105} className='rvt-main-column' />
           <Column label={this.labelWithUnits('GM')} dataKey='gm' width={95} />
@@ -93,7 +95,7 @@ class Satellites extends TableComponent<IProps, IState> {
   }
 
   private sort = ({ sortBy, sortDirection }: ISort) => {
-    this.setState({ sortBy, sortDirection })
+    this.setState({ sort: { sortBy, sortDirection } })
     this.props.dispatchSetSatellites(sort(this.props.satellites, sortBy, sortDirection))
   }
 }

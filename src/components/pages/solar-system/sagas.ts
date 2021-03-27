@@ -13,7 +13,7 @@ export const loadPlanetsFlow = function* () {
     const planets = yield call(dataLoader.loadPlanets)
     yield put(A.setPlanets(planets))
   } catch (err) {
-    console.log('Loading planets failed')
+    console.error('Loading planets failed')
   }
 }
 
@@ -26,7 +26,7 @@ export const loadSatellitesFlow = function* () {
     const satellites = yield call(dataLoader.loadAllSatellites)
     yield put(A.setSatellites(satellites))
   } catch (err) {
-    console.log('Loading satellites failed')
+    console.error('Loading satellites failed')
   }
 }
 
