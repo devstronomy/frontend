@@ -23,11 +23,6 @@ Then open [http://localhost:8080](http://localhost:8080) to view it in the brows
 The page will reload if you make edits (also when running via Docker).\
 You will also see any lint errors in the console.
 
-## Notes
-
-`package.json` contains `postinstall` script, which removes `@types/react-native`. This is a workaround for the issue
-discussed here: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/33311
-
 ### Build and deploy
 
 Run [`./bin/ds-build`](/bin/ds-build) script.

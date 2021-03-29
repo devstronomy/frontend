@@ -17,7 +17,6 @@
     "clean": "rimraf dist",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "postinstall": "rimraf node_modules/@types/react-native",
     "lint": "eslint 'src/**/*.ts' 'src/**/*.tsx'",
     "lint:fix": "eslint --fix 'src/**/*.ts' 'src/**/*.tsx'",
     "start": "webpack serve --open --config webpack.dev.js",
