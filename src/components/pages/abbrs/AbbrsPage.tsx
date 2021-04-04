@@ -1,6 +1,6 @@
 import { InputAdornment } from '@material-ui/core'
 import * as I from '@material-ui/icons'
-import rawAbbreviations from 'Data/apollo-abbr.json5'
+import rawAbbreviations from 'Data/rocket-abbr.json5'
 import _partition from 'lodash/partition'
 import { useState } from 'react'
 import { AutoSizer, Column, Index, Table } from 'react-virtualized'
@@ -38,7 +38,7 @@ const filterAbbreviations = (searchText: string) => {
   return abbrs.concat(theRest.filter((abbr) => abbr[1].toLowerCase().includes(searchText.toLowerCase())))
 }
 
-const ApolloPage = () => {
+const AbbrsPage = () => {
   const [searchText, setSearchText] = useState('')
   const filteredAbbrs = filterAbbreviations(searchText)
 
@@ -48,8 +48,8 @@ const ApolloPage = () => {
   })
 
   return (
-    <S.ApolloPage id='ApolloPage'>
-      <h1>Apollo Program Abbreviations</h1>
+    <S.AbbrsPage id='Abbreviations'>
+      <h1>Abbreviations related to rocketry and space</h1>
       <Search onChange={setSearchText} />
       <AutoSizer>
         {({ height, width }) => (
@@ -81,8 +81,8 @@ const ApolloPage = () => {
           </Table>
         )}
       </AutoSizer>
-    </S.ApolloPage>
+    </S.AbbrsPage>
   )
 }
 
-export default ApolloPage
+export default AbbrsPage

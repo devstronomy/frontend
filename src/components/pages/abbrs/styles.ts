@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { dsBlue, dsBlueLight } from '../../globalStyles'
 
-export const ApolloPage = styled.div`
+export const AbbrsPage = styled.div`
   min-height: 200px;
   max-height: 70%;
   max-width: 800px;

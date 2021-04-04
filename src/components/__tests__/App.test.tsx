@@ -16,7 +16,7 @@ describe('Application', () => {
     const { unmount, getByText } = render(app)
     expect(getByText('Planets & Satellites')).toBeInTheDocument()
     expect(getByText('Datasets')).toBeInTheDocument()
-    expect(getByText('Apollo')).toBeInTheDocument()
+    expect(getByText('Abbreviations')).toBeInTheDocument()
     expect(getByText('About')).toBeInTheDocument()
     unmount()
   })

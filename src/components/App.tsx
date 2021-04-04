@@ -12,7 +12,7 @@ import GlobalStyles from '../components/globalStyles'
 import AboutPage from '../components/pages/about/AboutPage'
 import DatasetsPage from '../components/pages/datasets/DatasetsPage'
 import SolarSystemPage from '../components/pages/solar-system/SolarSystemPage'
-import ApolloPage from './pages/apollo/ApolloPage'
+import AbbrsPage from './pages/abbrs'
 import * as S from './styles'
 
 const theme = createMuiTheme({
@@ -31,7 +31,7 @@ const App = () => (
         <Toolbar variant='dense'>
           <RouteMenuButton to=''>Planets & Satellites</RouteMenuButton>
           <RouteMenuButton to='/datasets'>Datasets</RouteMenuButton>
-          <RouteMenuButton to='/apollo'>Apollo</RouteMenuButton>
+          <RouteMenuButton to='/abbrs'>Abbreviations</RouteMenuButton>
 
           <S.FlexGrow />
           <ExternalLinkMenuButton link='/celestial/'>Celestial</ExternalLinkMenuButton>
@@ -45,7 +45,7 @@ const App = () => (
       <Route exact path='/' component={SolarSystemPage} />
       <Route path='/planets' component={SolarSystemPage} />
       <Route path='/datasets' component={DatasetsPage} />
-      <Route path='/apollo' component={ApolloPage} />
+      <Route path='/abbrs' component={AbbrsPage} />
       <Route path='/about' component={AboutPage} />
     </MuiThemeProvider>
   </Router>
