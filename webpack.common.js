@@ -8,13 +8,18 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json', '.png'],
+    extensions: ['.ts', '.tsx', '.js', '.json', '.json5', '.png'],
     alias: {
       Data: path.resolve(__dirname, 'data'),
     },
   },
   module: {
     rules: [
+      {
+        test: /\.json5$/,
+        loader: 'json5-loader',
+        type: 'javascript/auto',
+      },
       {
         test: /\.png/,
         type: 'asset/resource',

@@ -1,4 +1,5 @@
 [
+  // abbreviation, short description, long description
   ["39A", "One of the two pads at the Launch Complex 39.", ""],
   ["39B", "One of the two pads at the Launch Complex 39.", ""],
   ["ALSEP", "Apollo Lunar Surface Experiments Package", ""],
@@ -41,7 +42,7 @@
     "Lunar Orbit Rendezvous.",
     "One of the three potential methods of achieving a lunar landing and safe return. Fly into lunar orbit and send down a specialized lander while the mothership remained in space, then rendezvous upon lifting off from the Moon. LOR was selected as the final one."
   ],
-  ["LOX", "Liquid OXygen", "very cold liquid oxygen. A cryogenic propellant."],
+  ["LOX", "Liquid OXygen", "Very cold liquid oxygen. A cryogenic propellant."],
   ["LRV", "Lunar Roving Vehicle", ""],
   ["LUT", "Large Umbilical Tower", ""],
   ["MCC", "Mission Control Center", ""],

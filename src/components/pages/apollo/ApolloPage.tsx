@@ -1,6 +1,6 @@
 import { InputAdornment } from '@material-ui/core'
 import * as I from '@material-ui/icons'
-import rawAbbreviations from 'Data/apollo-abbr.json'
+import rawAbbreviations from 'Data/apollo-abbr.json5'
 import _partition from 'lodash/partition'
 import { useState } from 'react'
 import { AutoSizer, Column, Index, Table } from 'react-virtualized'
