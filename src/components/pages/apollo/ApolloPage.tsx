@@ -1,10 +1,10 @@
 import { InputAdornment } from '@material-ui/core'
 import * as I from '@material-ui/icons'
+import rawAbbreviations from 'Data/apollo-abbr.json'
 import _partition from 'lodash/partition'
 import { useState } from 'react'
 import { AutoSizer, Column, Index, Table } from 'react-virtualized'
 
-import rawAbbreviations from '../../../data/apollo-abbr.json'
 import { rowClassName } from '../../globalStyles'
 import * as S from './styles'
 

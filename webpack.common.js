@@ -9,6 +9,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json', '.png'],
+    alias: {
+      Data: path.resolve(__dirname, 'data'),
+    },
   },
   module: {
     rules: [
