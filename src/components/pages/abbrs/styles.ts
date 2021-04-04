@@ -1,4 +1,5 @@
 import { TextField } from '@material-ui/core'
+import { lighten } from 'polished'
 import styled from 'styled-components'
 
 import { dsBlue, dsBlueLight } from '../../globalStyles'
@@ -30,5 +31,10 @@ export const DSTextField = styled(TextField)`
 
   .MuiOutlinedInput-notchedOutline {
     border-color: ${dsBlueLight};
+  }
+
+  .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: ${lighten(0.3)(dsBlue)};
+    border-width: 1px;
   }
 `
