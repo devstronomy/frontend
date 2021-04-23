@@ -31,10 +31,10 @@ const App = () => (
         <Toolbar variant='dense'>
           <RouteMenuButton to=''>Planets & Satellites</RouteMenuButton>
           <RouteMenuButton to='/datasets'>Datasets</RouteMenuButton>
+          <ExternalLinkMenuButton link='/celestial/'>Celestial</ExternalLinkMenuButton>
           <RouteMenuButton to='/abbrs'>Abbreviations</RouteMenuButton>
 
           <S.FlexGrow />
-          <ExternalLinkMenuButton link='/celestial/'>Celestial</ExternalLinkMenuButton>
           <RouteMenuButton to='/about'>About</RouteMenuButton>
           <ExternalLinkMenuButton link='https://github.com/devstronomy/'>
             <img src={githubIcon} alt='GitHub' />
