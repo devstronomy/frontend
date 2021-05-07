@@ -15,7 +15,7 @@ npm run build
 cd "$DS_GITHUB_IO"
 ls | egrep -v "CNAME|README.md" | xargs rm -rv
 
-cp -a "$DS_FRONTEND/build/"* "$DS_GITHUB_IO"
+cp -a "$DS_FRONTEND/dist/"* "$DS_GITHUB_IO"
 
 # Build and copy Celestial.
 cd "$DS_CELESTIAL"
