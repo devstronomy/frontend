@@ -8,21 +8,21 @@ interface Highlightable {
 }
 
 export const SolarSystemHeader = styled.div`
-  padding: 20px 20px 0 20px;
+  padding: 1.2rem 1.2rem 0 1.2rem;
   text-align: center;
 `
 
 export const PlanetContainer = styled.div`
-  padding: 10px;
+  padding: 0.6rem;
 `
 
 export const SatellitesContainer = styled.div`
-  margin-top: 10px;
+  margin-top: 0.6rem;
 `
 
 export const HeaderContainer = styled.div`
   display: inline-block;
-  margin: 10px 0 10px 0;
+  margin: 0.6rem 0 0.6rem 0;
   margin-inline-end: 0;
 `
 

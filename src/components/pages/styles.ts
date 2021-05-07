@@ -11,7 +11,7 @@ export const Page = styled.div.attrs({ className: 'flexCenter' })`
       margin: 0 auto;
     }
     @media (max-width: ${widthBoundary}) {
-      padding: 0 20px;
+      padding: 0 1.2rem;
     }
   }
 

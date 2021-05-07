@@ -92,7 +92,7 @@ export default createGlobalStyle`
   }
   
   pre {
-    padding: 10px 10px 10px 10px;
+    padding: 0.6rem 0.6rem 0.6rem 0.6rem;
   }
   
   table {
@@ -108,7 +108,7 @@ export default createGlobalStyle`
   }
   
   th, td {
-    padding: 7px;
+    padding: 0.4rem;
   }
   
   tr:nth-child(2n) {
@@ -129,11 +129,11 @@ export default createGlobalStyle`
   /** Always show scrollbar. */
   .ReactVirtualized__Table__Grid::-webkit-scrollbar {
     -webkit-appearance: none;
-    width: 10px;
+    width: 0.6rem;
   }
   .ReactVirtualized__Table__Grid::-webkit-scrollbar-thumb {
     border: 1px solid ${darken(0.25, dsBlue)}; 
-    border-radius: 4px;
+    border-radius: 0.25px;
     background-color: rgba(0,0,0,.5);
     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
   }
@@ -141,7 +141,7 @@ export default createGlobalStyle`
   .ReactVirtualized__Table__headerColumn {
     ${rvtColumn};
     justify-content: center;
-    padding-right: 10px;
+    padding-right: 0.6rem;
     
     :focus {
       outline: 0;
@@ -159,7 +159,7 @@ export default createGlobalStyle`
   .ReactVirtualized__Table__rowColumn {
     ${rvtColumn};
     justify-content: flex-end; // expect number-type by default
-    padding-right: 10px;
+    padding-right: 0.6rem;
   }
   
   .ReactVirtualized__Table__row {

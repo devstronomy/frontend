@@ -6,7 +6,7 @@ import { Page } from '../styles'
 export const DatasetsPage = styled(Page)``
 
 export const DatasetHeader = styled.h1`
-  padding: 20px 20px 0 20px;
+  padding: 1.2rem 1.2rem 0 1.2rem;
 `
 
 export const CodeLink = styled.code`
