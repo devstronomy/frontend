@@ -5,16 +5,24 @@ import styled from 'styled-components'
 import { dsBlue, dsBlueLight } from '../../globalStyles'
 
 export const AbbrsPage = styled.div`
-  min-height: 200px;
-  max-height: 70%;
-  max-width: 800px;
-  padding: 20px 20px 0 20px;
+  display: flex;
+  flex-direction: column;
+
+  padding: 1.2rem;
   flex-grow: 1;
+`
+
+export const TableWrapper = styled.div`
+  // https://github.com/bvaughn/react-virtualized/blob/master/docs/usingAutoSizer.md
+  flex: 1 1 auto;
+
+  max-width: 800px;
+  padding-top: 1rem;
 `
 
 export const DSTextField = styled(TextField)`
   && {
-    margin: 0 0 5px 0;
+    margin: 0 0 0.3rem 0;
   }
 
   .MuiInputLabel-root {
@@ -22,7 +30,7 @@ export const DSTextField = styled(TextField)`
   }
 
   .MuiOutlinedInput-input {
-    padding: 14px 10px;
+    padding: 0.9rem 0.6rem;
   }
 
   .MuiInputLabel-root.Mui-focused {

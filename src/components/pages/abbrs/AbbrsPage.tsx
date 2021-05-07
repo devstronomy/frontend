@@ -51,36 +51,38 @@ const AbbrsPage = () => {
     <S.AbbrsPage id='Abbreviations'>
       <h1>Abbreviations related to rocketry and space</h1>
       <Search onChange={setSearchText} />
-      <AutoSizer>
-        {({ height, width }) => (
-          <Table
-            height={height}
-            headerHeight={40}
-            rowCount={filteredAbbrs.length}
-            rowClassName={rowClassName}
-            rowHeight={40}
-            rowGetter={rowGetter}
-            width={width}
-          >
-            <Column
-              label='Abbr'
-              dataKey='abbreviation'
-              width={50}
-              className='rvt-main-column'
-              flexGrow={0}
-              flexShrink={10}
-            />
-            <Column
-              label='Meaning'
-              dataKey='meaning'
-              width={10}
-              className='rvt-string-column'
-              flexGrow={1}
-              flexShrink={0}
-            />
-          </Table>
-        )}
-      </AutoSizer>
+      <S.TableWrapper>
+        <AutoSizer>
+          {({ height, width }) => (
+            <Table
+              height={height}
+              headerHeight={40}
+              rowCount={filteredAbbrs.length}
+              rowClassName={rowClassName}
+              rowHeight={40}
+              rowGetter={rowGetter}
+              width={width}
+            >
+              <Column
+                label='Abbr'
+                dataKey='abbreviation'
+                width={90}
+                className='rvt-main-column'
+                flexGrow={0}
+                flexShrink={10}
+              />
+              <Column
+                label='Meaning'
+                dataKey='meaning'
+                width={10}
+                className='rvt-string-column'
+                flexGrow={1}
+                flexShrink={0}
+              />
+            </Table>
+          )}
+        </AutoSizer>
+      </S.TableWrapper>
     </S.AbbrsPage>
   )
 }
