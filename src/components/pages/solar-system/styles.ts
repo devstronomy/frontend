@@ -2,6 +2,7 @@ import { Button } from '@material-ui/core'
 import styled from 'styled-components'
 
 import { dsBlue, dsBlueLight, linkColor, linkUnderlineHoverColor, textColor } from '../../globalStyles'
+
 export * from './virtualized-styles'
 
 interface Highlightable {
@@ -14,11 +15,12 @@ export const SolarSystemHeader = styled.div`
 `
 
 export const PlanetContainer = styled.div`
-  padding: 0.6rem;
+  padding-top: 0.6rem;
+  padding-left: 1.6rem;
 `
 
 export const SatellitesContainer = styled.div`
-  margin-top: 0.6rem;
+  padding-top: 0.6rem;
 `
 
 export const HeaderContainer = styled.div`
