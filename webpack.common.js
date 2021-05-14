@@ -9,6 +9,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json', '.json5', '.png'],
+    // keep this synchronized with the tsconfig.json#compilerOptions.paths
     alias: {
       Data: path.resolve(__dirname, 'data'),
     },

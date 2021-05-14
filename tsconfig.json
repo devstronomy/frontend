@@ -1,5 +1,11 @@
 {
   "compilerOptions": {
+    // keep this synchronized with the webpack.common.js#resolve.alias
+    "baseUrl": "./",
+    "paths": {
+      "Data": ["data"]
+    },
+
     "module": "esnext",
     "target": "es6",
     "sourceMap": true,
