@@ -3,9 +3,10 @@ import * as I from '@material-ui/icons'
 import rawAbbreviations from 'Data/rocket-abbr.json5'
 import _partition from 'lodash/partition'
 import { useState } from 'react'
-import { AutoSizer, Column, Index, Table } from 'react-virtualized'
+import { AutoSizer, Column, Index } from 'react-virtualized'
 
 import { rowClassName } from '../../globalStyles'
+import { Table } from '../solar-system/virtualized-styles'
 import * as S from './styles'
 
 const abbreviations: [[string, string]] = rawAbbreviations as any
