@@ -1,5 +1,3 @@
-import '../../../css-react-virtualized/styles.css' // only needs to be imported once
-
 import { connect } from 'react-redux'
 import { Column, Index } from 'react-virtualized'
 

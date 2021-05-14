@@ -1,23 +1,12 @@
 import { Button } from '@material-ui/core'
-import { Table as VirtualizedTable } from 'react-virtualized'
 import styled from 'styled-components'
 
 import { dsBlue, dsBlueLight, linkColor, linkUnderlineHoverColor, textColor } from '../../globalStyles'
+export * from './virtualized-styles'
 
 interface Highlightable {
   highlight?: boolean
 }
-
-export const Table = styled(VirtualizedTable)`
-  .ReactVirtualized__Table__sortableHeaderIcon {
-    flex-basis: auto;
-  }
-
-  .ReactVirtualized__Table__headerTruncatedText {
-    flex-grow: 1;
-    justify-content: flex-start;
-  }
-`
 
 export const SolarSystemHeader = styled.div`
   padding: 1.2rem 1.2rem 0 1.2rem;
