@@ -1,7 +1,7 @@
 import '../../../css-react-virtualized/styles.css' // only needs to be imported once
 
 import { connect } from 'react-redux'
-import { Column, Index, Table } from 'react-virtualized'
+import { Column, Index } from 'react-virtualized'
 
 import * as A from './actions'
 import { IAppState } from './reducer'
@@ -104,7 +104,7 @@ class Planets extends TableComponent<IProps, IState> {
           <S.HeaderText>Planets of our Solar System</S.HeaderText>
         </S.HeaderContainer>
 
-        <Table
+        <S.Table
           width={1950}
           height={450}
           headerHeight={90}
@@ -136,7 +136,7 @@ class Planets extends TableComponent<IProps, IState> {
           <Column label={this.labelWithUnits('Obliquity to Orbit')} dataKey='obliquityToOrbit' width={80} />
           <Column label={this.labelWithUnits('Mean Temperature')} dataKey='meanTemperature' width={115} />
           <Column label={this.labelWithUnits('Surface Pressure')} dataKey='surfacePressure' width={80} />
-        </Table>
+        </S.Table>
 
         <Satellites />
       </S.PlanetContainer>

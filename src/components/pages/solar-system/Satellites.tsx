@@ -1,11 +1,12 @@
 import { connect } from 'react-redux'
-import { Column, Index, Table } from 'react-virtualized'
+import { Column, Index } from 'react-virtualized'
 
 import * as A from './actions'
 import { IPlanet } from './Planets'
 import { IAppState } from './reducer'
 import SatellitesHeader from './SatellitesHeader'
 import { sort } from './sorting'
+import * as S from './styles'
 import { IUnits, TableComponent } from './TableComponent'
 import { ISort } from './types'
 
@@ -70,8 +71,8 @@ class Satellites extends TableComponent<IProps, IState> {
       <div>
         <SatellitesHeader numberOfSatellites={satellites.length} />
 
-        <Table
-          width={575}
+        <S.Table
+          width={590}
           height={514}
           headerHeight={90}
           rowHeight={40}
@@ -84,11 +85,11 @@ class Satellites extends TableComponent<IProps, IState> {
         >
           <Column label='Name' dataKey='name' width={105} className='rvt-main-column' />
           <Column label={this.labelWithUnits('GM')} dataKey='gm' width={95} />
-          <Column label={this.labelWithUnits('Mean Radius')} dataKey='radius' width={75} />
-          <Column label={this.labelWithUnits('Mean Density')} dataKey='density' width={75} />
+          <Column label={this.labelWithUnits('Mean Radius')} dataKey='radius' width={80} />
+          <Column label={this.labelWithUnits('Mean Density')} dataKey='density' width={80} />
           <Column label={this.labelWithUnits('Magnitude')} dataKey='magnitude' width={105} />
-          <Column label='Geometric Albedo' dataKey='albedo' width={100} />
-        </Table>
+          <Column label='Geometric Albedo' dataKey='albedo' width={105} />
+        </S.Table>
       </div>
     )
   }
