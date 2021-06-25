@@ -8,6 +8,8 @@ import App from './components/App'
 import appReducers from './components/pages/solar-system/reducer'
 import componentSagas from './components/pages/solar-system/sagas'
 
+require('./handy.css')
+
 const sagaMiddleware = createSagaMiddleware()
 
 const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

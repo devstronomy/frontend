@@ -1,0 +1,5 @@
+/* Tailwind CSS like tiny bundle. */
+
+.flex-grow {
+  flex-grow: 1;
+}

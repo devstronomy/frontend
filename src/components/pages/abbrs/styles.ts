@@ -18,6 +18,19 @@ export const TableWrapper = styled.div`
 
   max-width: 800px;
   padding-top: 1rem;
+
+  a {
+    border-bottom: none;
+    :hover {
+      color: hsl(210, 60%, 93%); // normal un-hovered is #a0c4e7 -> hsl(210, 60%, 77%)
+      border-bottom: none;
+    }
+  }
+
+  .meaning-cell {
+    width: 100%;
+    display: flex;
+  }
 `
 
 export const DSTextField = styled(TextField)`

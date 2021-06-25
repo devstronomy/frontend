@@ -1,5 +1,6 @@
 import { InputAdornment } from '@material-ui/core'
 import * as I from '@material-ui/icons'
+import SearchIcon from '@material-ui/icons/Search'
 import rawAbbreviations from 'Data/rocket-abbr.json5'
 import _partition from 'lodash/partition'
 import { useState } from 'react'
@@ -73,6 +74,20 @@ const AbbrsPage = () => {
                 flexShrink={10}
               />
               <Column
+                cellRenderer={({ rowData }) => (
+                  <div className='meaning-cell'>
+                    <div className='flex-grow'>{rowData.meaning}</div>
+                    <div>
+                      <a
+                        href={`https://www.google.com/search?q=${rowData.abbreviation}+${rowData.meaning}`}
+                        target='_blank'
+                        rel='noreferrer'
+                      >
+                        <SearchIcon />
+                      </a>
+                    </div>
+                  </div>
+                )}
                 label='Meaning'
                 dataKey='meaning'
                 width={10}

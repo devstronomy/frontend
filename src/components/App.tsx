@@ -13,7 +13,6 @@ import AboutPage from '../components/pages/about/AboutPage'
 import DatasetsPage from '../components/pages/datasets/DatasetsPage'
 import SolarSystemPage from '../components/pages/solar-system/SolarSystemPage'
 import AbbrsPage from './pages/abbrs'
-import * as S from './styles'
 
 const theme = createMuiTheme({
   palette: {
@@ -34,7 +33,7 @@ const App = () => (
           <ExternalLinkMenuButton link='/celestial/'>Celestial</ExternalLinkMenuButton>
           <RouteMenuButton to='/abbrs'>Abbreviations</RouteMenuButton>
 
-          <S.FlexGrow />
+          <div className='flex-grow' />
           <RouteMenuButton to='/about'>About</RouteMenuButton>
           <ExternalLinkMenuButton link='https://github.com/devstronomy/'>
             <img src={githubIcon} alt='GitHub' />
