@@ -75,7 +75,7 @@ const AbbrsPage = () => {
               />
               <Column
                 cellRenderer={({ rowData }) => (
-                  <div className='meaning-cell'>
+                  <div className='flex-center w-full'>
                     <div className='flex-grow'>{rowData.meaning}</div>
                     <div>
                       <a

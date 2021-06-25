@@ -26,11 +26,6 @@ export const TableWrapper = styled.div`
       border-bottom: none;
     }
   }
-
-  .meaning-cell {
-    width: 100%;
-    display: flex;
-  }
 `
 
 export const DSTextField = styled(TextField)`
