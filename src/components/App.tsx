@@ -1,9 +1,9 @@
 import AppBar from '@material-ui/core/AppBar'
 import amber from '@material-ui/core/colors/amber'
 import grey from '@material-ui/core/colors/grey'
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import { MuiThemeProvider, createTheme } from '@material-ui/core/styles'
 import Toolbar from '@material-ui/core/Toolbar'
-import { Route, HashRouter as Router } from 'react-router-dom'
+import { HashRouter, Route, Routes } from 'react-router-dom'
 
 import githubIcon from '../assets/GitHub-Mark-Light-32px.png'
 import ExternalLinkMenuButton from '../components/buttons/ExternalLinkMenuButton'
@@ -14,7 +14,7 @@ import DatasetsPage from '../components/pages/datasets/DatasetsPage'
 import SolarSystemPage from '../components/pages/solar-system/SolarSystemPage'
 import AbbrsPage from './pages/abbrs'
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     type: 'dark',
     primary: { main: grey[900] },
@@ -23,7 +23,7 @@ const theme = createMuiTheme({
 })
 
 const App = () => (
-  <Router>
+  <HashRouter>
     <MuiThemeProvider theme={theme}>
       <GlobalStyles />
       <AppBar position='static'>
@@ -41,13 +41,15 @@ const App = () => (
         </Toolbar>
       </AppBar>
 
-      <Route exact path='/' component={SolarSystemPage} />
-      <Route path='/planets' component={SolarSystemPage} />
-      <Route path='/datasets' component={DatasetsPage} />
-      <Route path='/abbrs' component={AbbrsPage} />
-      <Route path='/about' component={AboutPage} />
+      <Routes>
+        <Route path='/' element={<SolarSystemPage />} />
+        <Route path='planets' element={<SolarSystemPage />} />
+        <Route path='datasets' element={<DatasetsPage />} />
+        <Route path='abbrs' element={<AbbrsPage />} />
+        <Route path='about' element={<AboutPage />} />
+      </Routes>
     </MuiThemeProvider>
-  </Router>
+  </HashRouter>
 )
 
 export default App

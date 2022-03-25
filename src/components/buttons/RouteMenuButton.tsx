@@ -1,15 +1,10 @@
-import { LocationDescriptor } from 'history'
+import { To } from 'history'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
 import * as S from './styles'
 
-interface IOwnProps {
-  to: LocationDescriptor
-  children: React.ReactNode
-}
-
-const LinkMenuButton = (props: IOwnProps) => {
+const LinkMenuButton = (props: React.PropsWithChildren<{ to: To }>) => {
   const { to, children } = props
 
   // Inspired by https://material-ui.com/guides/composition/#link
@@ -20,7 +15,7 @@ const LinkMenuButton = (props: IOwnProps) => {
       React.forwardRef((itemProps, ref: React.Ref<HTMLAnchorElement>) => (
         // With react-router-dom@^6.0.0 use `ref` instead of `innerRef`
         // See https://github.com/ReactTraining/react-router/issues/6056
-        <Link to={to} {...itemProps} innerRef={ref} />
+        <Link to={to} {...itemProps} ref={ref} />
       )),
     [to]
   )
