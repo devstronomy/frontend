@@ -1,22 +1,24 @@
 # Description
+
 This project contains the code-base for the frontend part of the Devstronomy project.
 
 To find more information about the Devstronomy or to see an interactive demo of the data, visit
 [Devstronomy Homepage](https://devstronomy.com/).
 
 ## Demo Screenshot
-![Devstronomy demo](/demo.png?raw=true "Devstronomy demo")
+
+![Devstronomy demo](/demo.png?raw=true 'Devstronomy demo')
 
 # For developers
 
 ## Running project locally
 
-* Either using Docker:
+- Either using Docker:
   ```
-  docker-compose run ui-install-deps
+  docker-compose run install-dependencies
   docker-compose up dev-server
-  ``` 
-* Or NPM: `npm install && npm start`
+  ```
+- Or NPM: `npm install && npm start`
 
 Then open [http://localhost:8080](http://localhost:8080) to view it in the browser.
 

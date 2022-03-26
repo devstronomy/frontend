@@ -2,14 +2,13 @@ version: '3.8'
 
 services:
   npm: &npm
-    image: node:12.16
+    image: node:16
     volumes:
       - ./:/devstronomy/ui
-      - cache-node_modules:/devstronomy/ui/node_modules
     entrypoint: npm
     working_dir: /devstronomy/ui
 
-  ui-install-deps:
+  install-dependencies:
     <<: *npm
     command: install
 
@@ -19,6 +18,3 @@ services:
     stdin_open: true
     ports:
       - '8080:8080'
-
-volumes:
-  cache-node_modules:
