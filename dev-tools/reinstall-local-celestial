@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Helper script for quick testing '@devstronomy/celestial' locally before publishing.
+
+root_dir=`realpath "$(dirname "$0")/.."`
+devstronomy_celestial_dir="$root_dir/../celestial"
+version="0.2.0"
+
+set -xeuo pipefail
+
+cd "$devstronomy_celestial_dir"
+
+npm run clean:dist
+npm pack
+
+cd "$root_dir"
+
+npm install -SE "$devstronomy_celestial_dir/devstronomy-celestial-$version.tgz"

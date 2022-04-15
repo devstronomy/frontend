@@ -1,7 +1,8 @@
 import { Table as VirtualizedTable } from 'react-virtualized'
 import styled from 'styled-components'
 
-export const Table = styled(VirtualizedTable)`
+// TODO: workaround for unmaintained library
+export const Table = styled(VirtualizedTable as any)`
   .ReactVirtualized__Table__row {
     display: flex;
     align-items: center;

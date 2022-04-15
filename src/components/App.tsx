@@ -13,6 +13,7 @@ import AboutPage from '../components/pages/about/AboutPage'
 import DatasetsPage from '../components/pages/datasets/DatasetsPage'
 import SolarSystemPage from '../components/pages/solar-system/SolarSystemPage'
 import AbbrsPage from './pages/abbrs'
+import CelestialPage from './pages/celestial/CelestialPage'
 
 const theme = createTheme({
   palette: {
@@ -30,7 +31,7 @@ const App = () => (
         <Toolbar variant='dense'>
           <RouteMenuButton to=''>Planets & Satellites</RouteMenuButton>
           <RouteMenuButton to='/datasets'>Datasets</RouteMenuButton>
-          <ExternalLinkMenuButton link='/celestial/'>Celestial</ExternalLinkMenuButton>
+          <RouteMenuButton to='/celestial/'>Celestial</RouteMenuButton>
           <RouteMenuButton to='/abbrs'>Abbreviations</RouteMenuButton>
 
           <div className='flex-grow' />
@@ -45,6 +46,7 @@ const App = () => (
         <Route path='/' element={<SolarSystemPage />} />
         <Route path='planets' element={<SolarSystemPage />} />
         <Route path='datasets' element={<DatasetsPage />} />
+        <Route path='celestial' element={<CelestialPage />} />
         <Route path='abbrs' element={<AbbrsPage />} />
         <Route path='about' element={<AboutPage />} />
       </Routes>

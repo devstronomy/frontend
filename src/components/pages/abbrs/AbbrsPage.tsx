@@ -4,11 +4,15 @@ import SearchIcon from '@material-ui/icons/Search'
 import rawAbbreviations from 'Data/rocket-abbr.json5'
 import _partition from 'lodash/partition'
 import { useState } from 'react'
-import { AutoSizer, Column, Index } from 'react-virtualized'
+import { AutoSizer as AutoSizerOrig, Column as ColumnOrig, Index } from 'react-virtualized'
 
 import { rowClassName } from '../../globalStyles'
 import { Table } from '../solar-system/virtualized-styles'
 import * as S from './styles'
+
+// TODO: workaround for unmaintained library
+const AutoSizer = AutoSizerOrig as any
+const Column = ColumnOrig as any
 
 const abbreviations: [[string, string]] = rawAbbreviations as any
 
@@ -55,7 +59,7 @@ const AbbrsPage = () => {
       <Search onChange={setSearchText} />
       <S.TableWrapper>
         <AutoSizer>
-          {({ height, width }) => (
+          {({ height, width }: any) => (
             <Table
               height={height}
               headerHeight={40}
@@ -74,7 +78,7 @@ const AbbrsPage = () => {
                 flexShrink={10}
               />
               <Column
-                cellRenderer={({ rowData }) => (
+                cellRenderer={({ rowData }: any) => (
                   <div className='flex-center w-full'>
                     <div className='flex-grow'>{rowData.meaning}</div>
                     <div>

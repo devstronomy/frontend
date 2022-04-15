@@ -48,6 +48,7 @@ export default createGlobalStyle`
   }
 
   body {
+    overflow: hidden;
     height: 100%;
     padding: 0;
     margin: 0;
