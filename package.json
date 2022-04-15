@@ -18,7 +18,7 @@
     "dist": "webpack --config webpack.prod.js --progress",
     "predeploy": "npm run dist",
     "deploy": "gh-pages -d dist",
-    "flush-npm": "rimraf node_modules && npm install --force",
+    "flush-npm": "rm -rf node_modules && npm install --force",
     "lint": "eslint src/**/*.ts src/**/*.tsx",
     "lint:fix": "eslint --fix src/**/*.ts src/**/*.tsx",
     "start": "webpack serve --config webpack.dev.js",
@@ -27,7 +27,7 @@
     "prettier:fix": "prettier -w src && prettier-package-json --write ./package.json"
   },
   "dependencies": {
-    "@devstronomy/celestial": "0.2.0-beta1",
+    "@devstronomy/celestial": "0.2.0",
     "@material-ui/core": "4.12.4",
     "@material-ui/icons": "4.11.3",
     "lodash": "4.17.21",
