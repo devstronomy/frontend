@@ -5,24 +5,15 @@ set -ex
 DS_HOME="$HOME/work/devstronomy"
 DS_FRONTEND="$DS_HOME/frontend"
 DS_GITHUB_IO="$DS_HOME/devstronomy.github.io"
-DS_CELESTIAL="$DS_HOME/celestial"
 
 # Build and copy Devstronomy frontend.
 cd "$DS_FRONTEND"
-rm -rvf build
-npm run build
+npm run clean:dist
 
 cd "$DS_GITHUB_IO"
 ls | egrep -v "CNAME|README.md" | xargs rm -rv
 
 cp -a "$DS_FRONTEND/dist/"* "$DS_GITHUB_IO"
-
-# Build and copy Celestial.
-cd "$DS_CELESTIAL"
-npm run clean
-npm run build
-rm -rf "$DS_GITHUB_IO/celestial"
-cp -R "$DS_CELESTIAL/dist" "$DS_GITHUB_IO/celestial"
 
 set +x
 

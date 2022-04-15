@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { Column, Index } from 'react-virtualized'
+import { Column as ColumnOrig, Index } from 'react-virtualized'
 
 import * as A from './actions'
 import { IAppState } from './reducer'
@@ -8,6 +8,9 @@ import { sort } from './sorting'
 import * as S from './styles'
 import { IUnits, TableComponent } from './TableComponent'
 import { ISort } from './types'
+
+// TODO: workaround for unmaintained library
+const Column = ColumnOrig as any
 
 export interface IPlanet {
   id: number
