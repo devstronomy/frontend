@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@devstronomy/frontend",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "This project contains the code-base for the frontend part of Devstronomy project.",
   "license": "MIT",
   "homepage": "https://devstronomy.com",
