@@ -106,6 +106,7 @@ class Planets extends TableComponent<IProps, IState> {
         </S.HeaderContainer>
 
         <S.Table
+          pointerCursor={true}
           width={1950}
           height={450}
           headerHeight={90}

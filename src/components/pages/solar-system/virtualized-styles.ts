@@ -6,6 +6,7 @@ export const Table = styled(VirtualizedTable as any)`
   .ReactVirtualized__Table__row {
     display: flex;
     align-items: center;
+    cursor: ${(props) => (props.pointerCursor ? 'pointer' : 'initial')};
   }
 
   .ReactVirtualized__Table__headerRow {
