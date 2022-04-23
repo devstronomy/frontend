@@ -27,7 +27,7 @@
     "prettier:fix": "prettier -w src && prettier-package-json --write ./package.json"
   },
   "dependencies": {
-    "@devstronomy/celestial": "0.2.0",
+    "@devstronomy/celestial": "0.3.0",
     "@material-ui/core": "4.12.4",
     "@material-ui/icons": "4.11.3",
     "lodash": "4.17.21",
