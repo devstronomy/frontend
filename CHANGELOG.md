@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.3.0] - 2022-04-23
+
+- Initial zooming support in Celestial.
+
 ## [0.2.1] - 2022-04-17
 
 - Fix cursor to "hand" when hovering over the planet row.
