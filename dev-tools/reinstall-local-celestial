@@ -4,7 +4,7 @@
 
 root_dir=`realpath "$(dirname "$0")/.."`
 devstronomy_celestial_dir="$root_dir/../celestial"
-version="0.3.0"
+version="0.3.2-alpha.1"
 
 set -xeuo pipefail
 
