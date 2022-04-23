@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Helper script for quick testing '@devstronomy/canvas' and '@devstronomy/celestial'
+
+script_dir=`realpath "$(dirname "$0")"`
+
+set -xeuo pipefail
+
+$script_dir/reinstall-local-canvas
+$script_dir/reinstall-local-celestial
