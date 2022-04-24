@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.0] - ????-??-??
+
+- Bump up to `@devstronomy/celestial@0.4.0`
+- Fix canvas clean-up glitch.
+- Show all planets.
+- Tweak zoom boundaries for the Solar System.
+- Better colors for planets.
+
 ## [0.3.0] - 2022-04-23
 
 - Initial zooming support in Celestial.
