@@ -2,9 +2,9 @@
 
 # Helper script for quick testing '@devstronomy/celestial' locally before publishing.
 
-root_dir=`realpath "$(dirname "$0")/.."`
-devstronomy_celestial_dir="$root_dir/../celestial"
-version="0.3.2-alpha.1"
+git_root_dir=`realpath "$(dirname "$0")/.."`
+devstronomy_celestial_dir="$git_root_dir/../celestial"
+version="0.4.0-alpha.1"
 
 set -xeuo pipefail
 
@@ -13,6 +13,7 @@ cd "$devstronomy_celestial_dir"
 npm run clean:dist
 npm pack
 
-cd "$root_dir"
+cd "$git_root_dir"
 
+rm -rf "$git_root_dir/node_modules/@devstronomy/celestial"
 npm install -SE "$devstronomy_celestial_dir/devstronomy-celestial-$version.tgz"
