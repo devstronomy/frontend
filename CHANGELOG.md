@@ -3,6 +3,8 @@
 ## [0.4.0] - ????-??-??
 
 - Bump up to `@devstronomy/celestial@0.4.0`
+- Draw a grid based on one astronomical unit for the Solar System scene.
+- Keep orbits visible on any zoom level.
 - Fix canvas clean-up glitch.
 - Show all planets.
 - Tweak zoom boundaries for the Solar System.

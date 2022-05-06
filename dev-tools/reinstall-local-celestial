@@ -4,13 +4,12 @@
 
 git_root_dir=`realpath "$(dirname "$0")/.."`
 devstronomy_celestial_dir="$git_root_dir/../celestial"
-version="0.4.0-alpha.1"
+version="0.4.0-alpha.2"
 
 set -xeuo pipefail
 
 cd "$devstronomy_celestial_dir"
 
-npm run clean:dist
 npm pack
 
 cd "$git_root_dir"
