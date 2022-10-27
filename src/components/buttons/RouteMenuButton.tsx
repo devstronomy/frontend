@@ -1,6 +1,5 @@
-import { To } from 'history'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, To } from 'react-router-dom'
 
 import * as S from './styles'
 
