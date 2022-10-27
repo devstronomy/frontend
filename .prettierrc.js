@@ -1,7 +1,6 @@
+const sharedConfig = require('@devstronomy/dev-dependencies/.prettierrc.js')
+
 module.exports = {
-  tabWidth: 2,
-  semi: false,
-  singleQuote: true,
-  jsxSingleQuote: true,
-  printWidth: 120
+  ...sharedConfig,
+  printWidth: 120,
 }
