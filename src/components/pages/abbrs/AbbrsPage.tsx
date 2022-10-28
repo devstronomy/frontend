@@ -1,6 +1,5 @@
-import { InputAdornment } from '@material-ui/core'
-import * as I from '@material-ui/icons'
-import SearchIcon from '@material-ui/icons/Search'
+import * as I from '@mui/icons-material'
+import { InputAdornment } from '@mui/material'
 import rawAbbreviations from 'Data/rocket-abbr.json5'
 import _partition from 'lodash/partition'
 import { useState } from 'react'
@@ -87,7 +86,7 @@ const AbbrsPage = () => {
                         target='_blank'
                         rel='noreferrer'
                       >
-                        <SearchIcon />
+                        <I.Search />
                       </a>
                     </div>
                   </div>

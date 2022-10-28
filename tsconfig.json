@@ -3,7 +3,8 @@
     // keep this synchronized with the webpack.common.js#resolve.alias
     "baseUrl": "./",
     "paths": {
-      "Data": ["data"]
+      "Data": ["data"],
+      "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"]
     },
 
     "allowSyntheticDefaultImports": true,

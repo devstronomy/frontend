@@ -1,6 +1,6 @@
-import { Button } from '@material-ui/core'
-import { ButtonTypeMap } from '@material-ui/core/Button'
-import { ExtendButtonBase } from '@material-ui/core/ButtonBase'
+import { Button } from '@mui/material'
+import { ButtonTypeMap } from '@mui/material/Button'
+import { ExtendButtonBase } from '@mui/material/ButtonBase'
 import styled from 'styled-components'
 
 const widthBoundary = '600px'
