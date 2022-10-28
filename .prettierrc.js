@@ -1,4 +1,4 @@
-const sharedConfig = require('@devstronomy/dev-dependencies/.prettierrc.js')
+const sharedConfig = require('@devstronomy/dev-dependencies/prettier')
 
 module.exports = {
   ...sharedConfig,

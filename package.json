@@ -15,9 +15,9 @@
   "scripts": {
     "clean": "rimraf dist",
     "clean:dist": "run-s clean dist",
-    "dist": "webpack --config webpack.prod.js --progress",
     "predeploy": "npm run dist",
     "deploy": "gh-pages -d dist",
+    "dist": "webpack --config webpack.prod.js --progress",
     "flush-npm": "rm -rf node_modules && npm install --force",
     "lint": "eslint src/**/*.ts src/**/*.tsx",
     "lint:fix": "eslint --fix src/**/*.ts src/**/*.tsx",
@@ -43,7 +43,7 @@
     "styled-components": "5.3.6"
   },
   "devDependencies": {
-    "@devstronomy/dev-dependencies": "0.3.1",
+    "@devstronomy/dev-dependencies": "0.3.2",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.4.0",
     "@testing-library/user-event": "14.4.3",
