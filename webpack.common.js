@@ -12,6 +12,7 @@ module.exports = {
     // keep this synchronized with the tsconfig.json#compilerOptions.paths
     alias: {
       Data: path.resolve(__dirname, 'data'),
+      '@mui/styled-engine': '@mui/styled-engine-sc',
     },
   },
   module: {

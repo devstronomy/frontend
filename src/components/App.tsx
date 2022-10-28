@@ -1,8 +1,8 @@
-import AppBar from '@material-ui/core/AppBar'
-import amber from '@material-ui/core/colors/amber'
-import grey from '@material-ui/core/colors/grey'
-import { MuiThemeProvider, createTheme } from '@material-ui/core/styles'
-import Toolbar from '@material-ui/core/Toolbar'
+import AppBar from '@mui/material/AppBar'
+import amber from '@mui/material/colors/amber'
+import grey from '@mui/material/colors/grey'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
+import Toolbar from '@mui/material/Toolbar'
 import { HashRouter, Route, Routes } from 'react-router-dom'
 
 import githubIcon from '../assets/GitHub-Mark-Light-32px.png'
@@ -17,7 +17,7 @@ import CelestialPage from './pages/celestial/CelestialPage'
 
 const theme = createTheme({
   palette: {
-    type: 'dark',
+    mode: 'dark',
     primary: { main: grey[900] },
     secondary: { main: amber[500] },
   },
@@ -25,7 +25,7 @@ const theme = createTheme({
 
 const App = () => (
   <HashRouter>
-    <MuiThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
       <GlobalStyles />
       <AppBar position='static'>
         <Toolbar variant='dense'>
@@ -50,7 +50,7 @@ const App = () => (
         <Route path='abbrs' element={<AbbrsPage />} />
         <Route path='about' element={<AboutPage />} />
       </Routes>
-    </MuiThemeProvider>
+    </ThemeProvider>
   </HashRouter>
 )
 

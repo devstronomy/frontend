@@ -9,6 +9,7 @@ module.exports = {
       '<rootDir>/__mocks__/fileMock.js',
     '\\.(css|less)$': '<rootDir>/__mocks__/fileMock.js',
     '\\.(json5)$': '<rootDir>/__mocks__/fileMock.js',
+    '@mui/styled-engine': '<rootDir>/node_modules/@mui/styled-engine-sc',
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   testEnvironment: 'jsdom',
