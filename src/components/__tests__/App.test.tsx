@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 
@@ -13,11 +13,15 @@ describe('Application', () => {
         <App />
       </Provider>
     )
-    const { unmount, getByText } = render(app)
-    expect(getByText('Planets & Satellites')).toBeInTheDocument()
-    expect(getByText('Datasets')).toBeInTheDocument()
-    expect(getByText('Abbreviations')).toBeInTheDocument()
-    expect(getByText('About')).toBeInTheDocument()
+    const { unmount } = render(app)
+
+    // one hidden, one visible (depending on the width of the screen)
+    expect(screen.getAllByText('Planets & Satellites')).toHaveLength(2)
+    expect(screen.getAllByText('Datasets')).toHaveLength(2)
+    expect(screen.getAllByText('Celestial')).toHaveLength(2)
+    expect(screen.getAllByText('Abbreviations')).toHaveLength(2)
+
+    expect(screen.getByText('About')).toBeInTheDocument()
     unmount()
   })
 })
