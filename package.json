@@ -23,6 +23,8 @@
     "lint:fix": "eslint --fix src/**/*.ts src/**/*.tsx",
     "start": "webpack serve --config webpack.dev.js",
     "test": "jest",
+    "test:coverage": "jest --collect-coverage",
+    "test:watch": "jest --watchAll",
     "prettier": "prettier -c src && prettier-package-json -l ./package.json",
     "prettier:fix": "prettier -w src && prettier-package-json --write ./package.json"
   },
