@@ -16,7 +16,7 @@
 .eslintcache
 
 # production
-/dist
+/dist*
 /src/css/
 
 # misc
