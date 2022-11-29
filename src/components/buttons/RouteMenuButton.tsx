@@ -3,8 +3,13 @@ import { Link, To } from 'react-router-dom'
 
 import * as S from './styles'
 
-const LinkMenuButton = (props: React.PropsWithChildren<{ to: To }>) => {
-  const { to, children } = props
+type Props = React.PropsWithChildren<{
+  to: To
+  onClick?: React.MouseEventHandler
+}>
+
+const LinkMenuButton = (props: Props) => {
+  const { to, onClick, children } = props
 
   // Inspired by https://material-ui.com/guides/composition/#link
   const renderLink = React.useMemo(
@@ -22,7 +27,7 @@ const LinkMenuButton = (props: React.PropsWithChildren<{ to: To }>) => {
   const linkProps = { component: renderLink }
 
   return (
-    <S.MenuButton variant='text' {...linkProps}>
+    <S.MenuButton onClick={onClick} variant='text' {...linkProps}>
       {children}
     </S.MenuButton>
   )
